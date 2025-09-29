@@ -1,1 +1,262 @@
 header.header
+	.container
+		.row
+			.col-12
+				.header__content
+					.header__main
+						.header__logo-wrap
+							.header__logo
+								a(href="/")
+									img(src="/upload/logo.svg", alt="")
+							
+							.header__slogan Магазин электроники
+
+						ul.top-menu
+							-
+								var list=[
+									{text:'О магазине'},
+									{text:'Акции'},
+									{text:'Доставка'},
+									{text:'Блог'},
+									{text:'Оплата'},
+									{text:'Контакты'},
+								]
+							each item in list
+								li.top-menu__item
+									a(href="#").top-menu__link= item.text
+
+					.header__info
+						.social
+							a(href="#").social__item
+								+svg('ic-vk','ic-vk', '20', '11')
+
+							a(href="#").social__item
+								+svg('ic-telegram','ic-telegram', '17', '16')
+
+						a(href="#").btn Обратный звонок
+
+						.header-contacts
+							.header-contacts__phone
+								a(href="tel:+78002225260") 8 (800) 222 52 60
+
+							.header-contacts__time Пн-пт с 10.00 до 20.00
+
+						.form-search
+							input(type="text", placeholder="Поиск...")
+							button(type="submit")
+								+svg('ic-search','ic-search', '20', '20')
+
+						.header-actions
+							.header-actions__item
+								a(href="#").header-actions__link
+									span.header-actions__icon
+										+svg('ic-user','ic-user', '25', '25')
+
+									span.header-actions__label Войти
+
+							.header-actions__item.active
+								a(href="#").header-actions__link
+									span.header-actions__icon
+										+svg('ic-wish','ic-wish', '24', '21')
+										+svg('ic-wish-fill','ic-wish-fill', '24', '21')
+
+										.header-actions__count 2
+
+									span.header-actions__label Избранное
+
+							.header-actions__item.inactive
+								a(href="#").header-actions__link
+									span.header-actions__icon
+										+svg('ic-compare','ic-compare', '14', '18')
+
+									span.header-actions__label Сравнить
+
+							.header-actions__item
+								a(href="#").header-actions__link
+									span.header-actions__icon
+										+svg('ic-cart','ic-cart', '24', '25')
+
+									span.header-actions__label Корзина
+
+						.ic-hamburger.d-lg-none
+							span
+	nav.main-menu
+		.container
+			.row
+				.col-12
+					ul.main-menu__list
+						li.main-menu__item.active
+							a(href="#").main-menu__link
+								+svg('ic-list','ic-list', '25', '17')
+								|Каталог
+
+							ul.catalog-menu
+								-
+									var catalog=[
+										{
+											text:'Apple',
+											sub:[
+												{
+													text:'Смартфоны Apple iPhone',
+													sub:[
+														{text:'Apple Iphone 17 Pro Max'},
+														{text:'Apple Iphone 17 Pro '},
+														{text:'Apple Iphone 17 Air '},
+														{text:'Apple Iphone 16 Pro Max'},
+														{text:'Apple Iphone 16 Pro'},
+														{text:'Apple Iphone 16'},
+														{text:'Apple Iphone 16E'},
+														{text:'Apple Iphone 15 Pro Max'},
+														{text:'Apple Iphone 15 Pro'},
+														{text:'Apple Iphone 15'},
+														{text:'Apple Iphone 14 Pro Max'},
+														{text:'Apple Iphone 14 Pro'},
+														{text:'Apple Iphone 14'},
+														{text:'Apple Iphone 13 Pro Max'},
+														{text:'Apple Iphone 13'},
+													]
+												},
+												{text:'Планшеты Apple iPad',},
+												{text:'Ноутбуки Apple',},
+												{
+													text:'Часы Apple Watch',
+													sub:[
+														{text:'Часы тест'},
+														{text:'Часы тест'},
+														{text:'Часы тест'},
+														{text:'Часы тест'},
+														{text:'Часы тест'},
+														{text:'Часы тест'},
+														{text:'Часы тест'},
+													]
+												},
+												{text:'Компьютеры Apple',},
+												{text:'Наушники Apple AirPods и Beats',},
+												{text:'Мультимедиа Apple',},
+												{text:'Аксессуары Apple',},
+												{
+													text:'Акссесуары к iPhone',
+													sub:[
+														{text:'Акссесуары к Apple Iphone 17 Pro Max'},
+														{text:'Акссесуары к Apple Iphone 17 Pro '},
+													]
+												},
+											]
+										},
+										{
+											text:'Xiaomi',
+											sub:[
+												{
+													text:'Смартфоны Apple iPhone',
+													sub:[
+														{text:'Apple Iphone 17 Pro Max'},
+														{text:'Apple Iphone 13 Pro Max'},
+														{text:'Apple Iphone 13'},
+													]
+												},
+												{text:'Планшеты Apple iPad',},
+												{text:'Ноутбуки Apple',},
+												{
+													text:'Часы Apple Watch',
+													sub:[
+														{text:'Часы тест'},
+													]
+												},
+												{text:'Компьютеры Apple',},
+												{text:'Аксессуары Apple',},
+												{
+													text:'Акссесуары к iPhone',
+													sub:[
+														{text:'Акссесуары к Apple Iphone 17 Pro Max'},
+														{text:'Акссесуары к Apple Iphone 17 Pro '},
+													]
+												},
+											]
+										},
+										{text:'Samsung'},
+										{text:'Dyson'},
+										{text:'Электроника'},
+										{text:'Смартфоны'},
+										{text:'Умные часы'},
+										{text:'Акссесуары'},
+										{text:'Аудио и видео'},
+										{text:'Игры и приставки'},
+										{
+											text:'Квадрокоптеры',
+											sub:[
+												{
+													text:'Смартфоны Apple iPhone',
+													sub:[
+														{text:'Apple Iphone 17 Pro Max'},
+														{text:'Apple Iphone 17 Pro '},
+														{text:'Apple Iphone 17 Air '},
+														{text:'Apple Iphone 16 Pro Max'},
+														{text:'Apple Iphone 16 Pro'},
+													]
+												},
+												{text:'Планшеты Apple iPad',},
+												{text:'Ноутбуки Apple',},
+												{
+													text:'Часы Apple Watch',
+													sub:[
+														{text:'Часы тест'},
+														{text:'Часы тест'},
+														{text:'Часы тест'},
+														{text:'Часы тест'},
+													]
+												},
+												{text:'Компьютеры Apple',},
+												{text:'Наушники Apple AirPods и Beats',},
+												{text:'Мультимедиа Apple',},
+												{text:'Аксессуары Apple',},
+												{
+													text:'Акссесуары к iPhone',
+													sub:[
+														{text:'Акссесуары к Apple Iphone 17 Pro Max'},
+													]
+												},
+											]
+										},
+										{text:'Для дома'},
+										{text:'Apple iPhone'},
+										{text:'Apple iPad'},
+										{text:'Apple Macbook'},
+										{text:'Apple AirPods'},
+										{text:'Техника Dyson'},
+									]
+								each catalogitem in catalog
+									li.catalog-menu__item
+										a(href="#").catalog-menu__link= catalogitem.text
+											span.catalog-menu__arr
+												+svg('ic-arrow-right','ic-arrow-right', '13', '12')
+
+										if(catalogitem.sub)
+											ul.catalog-menu__sub
+												each lvl1 in catalogitem.sub
+													li.catalog-menu__item
+														a(href="#").catalog-menu__link= lvl1.text
+															span.catalog-menu__arr
+																+svg('ic-arrow-right','ic-arrow-right', '13', '12')
+
+														if(lvl1.sub)
+															ul.catalog-menu__sub
+																each lvl2 in lvl1.sub
+																	li.catalog-menu__item
+																		a(href="#").catalog-menu__link= lvl2.text
+
+						-
+							var list=[
+								{text:'Apple iPhone'},
+								{text:'Apple iPad'},
+								{text:'Apple Macbook'},
+								{text:'Apple AirPods'},
+								{text:'Для дома'},
+								{text:'Техника Dyson'},
+								{text:'Apple iPhone'},
+								{text:'Apple iPhone'},
+								{text:'Apple iPhone'},
+							]
+						each item in list
+							li.main-menu__item
+								a(href="#").main-menu__link= item.text
+

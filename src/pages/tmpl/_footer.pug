@@ -1,1 +1,191 @@
 footer.footer
+	.footer__top
+		.container
+			.row
+				.col-4
+					.footer__info
+						.footer__logo
+							a(href="/")
+								img(src="/upload/logo-white.svg", alt="")
+
+						.social.social_white.social_big
+							a(href="#").social__item
+								+svg('ic-vk','ic-vk', '20', '11')
+
+							a(href="#").social__item
+								+svg('ic-telegram','ic-telegram', '17', '16')
+						
+						.footer__text ИНН: 782704534027, ОГРН: 319784700018041
+
+						.pay-system
+							.pay-system__label Мы принимаем к оплате
+
+							.pay-system__list
+								-
+									var list=[
+										{img:'visa.svg'},
+										{img:'mir.svg'},
+										{img:'maestro.svg'},
+										{img:'mastercard.svg'},
+									]
+								each item in list
+									.pay-system__item
+										img(src="/upload/"+item.img, alt="")
+
+				.col-4
+					.footer-menu-wrap
+						ul.footer-menu
+							-
+								var list=[
+									{text:'Каталог'},
+									{text:'О магазине'},
+									{text:'Доставка'},
+									{text:'Оплата'},
+									{text:'FAQ'},
+									{text:'Контакты'},
+									{text:'Войти'},
+								]
+							each item in list
+								li.footer-menu__item
+									a(href="#").footer-menu__link= item.text
+
+						ul.footer-menu
+							-
+								var list=[
+									{text:'Гарантия'},
+									{text:'Сотрудничество'},
+									{text:'Новости'},
+									{text:'Статьи'},
+									{text:'Карта сайта'},
+									{text:'Политика конфиденциальности'},
+									{text:'Согласие на обработку персональных данных'},
+								]
+							each item in list
+								li.footer-menu__item
+									a(href="#").footer-menu__link= item.text
+
+				.col-4
+					.footer-contacts-wrap
+						.footer-contacts
+							.footer-contacts__item
+								.footer-contacts__icon
+									+svg('ic-map','ic-map', '10', '16')
+
+								.footer-contacts__text Москва, ул. Багратионовский пр., 7к2, ДЦ Рубин, м.Багратионовская
+
+							.footer-contacts__item
+								.footer-contacts__icon
+									+svg('ic-mail','ic-mail', '13', '11')
+
+								.footer-contacts__text
+									a(href="mailto:info@manyphone.ru") info@manyphone.ru
+
+							.footer-contacts__item
+								.footer-contacts__icon
+									+svg('ic-clock','ic-clock', '13', '13')
+
+								.footer-contacts__text
+									.footer-contacts__time Пн-пт с 10.00 до 20.00
+
+							.footer-contacts__item
+								.footer-contacts__icon
+									+svg('ic-phone','ic-phone', '9', '15')
+
+								.footer-contacts__text
+									a(href="tel:+78002225260").footer-contacts__phone 8 (800) 222 52 60
+
+							.footer-contacts__item
+								.footer-contacts__icon
+									+svg('ic-phone','ic-phone', '9', '15')
+
+								.footer-contacts__text
+									a(href="tel:+78002225260").design-link Заказать обратный звонок
+
+							.footer-contacts__item
+								.footer-contacts__icon
+									+svg('ic-mail','ic-mail', '13', '11')
+
+								.footer-contacts__text
+									a(href="tel:+78002225260").design-link Задать вопрос
+
+						.ya-rating.ya-rating_white
+							.ya-rating__label Яндекс
+							
+							.ya-rating__icon
+								+svg('ic-star','ic-star', '13', '13')
+
+							.ya-rating__score 4,8
+
+	.footer__menu
+		.container
+			.row
+				.col-3
+					ul.footer-menu
+						-
+							var list=[
+								{text:'iPhone 16 Pro Max'},
+								{text:'iPhone 16 Pro'},
+								{text:'iPhone 16 Plus'},
+								{text:'iPhone 16'},
+								{text:'iPhone 16e'},
+								{text:'iPhone 15 Pro Max'},
+								{text:'iPhone 15 Pro'},
+								{text:'iPhone 15 plus'},
+								{text:'iPhone 15'},
+								{text:'iPhone 14 Pro Max'},
+							]
+						each item in list
+							li.footer-menu__item
+								a(href="#").footer-menu__link= item.text
+
+				.col-3
+					ul.footer-menu
+						-
+							var list=[
+								{text:'iPhone 14 Pro'},
+								{text:'IPhone 14 Plus'},
+								{text:'IPhone 14'},
+								{text:'IPhone SE 2022'},
+								{text:'iPhone 13 Pro Max'},
+								{text:'iPhone 13 Pro'},
+								{text:'iPhone 13'},
+								{text:'iPhone 13 mini'},
+								{text:'iPhone 11'},
+							]
+						each item in list
+							li.footer-menu__item
+								a(href="#").footer-menu__link= item.text
+
+				.col-3
+					ul.footer-menu
+						-
+							var list=[
+								{text:'iPad Pro 12.9'},
+								{text:'iPad Pro 11'},
+								{text:'iPad Air'},
+								{text:'iPad'},
+								{text:'iPad Mini'},
+							]
+						each item in list
+							li.footer-menu__item
+								a(href="#").footer-menu__link= item.text
+
+				.col-3
+					ul.footer-menu
+						-
+							var list=[
+								{text:'IMac'},
+								{text:'Mac mini'},
+								{text:'Mac Studio'},
+								{text:'MacBook Air'},
+								{text:'MacBook Pro'},
+							]
+						each item in list
+							li.footer-menu__item
+								a(href="#").footer-menu__link= item.text
+
+	.footer__bottom
+		.container
+			.row
+				.col-12
+					.footer__copyright Copyright © 2011-2025 - ManyPhone.ru (Манифон.ру) / Информация на сайте не является публичной офертой

@@ -1,0 +1,48 @@
+/*-------------- social -----------------*/
+.social{
+	display: inline-flex;
+	gap: 10px;
+
+	&__item{
+		flex-shrink: 0;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		background: linear-gradient(180deg, #75BB0C, #91D200, #75BB0C);
+		background-size: 100% 200%;
+		background-position: 0 100%;
+		color: #fff;
+		box-shadow: 0 0 0 0 #75BB0C;
+		transition: all 0.3s ease-in-out;
+
+		&:hover{
+			color: #fff;
+			background-position: 0 0;
+			transform: translateY(-2px) translateX(-1px);
+			box-shadow: 1px 2px 0 0 #75BB0C;
+		}
+	}
+
+	&_white &__item{
+		border: 1px solid #fff;
+		background: linear-gradient(180deg, #91D200, #75BB0C, var(--color-second), var(--color-second), var(--color-second));
+		background-size: 100% 200%;
+		background-position: 0 100%;
+		box-shadow: 0 0 0 0 #fff;
+	}
+
+	&_white &__item:hover{
+		background-position: 0 0;
+		box-shadow: 1px 2px 0 0 #fff;
+	}
+
+	&_big{gap: 15px;}
+
+	&_big &__item{
+		width: 40px;
+		height: 40px;
+	}
+}

@@ -4,6 +4,7 @@
 
 	--color-primary: #75BB0C;
 	--color-second: #2F4055;
+	--color-second-hover: #151c24;
 	
 	--color-text: #171717;
 	--color-link: var(--color-primary);
@@ -122,6 +123,11 @@ main{
 
 .last-elem{margin-bottom: -100px;}
 
+.container{
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
 .btn,
 input[type="submit"].btn,
 button.btn{
@@ -148,7 +154,7 @@ button.btn{
 	&:hover{
 		color: #fff;
 		background-position: 0 0;
-		transform: translateY(-4px) translateX(-2px);
+		transform: translateY(-2px) translateX(-1px);
 		box-shadow: 1px 2px 0 0 #75BB0C;
 	}
 }
@@ -171,6 +177,17 @@ button.btn{
 
 .bg-grey{background-color: var(--bg-grey);}
 
+.design-link{
+	color: var(--color-primary);
+	border-bottom: 1px dotted var(--color-primary);
+	text-decoration: none;
+
+	&:hover{
+		border-bottom: 0;
+		color: var(--color-primary);
+	}
+}
+
 .code{
 	background-color: #f7f7f7;
 	border: 1px solid #e1e1e8;
@@ -188,3 +205,7 @@ button.btn{
 .text-uppercase{text-transform: uppercase !important;}
 .text-bold {font-weight: 700 !important;}
 .text-color {color: var(--color-primary) !important;}
+
+@media (max-width: 1809px) {
+	.container{max-width: 100%!important;}
+}
