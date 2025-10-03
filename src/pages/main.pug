@@ -1,0 +1,463 @@
+extends tmpl/_layout
+
+block vars
+	- var pageId = 'main'
+
+block body
+	section.top-slider-wrap.mb-indent
+		.container
+			.row
+				.col-12
+					.top-slider-wrap__list
+						.swiper.top-slider.js-top-slider
+							.swiper-wrapper
+								-
+									var list=[
+										{title:'IPhone 16', text:'Палитра для тех, кто не боится быть ярким'},
+										{title:'IPhone 12', text:'Палитра не боится быть ярким'},
+									]
+								each item in list
+									.swiper-slide.top-slider__item
+										.top-slider__content
+											.top-slider__bg(style="background-image: url(/upload/bg-iphone16.jpg)")
+
+											.top-slider__info
+												.top-slider__title= item.title
+												.top-slider__text= item.text
+
+											a(href="#").btn Выбрать
+
+							.swiper-pagination.js-top-slider-pagination
+
+						.info-card(style="background-image: url(/upload/apple-watch-ultra3.jpg)")
+							.info-card__title Apple Watch Ultra 3
+							a(href="#").btn Выбрать
+
+						.info-card.info-card_thin(style="background-image: url(/upload/ipad-pro.jpg)")
+							.info-card__top
+								.info-card__title iPad Pro
+								a(href="#").btn Выбрать
+
+							.info-card__text
+								|Палитра для тех,
+								br
+								|кто не боится быть ярким
+
+	section.popular-slider-wrap.m-indent
+		.container
+			.row
+				.col-12
+					.popular-slider-wrap__top
+						h2 Популярные категории
+
+						.slider-arr-list
+							.swiper-button-prev.slider-arr.js-popular-slider-prev
+								+svg('ic-arr-left','ic-arr-left', '13', '23')
+							
+							.swiper-button-next.slider-arr.js-popular-slider-next
+								+svg('ic-arr-right','ic-arr-right', '13', '23')
+
+					.swiper.popular-slider.js-popular-slider
+						.swiper-wrapper
+							-
+								var list=[
+									{title:'iPhone', price:'от 50 000 ', img:'iphone.png'},
+									{title:'AirPods', price:'от 50 000 ', img:'airpods.png'},
+									{title:'MacBook', price:'от 50 000 ', img:'macbook.png'},
+									{title:'Смартфоны', price:'от 50 000 ', img:'phones.png'},
+									{title:'AirPods', price:'от 50 000 ', img:'airpods.png'},
+									{title:'MacBook', price:'от 50 000 ', img:'macbook.png'},
+								]
+							each item in list
+								.swiper-slide.popular-slider__item
+									.popular-slider__content
+										.popular-slider__title= item.title
+										.popular-slider__price= item.price
+											| &#8381;
+
+									.popular-slider__img
+										img(src="/upload/"+item.img, alt="")
+
+	section.hits-slider-wrap.m-indent
+		.container
+			.row
+				.col-12
+					.hits-slider-wrap__top
+						h2 Хиты продаж
+
+						.slider-arr-list
+							.swiper-button-prev.slider-arr.js-hits-slider-prev
+								+svg('ic-arr-left','ic-arr-left', '13', '23')
+							
+							.swiper-button-next.slider-arr.js-hits-slider-next
+								+svg('ic-arr-right','ic-arr-right', '13', '23')
+					
+
+					.swiper.hits-slider.js-hits-slider
+						.swiper-wrapper
+							-
+								var list=[
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+								]
+							each item in list
+								.swiper-slide.catalog-item
+									.stickers
+										if(item.new)
+											.stickers__item.stickers__item_purple new
+											
+										if(item.hit)
+											.stickers__item.stickers__item_orange hit
+
+									.catalog-item-actions
+										.catalog-item-actions__item
+											+svg('ic-wish','ic-wish', '21', '18')
+
+										.catalog-item-actions__item
+											+svg('ic-compare','ic-compare', '12', '16')
+
+									a(href="#").catalog-item__img-wrap
+										.catalog-item__img
+											img(src="/upload/"+item.img, alt="")
+
+									.catalog-item__title
+										a(href="#")= item.title
+
+									.catalog-item__btn
+										a(href="#").btn Под заказ
+
+									.catalog-item-params
+										-
+											var params=[
+												{label:'Операционная система:', val:'Android'},
+												{label:'Сим-карта:', val:'Nano-SIM + eSIM'},
+												{label:'Объем встроенной памяти:', val:'128 Гб'},
+											]
+										each param in params
+											.catalog-item-params__item
+												span.catalog-item-params__label= param.label
+												span.catalog-item-params__val= param.val
+		
+	section.sale-slider-wrap.m-indent
+		.container
+			.row
+				.col-12
+					.sale-slider-wrap__top
+						h2 Распродажа
+
+						.slider-arr-list
+							.swiper-button-prev.slider-arr.js-sale-slider-prev
+								+svg('ic-arr-left','ic-arr-left', '13', '23')
+							
+							.swiper-button-next.slider-arr.js-sale-slider-next
+								+svg('ic-arr-right','ic-arr-right', '13', '23')
+					
+
+					.sale-slider.js-sale-slider
+						.swiper-wrapper
+							-
+								var list=[
+									{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+									{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+									{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+									{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+									{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+									{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+									{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+								]
+							each item in list
+								.swiper-slide.catalog-item
+									.stickers
+										if(item.sale)
+											.stickers__item.stickers__item_green sale
+											
+										if(item.rustore)
+											.stickers__item.stickers__item_small БЕЗ RUSTORE
+
+									.catalog-item-actions
+										.catalog-item-actions__item
+											+svg('ic-wish','ic-wish', '21', '18')
+
+										.catalog-item-actions__item
+											+svg('ic-compare','ic-compare', '12', '16')
+
+									a(href="#").catalog-item__img-wrap
+										.catalog-item__img
+											img(src="/upload/"+item.img, alt="")
+
+									.catalog-item__info
+										.catalog-item__price-wrap
+											span.catalog-item__price= item.price
+												| &#8381;
+											| 
+											span.catalog-item__old-price= item.old_price
+
+										.catalog-item__status= item.status
+
+									.catalog-item__title
+										a(href="#")= item.title
+
+									.catalog-item__btn
+										a(href="#").btn Купить
+										a(href="#").btn.btn_border Купить в 1 клик
+
+									.catalog-item-params
+										-
+											var params=[
+												{label:'Операционная система:', val:'iOS 15'},
+												{label:'Сим-карта:', val:'Nano-SIM + eSIM'},
+												{label:'Объем встроенной памяти:', val:'128 Гб'},
+											]
+										each param in params
+											.catalog-item-params__item
+												span.catalog-item-params__label= param.label
+												span.catalog-item-params__val= param.val
+		
+	section.brands-wrap.m-indent
+		.container
+			.row
+				.col-4
+					h2 Популярные бренды
+					p В нашем магазине представлены самые известные бренды электроники со всего мира
+
+				.col-7.offset-1
+					.brands
+						-
+							var list=[
+								{img:'ciji.png'},
+								{img:'nintendo.png'},
+								{img:'apple.png'},
+								{img:'samsung.png'},
+								{img:'xiaomi.png'},
+								{img:'honor.png'},
+								{img:'dell.png'},
+								{img:'playstation.png'},
+								{img:'huawei.png'},
+								{img:'google.png'},
+								{img:'dyson.png'},
+								{img:'garmin.png'},
+							]
+						each item in list
+							.brands__item
+								img(src="/upload/"+item.img, alt="")
+	
+	section.news-main-wrap.m-indent
+		.container
+			.row
+				.col-12
+					h2 Новости и статьи
+
+				.news-main
+					-
+						var list=[
+							{img:'main-news1.jpg', title:'В чем отличия iPhone 16 Pro и iPhone 15 Pro?', date:'25.12.2024', text:'В 2024 году Apple представил новый смартфон iPhone 16 Pro. При этом предыдущий флагман Айфон 15 Про был снят с производства...'},
+							{img:'main-news2.jpg', title:'Что делать, если айфон тормозит', date:'25.12.2024', text:'В 2024 году Apple представил...'},
+							{img:'main-news3.jpg', title:'Что делать, если айфон тормозит', date:'25.12.2024', text:'В 2024 году Apple представил...'},
+							{img:'main-news4.jpg', title:'Что делать, если айфон тормозит', date:'25.12.2024', text:'В 2024 году Apple представил...'},
+							{img:'main-news2.jpg', title:'Что делать, если айфон тормозит', date:'25.12.2024', text:'В 2024 году Apple представил...'},
+							{img:'main-news3.jpg', title:'Что делать, если айфон тормозит', date:'25.12.2024', text:'В 2024 году Apple представил...'},
+							{img:'main-news4.jpg', title:'Что делать, если айфон тормозит', date:'25.12.2024', text:'В 2024 году Apple представил...'},
+							{img:'main-news1.jpg', title:'В чем отличия iPhone 16 Pro и iPhone 15 Pro?', date:'25.12.2024', text:'В 2024 году Apple представил новый смартфон iPhone 16 Pro. При этом предыдущий флагман Айфон 15 Про был снят с производства...'},
+						]
+					each item, index in list
+						.news-main-item
+							.news-main-item__bg(style="background-image: url(/upload/"+item.img+")")
+
+							.news-main-item__wrap
+								.news-main-item__content
+									.news-main-item__title= item.title
+									.news-main-item__date= item.date
+
+									.news-main-item__info
+										.news-main-item__text= item.text
+
+										if(index==0 || index==7)
+											a(href="#").btn.btn_border-white Читать далее
+										else
+											a(href="#").news-main-item__link Читать далее
+
+	section.form-site-main.m-indent
+		.container
+			.row
+				.col-12
+					.form-site-main__content
+						form.form-site(action="/main.html")
+							.form-site__title Задать вопрос
+
+							.form-site__content
+								.form-site__item.form-site__item_half.js-form-site-item
+									.form-site__label Ваше имя*
+
+									.form-site__field
+										input(name="name", type="text", required="required", placeholder="Ваше имя *")
+
+								.form-site__item.form-site__item_half.js-form-site-item
+									.form-site__label Номер телефона*
+
+									.form-site__field
+										input(name="phone", type="text", required="required", placeholder="+7 (999) 999-9999 *", class="js-phone")
+
+
+								.form-site__item.js-form-site-item
+									.form-site__label Сообщение*
+
+									.form-site__field
+										textarea(name="msg", placeholder="Задайте вопрос или поделитесь своими предложениями *", required="required")
+
+							.form-site__polit
+								label.input-check
+									input(type='checkbox', required="required", checked="checked")
+									span.input-check__mark
+										+svg('ic-check','ic-check', '12', '10')
+									span.input-check__text  Даю свое 
+										a(href="#") Согласие на обработку персональных данных 
+										| в соответствии с 
+										a(href="#") Политикой  конфиденциальности
+
+							.form-site__btn
+								input(type="submit", value="Отправить").btn.btn_big.js-btn-submit
+
+						.contacts-wrap
+							h2 Контакты
+
+							.contacts
+								.contacts__item
+									.contacts__label Адрес
+									.contacts__val Москва, ул. Багратионовский пр., 7 к2, ДЦ Рубин, м.Багратионовская
+
+								.contacts__item
+									.contacts__label График работы
+									.contacts__val
+										|с 10.00 до 20.00
+										br
+										|ежедневно
+
+								.contacts__item
+									.contacts__label Номер телефона
+									.contacts__val
+										a(href="tel:+78002225260") 8 (800) 222 52 60
+
+								.contacts__item
+									.contacts__label Почта
+									.contacts__val
+										a(href="mailto:info@manyphone.ru") info@manyphone.ru
+
+							.social.social_white
+								a(href="#").social__item
+									+svg('ic-vk','ic-vk', '20', '11')
+
+								a(href="#").social__item
+									+svg('ic-telegram','ic-telegram', '17', '16')
+	
+	section.subscribe.m-indent
+		.container
+			.row
+				.col-12
+					.subscribe__content
+						.subscribe__img
+							img(src="/upload/subscription.svg", alt="")
+
+						.subscribe__info
+							.h2 Будьте в курсе самых тайных предложений
+							
+							p Подпишитесь на наш канал в 
+								a(href="#") Telegram. 
+								|Там мы публикуем новинки, акции, а также секретные промокоды для самых выгодных покупок в магазине Manyphone.
+
+							a(href="#").btn Подписаться
+
+	section.main-tags-wrap.mt-indent
+		.container
+			.row
+				.col-12
+					.main-tags
+						-
+							var list=[
+								{text:'Apple'},
+								{text:'Honor'},
+								{text:'Huawei'},
+								{text:'POCO'},
+								{text:'Redmi'},
+								{text:'Samsung'},
+								{text:'Xiaomi'},
+								{text:'iPhone 11'},
+								{text:'iPhone 12'},
+								{text:'iPhone 13'},
+								{text:'iPhone 14'},
+								{text:'iPhone 14 Plus'},
+								{text:'iPhone 15'},
+								{text:'iPhone 15 Pro'},
+								{text:'iPhone 15 Pro Max'},
+								{text:'iPhone 15 Plus'},
+								{text:'iPhone 16'},
+								{text:'iPhone 16 Pro'},
+								{text:'iPhone 16 Pro Max'},
+								{text:'iPhone 16'},
+								{text:'iPhone 16 Plus'},
+								{text:'iPhone 16e'},
+								{text:'iPhone 17 Pro'},
+								{text:'iPhone 17'},
+								{text:'Galaxy S25 Ultra'},
+								{text:'Galaxy S25+'},
+								{text:'Galaxy S25'},
+								{text:'Galaxy Z Fold6'},
+								{text:'Galaxy Z Flip6'},
+								{text:'Galaxy A56'},
+								{text:'Galaxy A55'},
+								{text:'Xiaomi 15 Ultra'},
+								{text:'Xiaomi 15 Pro'},
+								{text:'Redmi Note 14 Pro'},
+								{text:'POCO X7 Pro'},
+								{text:'белый'},
+								{text:'бирюзовый'},
+								{text:'голубой'},
+								{text:'жёлтый'},
+								{text:'зеленый'},
+								{text:'оранжевый'},
+								{text:'розовый'},
+								{text:'серый'},
+								{text:'синий'},
+								{text:'тёмно‑синий'},
+								{text:'ультрамарин'},
+								{text:'фиолетовый'},
+								{text:'черный'},
+								{text:'«песчаный титановый»'},
+								{text:'«сияющая звезда»'},
+								{text:'«титановый бежевый»'},
+								{text:'«титановый белый»'},
+								{text:'«титановый синий»'},
+								{text:'«титановый чёрный»'},
+								{text:'«тёмная ночь»'},
+								{text:'(PRODUCT)RED'},
+								{text:'64 ГБ'},
+								{text:'128 ГБ'},
+								{text:'256 ГБ'},
+								{text:'512 ГБ'},
+								{text:'1 ТБ'},
+								{text:'Apple A18 Pro'},
+								{text:'Apple A18'},
+								{text:'Apple A17 Pro'},
+								{text:'Apple A16 Bionic'},
+								{text:'Apple A15 Bionic'},
+								{text:'Apple A14 Bionic'},
+								{text:'Apple A13 Bionic'},
+								{text:'Snapdragon 8'},
+								{text:'Elite'},
+								{text:'Dimensity 8400 Ultra'},
+								{text:'5.6" - 6.1"'},
+								{text:'6.2" - 6.5"'},
+								{text:'6.6" и более'},
+								{text:'Поддержка eSIM'},
+								{text:'Поддержка MagSafe'},
+								{text:'SIM + eSIM'},
+								{text:'dual-SIM'},
+							]
+						each item in list
+							.main-tags__item= item.text

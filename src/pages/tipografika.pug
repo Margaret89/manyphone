@@ -57,6 +57,26 @@ block body
 				br
 				div.h2 Кнопки
 				a.btn(href='#') Кнопка
+				br
+				br
+				a.btn.btn_border(href='#') Кнопка
+				br
+				br
+				a.btn.btn_big(href='#') Кнопка
+				br
+				br
+				div(style="background: #2F4055; padding: 20px;")
+					a.btn.btn_border-white(href='#') Кнопка
+
+				br
+				br
+				br
+				.h2 Нестандартный checkbox
+				label.input-check
+					input(type='checkbox')
+					span.input-check__mark
+						+svg('ic-check','ic-check', '12', '10')
+					span.input-check__text Текст
 
 				br
 				br
@@ -119,6 +139,16 @@ block body
 
 					.type-icon__item
 						.type-icon__img
+							+svg('ic-arr-left','ic-arr-left', '13', '23')
+						.type-icon__name ic-arr-left
+
+					.type-icon__item
+						.type-icon__img
+							+svg('ic-arr-right','ic-arr-right', '13', '23')
+						.type-icon__name ic-arr-right
+
+					.type-icon__item
+						.type-icon__img
 							+svg('ic-map','ic-map', '10', '16')
 						.type-icon__name ic-map
 
@@ -141,3 +171,8 @@ block body
 						.type-icon__img
 							+svg('ic-star','ic-star', '13', '13')
 						.type-icon__name ic-star
+
+					.type-icon__item
+						.type-icon__img
+							+svg('ic-check','ic-check', '12', '10')
+						.type-icon__name ic-check

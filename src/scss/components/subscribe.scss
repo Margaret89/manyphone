@@ -1,0 +1,23 @@
+/*-------------- subscribe -----------------*/
+.subscribe{
+	background: #F3F3F5;
+	padding: 15px 0;
+
+	&__content{
+		display: flex;
+		align-items: center;
+		gap: 50px;
+		font-size: 1.6rem;
+
+		h2, .h2{margin-bottom: 3rem;}
+	}
+
+	&__img{
+		flex-shrink: 0;
+		margin-left: -35px;
+	}
+
+	&__info{
+		.btn{margin-top: 10px;}
+	}
+}

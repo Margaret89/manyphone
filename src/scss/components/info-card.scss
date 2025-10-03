@@ -1,0 +1,39 @@
+/*-------------- info-card -----------------*/
+.info-card{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 15px;
+	height: 346px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	border-radius: 15px;
+	overflow: hidden;
+	padding: 44px 55px 32px;
+	color: #fff;
+
+	&__title{
+		font-size: 3.5rem;
+		font-weight: 800;
+		line-height: 1.3;
+	}
+
+	&__top{
+		display: flex;
+		flex-wrap: wrap;
+		gap: 24px;
+	}
+
+	&__text{
+		font-size: 1.8rem;
+		line-height: 1;
+	}
+
+	&_thin{
+		justify-content: flex-start;
+		height: 184px;
+		padding: 30px 55px 32px;
+	}
+}

@@ -1,0 +1,9 @@
+/*-------------- main-tags -----------------*/
+.main-tags{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 17px 20px;
+	font-size: 1.1rem;
+	color: var(--color-second);
+	white-space: nowrap;
+}
