@@ -27,3 +27,27 @@
 		}
 	}
 }
+
+@media (max-width: 1799px) {
+	.top-menu{max-width: calc(100% - 620px);}
+}
+
+@media (max-width: 991px) {
+	.top-menu{
+		display: block;
+		max-width: none;
+		padding: 0 15px;
+
+		&__item{border-bottom: 1px solid #000;}
+
+		&__link{
+			display: flex;
+			font-size: 1.4rem;
+			font-weight: 800;
+			line-height: 1.2;
+			color: #000;
+			text-decoration: none;
+			padding: 10px 0;
+		}
+	}
+}

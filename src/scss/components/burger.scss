@@ -7,40 +7,38 @@
 	overflow: hidden;
 	margin: 0;
 	padding: 0;
-	width: 42px;
-	height: 42px;
+	width: 24px;
+	height: 24px;
 	font-size: 0;
 	text-indent: -9999px;
 	appearance: none;
 	box-shadow: none;
-	border: 1px solid #C5D4E6;
-	border-radius: 12px;
 	cursor: pointer;
 
 	&:focus{outline: none;}
 	
 	span {
 		display: block;
-		width: calc(100% - 20px);
+		width: calc(100% - 10px);
 		height: 2px;
 		border-radius: 1px;
 		position: absolute;
-		top: 19px;
-		left: 10px;
-		background: var(--color-primary);
+		top: 12px;
+		left: 3px;
+		background: #494949;
 		transition: background-color 0.2s ease 0s;
 	}
 	
 	span::before,
 	span::after {
 		content: "";
-		width: 100%;
+		width: calc(100% + 4px);
 		position: absolute;
 		display: block;
 		left: 0;
 		height: 2px;
 		border-radius: 1px;
-		background: var(--color-primary);
+		background: #494949;
 		transition: background-color 0.2s ease 0s;
 	}
 	
@@ -50,7 +48,15 @@
 	span::before {transition: top 0.3s ease 0.3s, transform 0.3s ease 0s;}
 	span::after {transition: bottom 0.3s ease 0.3s, transform 0.3s ease 0s;}
 
-	&.active span {background: none;}
+	&.active span {
+		width: 100%;
+		background: none;
+	}
+
+	&.active span::before,
+	&.active span::after{
+		width: 100%;
+	}
 	
 	&.active span::before {
 		top: 0;

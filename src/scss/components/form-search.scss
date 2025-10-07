@@ -1,12 +1,13 @@
 /*-------------- form-search -----------------*/
 .form-search{
 	display: inline-flex;
+	width: 322px;
 
 	input[type="text"],
 	input[type="search"]{
 		display: inline-block;
 		height: 5.4rem;
-		width: 242px;
+		width: 100%;
 		font-family: var(--font-site);
 		@include font(none, none, 1.6rem, 1, var(--color-text));
 		padding: 0 30px;
