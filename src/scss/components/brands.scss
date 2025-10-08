@@ -20,3 +20,19 @@
 		}
 	}
 }
+
+@media (max-width: 767px) {
+	.brands-wrap{
+		h2, .h2{margin-bottom: 1rem;}
+		.brands{margin-top: 12px;}
+	}
+
+	.brands{
+		gap: 20px;
+
+		&__item{
+			width: calc(50% - 10px);
+			height: 84px;
+		}
+	}
+}

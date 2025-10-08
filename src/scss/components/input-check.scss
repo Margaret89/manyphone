@@ -1,7 +1,6 @@
 /*-------------- input-check -----------------*/
 .input-check{
 	display: flex;
-	align-items: center;
 	gap: 10px;
 	font-size: 1.6rem;
 	margin: 0;
@@ -38,4 +37,12 @@
 	}
 
 	input[type=checkbox]:checked + &__mark svg{opacity: 1;}
+}
+
+@media (max-width: 767px) {
+	.input-check{
+		font-size: 1.4rem;
+
+		&__mark{margin-top: 5px;}
+	}
 }

@@ -47,3 +47,9 @@
 		margin-top: 12px;
 	}
 }
+
+@media (max-width: 767px) {
+	.popular-slider-wrap{
+		&__top{margin-bottom: 2.5rem;}
+	}
+}

@@ -34,8 +34,11 @@ if(document.querySelector('.js-popular-slider')){
 			prevEl: '.js-popular-slider-prev',
 		},
 		breakpoints: {
-			992: {
+			1280: {
 				slidesPerView: 4,
+			},
+			992: {
+				slidesPerView: 3,
 			},
 			768: {
 				slidesPerView: 3,
@@ -50,18 +53,24 @@ if(document.querySelector('.js-hits-slider')){
 	{
 		modules: [Navigation],
 		slidesPerView: 1,
-		spaceBetween: 90,
+		spaceBetween: 30,
 		loop: true,
 		navigation: {
 			nextEl: '.js-hits-slider-next',
 			prevEl: '.js-hits-slider-prev',
 		},
 		breakpoints: {
-			992: {
+			1440: {
 				slidesPerView: 5,
+				spaceBetween: 90,
+			},
+			992: {
+				slidesPerView: 4,
+				spaceBetween: 30,
 			},
 			768: {
 				slidesPerView: 3,
+				spaceBetween: 30,
 			},
 		},
 	});
@@ -73,18 +82,24 @@ if(document.querySelector('.js-sale-slider')){
 	{
 		modules: [Navigation],
 		slidesPerView: 1,
-		spaceBetween: 90,
+		spaceBetween: 30,
 		loop: true,
 		navigation: {
 			nextEl: '.js-sale-slider-next',
 			prevEl: '.js-sale-slider-prev',
 		},
 		breakpoints: {
-			992: {
+			1440: {
 				slidesPerView: 5,
+				spaceBetween: 90,
+			},
+			992: {
+				slidesPerView: 4,
+				spaceBetween: 30,
 			},
 			768: {
 				slidesPerView: 3,
+				spaceBetween: 30,
 			},
 		},
 	});
@@ -159,8 +174,6 @@ document.querySelectorAll(".js-main-menu-arr").forEach(function(arrow){
 		document.querySelector(".js-main-menu-wrap").classList.add('active');
 		document.querySelector(".js-main-menu-back-text").textContent = valItem;
 		document.querySelector(".js-main-menu-wrap-content").classList.add('overflow-hidden');
-
-		// console.log('levelMenu = ', levelMenu);
 		
 		arrNavMenu.push(valItem);
 		console.log('arrNavMenu = ', arrNavMenu);

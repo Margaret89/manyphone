@@ -70,3 +70,20 @@ body .swiper-pagination{
 	align-items: center;
 	gap: 8px;
 }
+
+@media (max-width: 767px) {
+	.slider-arr-list{gap: 12px;}
+
+	.swiper-button-prev.slider-arr,
+	.swiper-button-next.slider-arr{
+		width: 32px;
+		height: 32px;
+
+		.icon{
+			width: 6px;
+			height: 10px;
+		}
+	}
+
+	.swiper-slide.catalog-item{display: grid!important;}
+}

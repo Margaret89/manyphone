@@ -29,3 +29,13 @@
 		}
 	}
 }
+
+@media (max-width: 991px) {
+	.contacts-wrap{width: 100%;}
+}
+
+@media (max-width: 767px) {
+	.contacts-wrap{
+		h2, .h2{margin-bottom: 0.5rem;}
+	}
+}

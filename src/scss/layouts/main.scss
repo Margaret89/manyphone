@@ -264,3 +264,29 @@ button.btn{
 
 	ul{padding-left: 10px;}
 }
+
+@media (max-width: 767px) {
+	:root{
+		--default-indent: 40px;
+	}
+	
+	body{
+		font-size: 1.4rem;
+		line-height: 1.4;
+	}
+
+	h1,.h1, h2,.h2{
+		font-size: 2.4rem;
+	}
+	
+	h3,.h3{font-size: 2.1rem;}
+	h4,.h4{font-size: 1.8rem;}
+	h5,.h5{font-size: 1.6rem;}
+	h6,.h6{font-size: 1.4rem;}
+
+	.btn,
+	input[type="submit"].btn,
+	button.btn{
+		padding: 0 16px;
+	}
+}

@@ -71,3 +71,24 @@ body .top-slider .swiper-pagination-bullets.swiper-pagination-horizontal{
 
 body .top-slider .swiper-pagination{justify-content: flex-start;}
 body .top-slider .swiper-pagination-bullet{background: #fff;}
+
+@media (max-width: 1279px) {
+	.top-slider{
+		&__content{padding: 30px 35px 50px;}
+	}
+}
+
+@media (max-width: 991px) {
+	.top-slider-wrap{
+		.top-slider,
+		.info-card{
+			width: 100%;
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.top-slider{
+		&__content{padding: 30px 24px 50px;}
+	}
+}

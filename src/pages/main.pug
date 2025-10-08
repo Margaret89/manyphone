@@ -29,7 +29,7 @@ block body
 
 							.swiper-pagination.js-top-slider-pagination
 
-						.info-card(style="background-image: url(/upload/apple-watch-ultra3.jpg)")
+						.info-card.d-none.d-lg-flex(style="background-image: url(/upload/apple-watch-ultra3.jpg)")
 							.info-card__title Apple Watch Ultra 3
 							a(href="#").btn Выбрать
 
@@ -124,11 +124,13 @@ block body
 											+svg('ic-compare','ic-compare', '12', '16')
 
 									a(href="#").catalog-item__img-wrap
-										.catalog-item__img
-											img(src="/upload/"+item.img, alt="")
+										.catalog-item__img-content
+											.catalog-item__img
+												img(src="/upload/"+item.img, alt="")
 
-									.catalog-item__title
-										a(href="#")= item.title
+									.catalog-item__content
+										.catalog-item__title
+											a(href="#")= item.title
 
 									.catalog-item__btn
 										a(href="#").btn Под заказ
@@ -189,20 +191,24 @@ block body
 											+svg('ic-compare','ic-compare', '12', '16')
 
 									a(href="#").catalog-item__img-wrap
-										.catalog-item__img
-											img(src="/upload/"+item.img, alt="")
+										.catalog-item__img-content
+											.catalog-item__img
+												img(src="/upload/"+item.img, alt="")
 
-									.catalog-item__info
-										.catalog-item__price-wrap
-											span.catalog-item__price= item.price
-												| &#8381;
-											| 
-											span.catalog-item__old-price= item.old_price
+									.catalog-item__content
+										.catalog-item__status.d-md-none= item.status
 
-										.catalog-item__status= item.status
+										.catalog-item__info
+											.catalog-item__price-wrap
+												span.catalog-item__price= item.price
+													| &#8381;
+												| 
+												span.catalog-item__old-price= item.old_price
 
-									.catalog-item__title
-										a(href="#")= item.title
+											.catalog-item__status= item.status
+
+										.catalog-item__title
+											a(href="#")= item.title
 
 									.catalog-item__btn
 										a(href="#").btn Купить
@@ -223,11 +229,11 @@ block body
 	section.brands-wrap.m-indent
 		.container
 			.row
-				.col-4
+				.col-lg-4
 					h2 Популярные бренды
 					p В нашем магазине представлены самые известные бренды электроники со всего мира
 
-				.col-7.offset-1
+				.col-lg-7.offset-lg-1
 					.brands
 						-
 							var list=[

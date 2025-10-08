@@ -37,3 +37,19 @@
 		padding: 30px 55px 32px;
 	}
 }
+
+@media (max-width: 1279px) {
+	.info-card{padding: 30px 35px 32px;}
+}
+
+@media (max-width: 767px) {
+	.info-card{
+		padding: 30px 24px 32px;
+
+		&_thin{
+			height: auto;
+			background-size: contain;
+			background-color: #000;
+		}
+	}
+}
