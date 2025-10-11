@@ -32,3 +32,11 @@
 		margin-right: 10px;
 	}
 }
+
+@media (max-width: 991px) {
+	.breadcrumb{margin-top: 0;}
+}
+
+@media (max-width: 767px) {
+	.breadcrumb{margin: 0 0 18px;}
+}

@@ -53,3 +53,24 @@
 		}
 	}
 }
+
+@media (max-width: 767px) {
+	.section-menu-line{
+		margin-bottom: 30px;
+		
+		&__list{
+			gap: 6px;
+			margin-left: -15px;
+			margin-right: -15px;
+			padding-left: 15px;
+			padding-right: 15px;
+		}
+
+		&__item{
+			height: 3.8rem;
+			border-radius: 1.9rem;
+			font-size: 1.4rem;
+			padding: 0 15px
+		}
+	}
+}

@@ -39,3 +39,20 @@
 	&__img-left{left: 0;}
 	&__img-right{right: 0;}
 }
+
+@media (max-width: 767px) {
+	.header-catalog{
+		margin-bottom: 26px;
+		
+		&__content{
+			min-height: 96px;
+			font-size: 2.6rem;
+			padding: 15px 100px;
+		}
+
+		&__img-left,
+		&__img-right{
+			width: 100px;
+		}
+	}
+}

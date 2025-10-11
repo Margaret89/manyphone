@@ -143,3 +143,33 @@
 
 	.noUi-handle::after, .noUi-handle::before{display: none;}
 }
+
+@media (max-width: 991px) {
+	.filter-wrap{
+		width: 100vw;
+		height: 100vh;
+		overflow-y: auto;
+		background: #fff;
+		border-radius: 0;
+		border: none;
+		padding: 0 15px;
+		position: fixed;
+		right: -100%;
+		top: 0;
+		transition: right 0.3s ease;
+		z-index: 1000;
+
+		&.open{right: 0;}
+
+		&__close{
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			top: 15px;
+			right: 15px;
+		}
+	}
+}

@@ -391,3 +391,19 @@ function initializeTextBlocks() {
 		}
 	});
 }
+
+
+//Открыть/Закрыть фильтр
+if(document.querySelector('.js-filter-btn')){
+	document.querySelector('.js-filter-btn').addEventListener('click', function(){
+		this.classList.toggle('active');
+		document.querySelector('.js-filter-wrap').classList.toggle('open');
+		// document.querySelector('.js-body').classList.toggle('no-scroll');
+	})
+
+	document.querySelector('.js-filter-wrap-close').addEventListener('click', function(){
+		this.classList.remove('active');
+		document.querySelector('.js-filter-wrap').classList.remove('open');
+		// document.querySelector('.js-body').classList.remove('no-scroll');
+	})
+}

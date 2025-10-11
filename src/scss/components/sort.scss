@@ -64,3 +64,12 @@
 	&.open &__popup{max-height: none;}
 	&.open &__default .icon{transform: rotate(180deg);}
 }
+
+@media (max-width: 1279px) {
+	.sort{
+		&__label,
+		&__val{
+			font-size: 1.6rem;
+		}
+	}
+}

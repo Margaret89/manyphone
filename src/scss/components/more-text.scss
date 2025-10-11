@@ -17,3 +17,12 @@
 		&.visible{display: inline-flex;}
 	}
 }
+
+@media (max-width: 767px) {
+	.more-text{
+		.btn{
+			width: 100%;
+			margin: 0;
+		}
+	}
+}
