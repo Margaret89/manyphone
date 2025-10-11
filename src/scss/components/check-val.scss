@@ -1,0 +1,30 @@
+/*-------------- check-val -----------------*/
+.check-val{
+	display: inline-flex;
+
+	&__text{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		height: 3rem;
+		background: linear-gradient(180deg, #91D200 0%, #75BB0C 49.9%, #F9F9FB 50%, #F9F9FB 100%);
+		background-size: 100% 200%;
+		background-position: 0 100%;
+		transition: all 0.3s ease-in-out;
+		border: none;
+		border-radius: 1rem;
+		font-size: 1.6rem;
+		color: #000;
+		text-decoration: none;
+		text-align: center;
+		padding: 0 10px;
+		cursor: pointer;
+	}
+	
+	input[type=checkbox]{display: none;}
+
+	input[type=checkbox]:checked + &__text{
+		color: #fff;
+		background-position: 0 0;
+	}
+}

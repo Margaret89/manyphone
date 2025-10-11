@@ -1,0 +1,19 @@
+/*-------------- more-text -----------------*/
+.more-text{
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+
+	&__content{
+		overflow: hidden;
+		transition: max-height 0.2s linear;
+	}
+
+	.btn{
+		align-self: center;
+		display: none;
+		margin: 15px auto 0;
+
+		&.visible{display: inline-flex;}
+	}
+}

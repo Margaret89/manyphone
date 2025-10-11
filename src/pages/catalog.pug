@@ -1,0 +1,532 @@
+extends tmpl/_layout
+
+block vars
+	- var pageId = 'catalog'
+	- var bgPage = 'grey'
+	-
+		var breadcrumbs=[
+			{href:'/',name:'Магазин электроники'},
+			{href:'#',name:'Каталог'},
+			{href:'#',name:'iPhone'},
+		];
+		
+
+block body
+	section.header-catalog
+		.container
+			.row
+				.col-12
+					.header-catalog__content
+						.header-catalog__img-left
+							img(src="/upload/bg-catalog-left.png", alt="")
+
+						.header-catalog__title IPHONE
+
+						.header-catalog__img-right
+							img(src="/upload/bg-catalog-right.png", alt="")
+
+	section.section-menu-line
+		.container
+			.row
+				.col-12
+					.section-menu-line__list
+						-
+							var list=[
+								{text:'iPhone 16 Pro'},
+								{text:'iPhone 16 Pro Max'},
+								{text:'iPhone 16'},
+								{text:'iPhone 16 Plus'},
+								{text:'iPhone 15 Pro'},
+								{text:'iPhone 15'},
+								{text:'iPhone 14'},
+								{text:'iPhone 13'},
+								{text:'iPhone 12'},
+								{text:'iPhone 11'},
+								{text:'iPhone 17'},
+								{text:'iPhone 17 Air'},
+								{text:'iPhone 17 Pro'},
+								{text:'iPhone 17 Pro Max'},
+							]
+						each item in list
+							a(href="#").section-menu-line__item= item.text
+
+	section.catalog-section-page
+		.container
+			.row
+				.col-12
+					.catalog-section-page__top
+						.catalog-section-page__left
+							.filter-wrap.js-filter-wrap
+								.filter-wrap__close.js-filter-wrap-close.d-lg-none
+									.ic-hamburger.active
+										span
+								
+								.section-menu.js-section-menu.opened
+									.section-menu__head.js-section-menu-head
+										.section-menu__arr
+											+svg('ic-arr-down','ic-arr-down', '16', '9')
+
+										.section-menu__title Категории
+									
+									.section-menu__content.js-section-menu-content
+										.section-menu__info.js-section-menu-info
+											-
+												var list=[
+													{text:'MacBook Air 13"'},
+													{text:'MacBook Air 15"'},
+													{text:'MacBook Pro 14"'},
+													{text:'MacBook Pro 16"'},
+												]
+											each item in list
+												.section-menu__item
+													a(href="#")= item.text
+
+								form.filter
+									.filter__item.js-filter-item.opened
+										.filter__head.js-filter-head
+											.filter__arr
+												+svg('ic-arr-down','ic-arr-down', '16', '9')
+
+											.filter__title Цена
+										
+										.filter__content.js-filter-content
+											.filter__info.js-filter-info
+												.range.js-range
+													.range__fields
+														.range__val
+															|от
+															input#slider-range-min.js-slider-range-min(type="text")
+
+														.range__val
+															|до
+															input#slider-range-max.js-slider-range-max(type="text")
+
+													.range__slider
+														#slider-range.js-slider-range(data-min="53990", data-max="100000",data-cur-min="53990",data-cur-max="799990", data-step="1000", autocomplete="off")
+
+									.filter__item.js-filter-item
+										.filter__head.js-filter-head
+											.filter__arr
+												+svg('ic-arr-down','ic-arr-down', '16', '9')
+											.filter__title Серия
+										
+										.filter__content.js-filter-content
+											.filter__info.js-filter-info
+												.filter__params
+													-
+														var list=[
+															{text:'MacBook Air 13'},
+															{text:'MacBook Air 15'},
+															{text:'MacBook Pro 14'},
+															{text:'MacBook Pro 16'},
+														]
+
+													each item, index in list
+														
+															label.check-val
+																input(type='checkbox')
+																span.check-val__text= item.text
+										
+									.filter__item.js-filter-item
+										.filter__head.js-filter-head
+											.filter__arr
+												+svg('ic-arr-down','ic-arr-down', '16', '9')
+											.filter__title Экран
+										
+										.filter__content.js-filter-content
+											.filter__info.js-filter-info
+												.filter__params
+													-
+														var list=[
+															{text:'13.3"'},
+															{text:'13.6"'},
+															{text:'14.2"'},
+															{text:'15.3"'},
+														]
+
+													each item, index in list
+														label.check-val
+															input(type='checkbox')
+															span.check-val__text= item.text
+
+									.filter__item.js-filter-item
+										.filter__head.js-filter-head
+											.filter__arr
+												+svg('ic-arr-down','ic-arr-down', '16', '9')
+											.filter__title Процессор
+										
+										.filter__content.js-filter-content
+											.filter__info.js-filter-
+												.filter__params
+													-
+														var list=[
+															{text:'Apple M1'},
+															{text:'Apple M2'},
+															{text:'Apple M2 Max'},
+															{text:'Apple M2 Pro'},
+															{text:'Apple M3'},
+															{text:'Apple M3 Max'},
+															{text:'Apple M3 Pro'},
+															{text:'Apple M4'},
+															{text:'Apple M4 Max'},
+															{text:'Apple M5 Max'},
+															{text:'Apple M6 Max'},
+														]
+
+													each item, index in list
+														label.check-val
+															input(type='checkbox')
+															span.check-val__text= item.text
+
+									.filter__item.js-filter-item
+										.filter__head.js-filter-head
+											.filter__arr
+												+svg('ic-arr-down','ic-arr-down', '16', '9')
+											.filter__title Количество ядер процессора
+										
+										.filter__content.js-filter-content
+											.filter__info.js-filter-info
+												.filter__params
+													-
+														var list=[
+															{text:'8'},
+															{text:'10'},
+															{text:'11'},
+															{text:'12'},
+															{text:'14'},
+															{text:'16'},
+														]
+
+													each item, index in list
+														label.check-val
+															input(type='checkbox')
+															span.check-val__text= item.text
+
+									.filter__item.js-filter-item
+										.filter__head.js-filter-head
+											.filter__arr
+												+svg('ic-arr-down','ic-arr-down', '16', '9')
+											.filter__title Количество графических ядер
+										
+										.filter__content.js-filter-content
+											.filter__info.js-filter-info
+												.filter__params
+													-
+														var list=[
+															{text:'7'},
+															{text:'8'},
+															{text:'10'},
+															{text:'14'},
+															{text:'16'},
+															{text:'18'},
+															{text:'20'},
+															{text:'30'},
+															{text:'40'},
+															{text:'50'},
+															{text:'60'},
+														]
+
+													each item, index in list
+														label.check-val
+															input(type='checkbox')
+															span.check-val__text= item.text
+
+									.filter__item.js-filter-item
+										.filter__head.js-filter-head
+											.filter__arr
+												+svg('ic-arr-down','ic-arr-down', '16', '9')
+											.filter__title Объем оперативной памяти
+										
+										.filter__content.js-filter-content
+											.filter__info.js-filter-info
+												.filter__params
+													-
+														var list=[
+															{text:'8 ГБ'},
+															{text:'16 ГБ'},
+															{text:'18 ГБ'},
+															{text:'24 ГБ'},
+															{text:'32 ГБ'},
+															{text:'36 ГБ'},
+															{text:'46 Гб'},
+															{text:'48 ГБ'},
+															{text:'64 ГБ'},
+															{text:'256 ГБ'},
+															{text:'512 ГБ'},
+														]
+
+													each item, index in list
+														label.check-val
+															input(type='checkbox')
+															span.check-val__text= item.text
+
+									.filter__item.js-filter-item
+										.filter__head.js-filter-head
+											.filter__arr
+												+svg('ic-arr-down','ic-arr-down', '16', '9')
+											.filter__title Объем встроенной памяти
+										
+										.filter__content.js-filter-content
+											.filter__info.js-filter-info
+												.filter__params
+													-
+														var list=[
+															{text:'8 ГБ'},
+															{text:'16 ГБ'},
+															{text:'18 ГБ'},
+															{text:'24 ГБ'},
+															{text:'32 ГБ'},
+															{text:'36 ГБ'},
+															{text:'46 Гб'},
+															{text:'48 ГБ'},
+															{text:'64 ГБ'},
+															{text:'256 ГБ'},
+															{text:'512 ГБ'},
+														]
+
+													each item, index in list
+														label.check-val
+															input(type='checkbox')
+															span.check-val__text= item.text
+
+									.filter__item.js-filter-item
+										.filter__head.js-filter-head
+											.filter__arr
+												+svg('ic-arr-down','ic-arr-down', '16', '9')
+											.filter__title Цвет
+										
+										.filter__content.js-filter-content
+											.filter__info.js-filter-info
+												.filter__params
+													-
+														var list=[
+															{text:'Синий'},
+															{text:'Красный'},
+															{text:'Зеленый'},
+														]
+
+													each item, index in list
+														label.check-val
+															input(type='checkbox')
+															span.check-val__text= item.text
+
+								
+
+							.catalog-section-page__actions
+								.sort.js-sort
+									.sort__default.js-sort-default
+										span.sort__label Сортировать по: 
+										| 
+										span.sort__val.js-sort-val популярности
+										+svg('ic-arr-down','ic-arr-down', '16', '9')
+
+									.sort__popup.js-sort-popup
+										.sort__list.js-sort-list
+											.sort__item.js-sort-item По популярности
+											.sort__item.js-sort-item Цена по возрастанию
+											.sort__item.js-sort-item Цена по убыванию
+
+								.filter-btn.btn.js-filter-btn.d-lg-none
+									+svg('ic-filter','ic-filter', '28', '24')
+
+						.catalog-sect
+							-
+								var list=[
+									{img:'sect1.jpg', text:'iPhone 16 Pro Max'},
+									{img:'sect1.jpg', text:'iPhone 16 Pro'},
+									{img:'sect2.jpg', text:'iPhone 16 Plus'},
+									{img:'sect2.jpg', text:'iPhone 16'},
+									{img:'sect3.jpg', text:'iPhone 16e'},
+									{img:'sect4.jpg', text:'iPhone 15 Pro Max'},
+									{img:'sect4.jpg', text:'iPhone 15 Pro'},
+									{img:'sect5.jpg', text:'iPhone 15 plus'},
+									{img:'sect5.jpg', text:'iPhone 15'},
+									{img:'sect6.jpg', text:'iPhone 14 Pro Max'},
+									{img:'sect6.jpg', text:'iPhone 14 Pro'},
+									{img:'sect7.jpg', text:'iPhone 14'},
+									{img:'sect7.jpg', text:'iPhone 14 Plus'},
+									{img:'sect8.jpg', text:'IPhone SE 2022'},
+									{img:'sect9.jpg', text:'iPhone 13 Pro Max'},
+									{img:'sect9.jpg', text:'iPhone 13 Pro'},
+									{img:'sect10.jpg', text:'iPhone 13'},
+									{img:'sect10.jpg', text:'iPhone 13 mini'},
+									{img:'sect11.jpg', text:'iPhone 11'},
+									{img:'sect12.jpg', text:'Аксессуары'},
+									{img:'empty.jpg', text:'iPhone SE 2020'},
+								]
+							each item in list
+								.catalog-sect__item
+									a(href="#").catalog-sect__img-wrap
+										.catalog-sect__img
+											img(src="/upload/"+item.img, alt="")
+
+									.catalog-sect__title
+										a(href="#")= item.text
+
+					.catalog-list
+						-
+							var list=[
+								{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+								{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+								{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+								{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+								{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+								{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+								{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+								{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+							]
+						each item in list
+							.catalog-item
+								.stickers
+									if(item.sale)
+										.stickers__item.stickers__item_green sale
+										
+									if(item.rustore)
+										.stickers__item.stickers__item_small БЕЗ RUSTORE
+
+								.catalog-item-actions
+									.catalog-item-actions__item
+										+svg('ic-wish','ic-wish', '21', '18')
+
+									.catalog-item-actions__item
+										+svg('ic-compare','ic-compare', '12', '16')
+
+								a(href="#").catalog-item__img-wrap
+									.catalog-item__img-content
+										.catalog-item__img
+											img(src="/upload/"+item.img, alt="")
+
+								.catalog-item__content
+									.catalog-item__status.d-md-none= item.status
+
+									.catalog-item__info
+										.catalog-item__price-wrap
+											span.catalog-item__price= item.price
+												| &#8381;
+											| 
+											span.catalog-item__old-price= item.old_price
+
+										.catalog-item__status= item.status
+
+									.catalog-item__title
+										a(href="#")= item.title
+
+								.catalog-item__btn
+									a(href="#").btn Купить
+									a(href="#").btn.btn_border Купить в 1 клик
+
+								.catalog-item-params
+									-
+										var params=[
+											{label:'Операционная система:', val:'iOS 15'},
+											{label:'Сим-карта:', val:'Nano-SIM + eSIM'},
+											{label:'Объем встроенной памяти:', val:'128 Гб'},
+										]
+									each param in params
+										.catalog-item-params__item
+											span.catalog-item-params__label= param.label
+											span.catalog-item-params__val= param.val
+
+					.pager
+						a.pager__arr.disable
+							+svg('ic-arr-left','ic-arr-left', '6', '10')
+
+						a.pager__item.active(href='#') 1
+						a.pager__item(href='#') 2
+						a.pager__item(href='#') 3
+						a.pager__item(href='#') 4
+						a.pager__item(href='#') 9
+						
+						a.pager__arr
+							+svg('ic-arr-right','ic-arr-right', '6', '10')
+
+					.catalog-desc-bottom
+						.more-text.js-more-text
+							.more-text__content.js-more-text-content(data-max-lines="2") Выход каждого нового iPhone — всегда мировая сенсация и долгожданное событие для миллионов людей. За счет чего Apple удается выпускать смартфоны, которые неизменно становятся лидерами в своей ценовой категории? Узнаваемый элегантный дизайн, восхитительный функционал и уникальные передовые технологии — вот главные слагаемые успеха бренда. Выход каждого нового iPhone — всегда мировая сенсация и долгожданное событие для миллионов людей. За счет чего Apple удается выпускать смартфоны, которые неизменно становятся лидерами в своей ценовой категории? Узнаваемый элегантный дизайн, восхитительный функционал и уникальные передовые технологии — вот главные слагаемые успеха бренда.Выход каждого нового iPhone — всегда мировая сенсация и долгожданное событие для миллионов людей. За счет чего Apple удается выпускать смартфоны, которые неизменно становятся лидерами в своей ценовой категории? Узнаваемый элегантный дизайн, восхитительный функционал и уникальные передовые технологии — вот главные слагаемые успеха бренда.Выход каждого нового iPhone — всегда мировая сенсация и долгожданное событие для миллионов людей. За счет чего Apple удается выпускать смартфоны, которые неизменно становятся лидерами в своей ценовой категории? Узнаваемый элегантный дизайн, восхитительный функционал и уникальные передовые технологии — вот главные слагаемые успеха бренда.
+
+							span.btn.btn_dark.js-more-text-btn(data-text="Свернуть") Подробнее
+
+	include ./components/_subscribe
+
+	section.sale-slider-wrap.m-indent
+		.container
+			.row
+				.col-12
+					.sale-slider-wrap__top
+						h2 Товары в наличии
+
+						.slider-arr-list
+							.swiper-button-prev.slider-arr.js-sale-slider-prev
+								+svg('ic-arr-left','ic-arr-left', '13', '23')
+							
+							.swiper-button-next.slider-arr.js-sale-slider-next
+								+svg('ic-arr-right','ic-arr-right', '13', '23')
+					
+
+					.sale-slider.js-sale-slider
+						.swiper-wrapper
+							-
+								var list=[
+									{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+									{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+									{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+									{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+									{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+									{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+									{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+								]
+							each item in list
+								.swiper-slide.catalog-item
+									.stickers
+										if(item.sale)
+											.stickers__item.stickers__item_green sale
+											
+										if(item.rustore)
+											.stickers__item.stickers__item_small БЕЗ RUSTORE
+
+									.catalog-item-actions
+										.catalog-item-actions__item
+											+svg('ic-wish','ic-wish', '21', '18')
+
+										.catalog-item-actions__item
+											+svg('ic-compare','ic-compare', '12', '16')
+
+									a(href="#").catalog-item__img-wrap
+										.catalog-item__img-content
+											.catalog-item__img
+												img(src="/upload/"+item.img, alt="")
+
+									.catalog-item__content
+										.catalog-item__status.d-md-none= item.status
+
+										.catalog-item__info
+											.catalog-item__price-wrap
+												span.catalog-item__price= item.price
+													| &#8381;
+												| 
+												span.catalog-item__old-price= item.old_price
+
+											.catalog-item__status= item.status
+
+										.catalog-item__title
+											a(href="#")= item.title
+
+									.catalog-item__btn
+										a(href="#").btn Купить
+										a(href="#").btn.btn_border Купить в 1 клик
+
+									.catalog-item-params
+										-
+											var params=[
+												{label:'Операционная система:', val:'iOS 15'},
+												{label:'Сим-карта:', val:'Nano-SIM + eSIM'},
+												{label:'Объем встроенной памяти:', val:'128 Гб'},
+											]
+										each param in params
+											.catalog-item-params__item
+												span.catalog-item-params__label= param.label
+												span.catalog-item-params__val= param.val
+
+	include ./components/_form-page
+
+	include ./components/_main-tags

@@ -65,6 +65,9 @@ block body
 				a.btn.btn_big(href='#') Кнопка
 				br
 				br
+				a.btn.btn_dark(href='#') Кнопка
+				br
+				br
 				div(style="background: #2F4055; padding: 20px;")
 					a.btn.btn_border-white(href='#') Кнопка
 
@@ -149,6 +152,16 @@ block body
 
 					.type-icon__item
 						.type-icon__img
+							+svg('ic-arr-up','ic-arr-up', '16', '9')
+						.type-icon__name ic-arr-up
+
+					.type-icon__item
+						.type-icon__img
+							+svg('ic-arr-down','ic-arr-down', '16', '9')
+						.type-icon__name ic-arr-down
+
+					.type-icon__item
+						.type-icon__img
 							+svg('ic-arrow-long-left','ic-arrow-long-left', '27', '12')
 						.type-icon__name ic-arrow-long-left
 
@@ -186,3 +199,8 @@ block body
 						.type-icon__img
 							+svg('ic-check','ic-check', '12', '10')
 						.type-icon__name ic-check
+
+					.type-icon__item
+						.type-icon__img
+							+svg('ic-filter','ic-filter', '28', '24')
+						.type-icon__name ic-filter

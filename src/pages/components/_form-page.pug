@@ -1,0 +1,72 @@
+section.form-site-main.m-indent
+		.container
+			.row
+				.col-12
+					.form-site-main__content
+						form.form-site(action="/main.html")
+							.form-site__title Задать вопрос
+
+							.form-site__content
+								.form-site__item.form-site__item_half.js-form-site-item
+									.form-site__label Ваше имя*
+
+									.form-site__field
+										input(name="name", type="text", required="required", placeholder="Ваше имя *")
+
+								.form-site__item.form-site__item_half.js-form-site-item
+									.form-site__label Номер телефона*
+
+									.form-site__field
+										input(name="phone", type="text", required="required", placeholder="+7 (999) 999-9999 *", class="js-phone")
+
+
+								.form-site__item.js-form-site-item
+									.form-site__label Сообщение*
+
+									.form-site__field
+										textarea(name="msg", placeholder="Задайте вопрос или поделитесь своими предложениями *", required="required")
+
+							.form-site__polit
+								label.input-check
+									input(type='checkbox', required="required", checked="checked")
+									span.input-check__mark
+										+svg('ic-check','ic-check', '12', '10')
+									span.input-check__text  Даю свое 
+										a(href="#") Согласие на обработку персональных данных 
+										| в соответствии с 
+										a(href="#") Политикой  конфиденциальности
+
+							.form-site__btn
+								input(type="submit", value="Отправить").btn.btn_big.js-btn-submit
+
+						.contacts-wrap
+							h2 Контакты
+
+							.contacts
+								.contacts__item
+									.contacts__label Адрес
+									.contacts__val Москва, ул. Багратионовский пр., 7 к2, ДЦ Рубин, м.Багратионовская
+
+								.contacts__item
+									.contacts__label График работы
+									.contacts__val
+										|с 10.00 до 20.00
+										br
+										|ежедневно
+
+								.contacts__item
+									.contacts__label Номер телефона
+									.contacts__val
+										a(href="tel:+78002225260") 8 (800) 222 52 60
+
+								.contacts__item
+									.contacts__label Почта
+									.contacts__val
+										a(href="mailto:info@manyphone.ru") info@manyphone.ru
+
+							.social.social_white
+								a(href="#").social__item
+									+svg('ic-vk','ic-vk', '20', '11')
+
+								a(href="#").social__item
+									+svg('ic-telegram','ic-telegram', '17', '16')

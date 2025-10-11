@@ -27,6 +27,9 @@
 	&__img-content{padding-bottom: 63%;}
 
 	&__img{
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		width: 100%;
 		height: 100%;
 		position: absolute;
@@ -163,6 +166,23 @@
 		color: rgba(0, 0, 0, 0.5);
 		margin-right: 15px;
 	}
+}
+
+.catalog-list{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 20px 106px;
+
+	.catalog-item{
+		width: calc(25% - 79.5px);
+		background: #fff;
+		border-radius: 20px;
+		padding: 25px 40px;
+	}
+}
+
+.catalog-desc-bottom{
+	margin-top: 50px;
 }
 
 @media (max-width: 1809px) {
