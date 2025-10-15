@@ -8,6 +8,10 @@
 			"href": "catalog.html",
 			"title":"Каталог"
 		},
+		"catalog-element":{
+			"href": "catalog-element.html",
+			"title":"Каталог (детальная страница)"
+		},
 		"tipografika":{
 			"href": "tipografika.html",
 			"title":"Типографика",

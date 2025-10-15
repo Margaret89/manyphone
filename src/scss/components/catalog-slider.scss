@@ -1,5 +1,5 @@
-/*-------------- hits-slider -----------------*/
-.hits-slider-wrap{
+/*-------------- catalog-slider -----------------*/
+.catalog-slider-wrap{
 	&__top{
 		display: flex;
 		align-items: center;
@@ -9,4 +9,8 @@
 
 		h2, .h2{margin-bottom: 0;}
 	}
+}
+
+@media (max-width: 767px) {
+	.prod-detail-thumb-slider-wrap{display: none;}
 }

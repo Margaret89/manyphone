@@ -1,0 +1,33 @@
+/*-------------- stickers -----------------*/
+.stickers{
+	display: inline-flex;
+	align-items: center;
+	gap: 5px;
+
+	&__item{
+		display: inline-flex;
+		align-items: center;
+		height: 1.8rem;
+		border-radius: 0.9rem;
+		padding: 0 7px;
+		background: #75BB0C;
+		background: linear-gradient(nulldeg, rgba(117, 187, 12, 1) 100%, rgba(145, 210, 0, 1) 0%);
+		font-size: 1.2rem;
+		font-weight: 800;
+		line-height: 1;
+		color: #fff;
+		text-transform: uppercase;
+
+		&_small{font-size: 0.8rem;}
+		&_purple{background: #6A5DFF;}
+		&_orange{background: #FF765D;}
+		&_green{background: #0CDC78;}
+	}
+
+	&_big &__item{
+		height: 2.8rem;
+		border-radius: 1.4rem;
+		padding: 0 18px;
+		font-size: 1.1rem;
+	}
+}

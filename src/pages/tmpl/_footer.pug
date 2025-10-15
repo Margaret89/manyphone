@@ -190,6 +190,88 @@ footer.footer
 				.col-12
 					.footer__copyright Copyright © 2011-2025 - ManyPhone.ru (Манифон.ру) / Информация на сайте не является публичной офертой
 
+#callback(style='display: none;')
+	.popup-form
+		form.form-site.form-site_light(action="/main.html")
+			.form-site__title Обратный звонок
+
+			.form-site__content
+				.form-site__item.js-form-site-item
+					.form-site__label Ваше имя*
+
+					.form-site__field
+						input(name="name", type="text", required="required", placeholder="Ваше имя *")
+
+				.form-site__item.js-form-site-item
+					.form-site__label Номер телефона*
+
+					.form-site__field
+						input(name="phone", type="text", required="required", placeholder="+7 (999) 999-9999 *", class="js-phone")
+
+
+				.form-site__item.js-form-site-item
+					.form-site__label Сообщение*
+
+					.form-site__field
+						textarea(name="msg", placeholder="Задайте вопрос или поделитесь своими предложениями *", required="required")
+
+			.form-site__polit
+				label.input-check
+					input(type='checkbox', required="required", checked="checked")
+					span.input-check__mark
+						+svg('ic-check','ic-check', '12', '10')
+					span.input-check__text  Даю свое 
+						a(href="#") Согласие на обработку персональных данных 
+						| в соответствии с 
+						a(href="#") Политикой  конфиденциальности
+
+			.form-site__btn
+				input(type="submit", value="Отправить").btn.btn_big.js-btn-submit
+
+#reviews(style='display: none;')
+	.popup-form
+		form.form-site.form-site_light(action="/main.html")
+			.form-site__title Оставьте свой отзыв о товаре
+
+			.form-site__content
+				.form-site__item.js-form-site-item
+					.form-site__label Ваше имя*
+
+					.form-site__field
+						input(name="name", type="text", required="required", placeholder="Ваше имя *")
+
+				.form-site__item.js-form-site-item
+					.form-site__label Достоинства
+
+					.form-site__field
+						input(name="plus", type="text", placeholder="Достоинства товара")
+
+				.form-site__item.js-form-site-item
+					.form-site__label Недостатки
+
+					.form-site__field
+						input(name="minus", type="text", placeholder="Недостатки товара")
+
+				.form-site__item.js-form-site-item
+					.form-site__label Комментарий *
+
+					.form-site__field
+						textarea(name="msg", placeholder="Ваш комментарий о товаре *", required="required")
+
+			.form-site__polit
+				label.input-check
+					input(type='checkbox', required="required", checked="checked")
+					span.input-check__mark
+						+svg('ic-check','ic-check', '12', '10')
+					span.input-check__text  Даю свое 
+						a(href="#") Согласие на обработку персональных данных 
+						| в соответствии с 
+						a(href="#") Политикой  конфиденциальности
+
+			.form-site__btn
+				input(type="submit", value="Оставить отзыв").btn.btn_big.js-btn-submit
+
+
 #msg-success(style='display: none;')
 	.success-alert.js-success-alert
 		.success-alert__title.js-success-alert-title Ваше сообщение отправлено!

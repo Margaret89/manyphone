@@ -1,0 +1,45 @@
+/*-------------- share -----------------*/
+.share{
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 15px;
+
+	&__label{font-size: 1.5rem;}
+
+	&__list{
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 4px;
+	}
+
+	&__item{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		width: 24px;
+		height: 24px;
+		border-radius: 50%;
+		background: rgba(0,0,0,0.03);
+		color: #999;
+		transition: opacity 0.2s ease;
+		
+		&:hover{opacity: 0.6;}
+	}
+
+	&__item_msg{
+		background: #03CECE;
+		color: #fff;
+	}
+
+	&__item_vk{
+		background: #0077FF;
+		color: #fff;
+	}
+	&__item_ok{
+		background: #FF7700;
+		color: #fff;
+	}
+}

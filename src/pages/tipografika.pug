@@ -81,6 +81,49 @@ block body
 						+svg('ic-check','ic-check', '12', '10')
 					span.input-check__text Текст
 
+					br
+					br
+					br
+					.h2 Табуляция
+					.tabs-page.js-tabs-page
+						.tabs-page__top
+							.tabs-page__arr.js-tabs-page-arr-prev
+								+svg('ic-arrow-left','ic-arrow-left', '10', '20')
+
+							ul.tabs-page__list.js-tabs-page-list
+								li.tabs-page__item.js-tabs-page-item(data-item='tab-desc') Описание
+								li.tabs-page__item.js-tabs-page-item(data-item='tab-param') Характеристики
+								li.tabs-page__item.js-tabs-page-item(data-item='tab-spec') Спецификация
+								li.tabs-page__item.js-tabs-page-item(data-item='tab-use') Применение
+								li.tabs-page__item.js-tabs-page-item(data-item='tab-doc') Документация
+
+							.tabs-page__arr.js-tabs-page-arr-next
+								+svg('ic-arrow-right','ic-arrow-right', '10', '20')
+
+						.tabs-page__content.js-tabs-page-content
+							#tab-desc.tabs-page__content-item.js-tabs-page-content-item
+								.tabs-page__desc-item.js-tabs-page-desc-item
+									p Сайт рыбатекст поможет дизайнеру, верстальщику, вебмастеру сгенерировать несколько абзацев более менее осмысленного текста рыбы на русском языке, а начинающему оратору отточить навык публичных выступлений в домашних условиях. При создании генератора мы использовали небезизвестный универсальный код речей. Текст генерируется абзацами случайным образом от двух до десяти предложений в абзаце, что позволяет сделать текст более привлекательным и живым для визуально-слухового восприятия.
+
+									p По своей сути рыбатекст является альтернативой традиционному lorem ipsum, который вызывает у некторых людей недоумение при попытках прочитать рыбу текст. В отличии от lorem ipsum, текст рыба на русском языке наполнит любой макет непонятным смыслом и придаст неповторимый колорит советских времен.
+
+							#tab-param.tabs-page__content-item.js-tabs-page-content-item
+								.tabs-page__desc-item.js-tabs-page-desc-item
+									| Текст
+
+							#tab-spec.tabs-page__content-item.js-tabs-page-content-item
+								.tabs-page__desc-item.js-tabs-page-desc-item
+									| Текст
+
+							#tab-use.tabs-page__content-item.js-tabs-page-content-item
+								.tabs-page__desc-item.js-tabs-page-desc-item
+									| Текст
+
+							#tab-doc.tabs-page__content-item.js-tabs-page-content-item
+								.tabs-page__desc-item.js-tabs-page-desc-item
+									| Текст
+
+
 				br
 				br
 				div.h2 Иконки
@@ -209,3 +252,18 @@ block body
 						.type-icon__img
 							+svg('ic-filter','ic-filter', '28', '24')
 						.type-icon__name ic-filter
+
+					.type-icon__item
+						.type-icon__img
+							+svg('ic-msg','ic-msg', '14', '14')
+						.type-icon__name ic-msg
+
+					.type-icon__item
+						.type-icon__img
+							+svg('ic-ok','ic-ok', '10', '14')
+						.type-icon__name ic-ok
+
+					.type-icon__item
+						.type-icon__img
+							+svg('ic-dots','ic-dots', '14', '4')
+						.type-icon__name ic-dots

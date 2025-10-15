@@ -167,6 +167,28 @@
 		@include font(normal, normal, 12px, 1.5, var(--color-danger));
 		margin-bottom: 3px;
 	}
+
+	&_light{
+		input[type="text"],
+		input[type="email"],
+		input[type="number"],
+		input[type="password"],
+		input[type="time"],
+		input[type="date"],
+		textarea{
+			background: #fff;
+			border-color: #fff;
+		}
+
+		// .input-check__mark{border-color: #222;}
+
+		// input[type="checkbox"]:checked + .input-check__mark{
+		// 	background: transparent;
+		// 	border-color: #222;
+
+		// 	svg{color: #222;}
+		// }
+	}
 }
 
 .success-alert{
@@ -180,11 +202,12 @@
 	}
 }
 
-// .popup-form{
-// 	display: none;
-// 	width: 540px;
-// 	max-width: 100%;
-// }
+.popup-form{
+	width: 496px;
+	max-width: 100%;
+
+	.btn{width: 100%;}
+}
 
 @media (max-width: 991px) {
 	.form-site-main{

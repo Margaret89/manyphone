@@ -13,6 +13,26 @@ import noUiSlider from 'nouislider';
 import 'nouislider/dist/nouislider.min.css';
 import wNumb from 'wnumb';
 
+
+//Fancybox
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
+Fancybox.bind("[data-fancybox]", {
+	on: {
+		done: (fancybox, slide) => {
+			if(document.querySelector('.popup-window')){
+				document.querySelector('.popup-window').classList.remove('hide');
+			}
+		},
+		close: (fancybox, slide) => {
+			if(document.querySelector('.popup-window')){
+				document.querySelector('.popup-window').classList.add('hide');
+			}
+		}
+	}
+});
+
+
 // Верхний слайдер
 if(document.querySelector('.js-top-slider')){
 	const topSlider = new Swiper('.js-top-slider',
@@ -52,54 +72,59 @@ if(document.querySelector('.js-popular-slider')){
 	});
 }
 
-// Слайдер хитов
-if(document.querySelector('.js-hits-slider')){
-	const topSlider = new Swiper('.js-hits-slider',
-	{
-		modules: [Navigation],
-		slidesPerView: 1,
-		spaceBetween: 30,
-		loop: true,
-		navigation: {
-			nextEl: '.js-hits-slider-next',
-			prevEl: '.js-hits-slider-prev',
-		},
-		breakpoints: {
-			1440: {
-				slidesPerView: 5,
-				spaceBetween: 90,
+// Слайдер каталога
+if(document.querySelector('.js-catalog-slider')){
+	document.querySelectorAll(".js-catalog-slider").forEach(function(slider){
+		const catalogSliderNext = slider.closest('.js-catalog-slider-wrap').querySelector('.js-catalog-slider-next');
+		const catalogSliderPrev = slider.closest('.js-catalog-slider-wrap').querySelector('.js-catalog-slider-prev');
+
+		const catalogSlider = new Swiper(slider,
+		{
+			modules: [Navigation],
+			slidesPerView: 1,
+			spaceBetween: 30,
+			loop: true,
+			navigation: {
+				nextEl: catalogSliderNext,
+				prevEl: catalogSliderPrev,
 			},
-			992: {
-				slidesPerView: 4,
-				spaceBetween: 30,
+			breakpoints: {
+				1440: {
+					slidesPerView: 5,
+					spaceBetween: 90,
+				},
+				992: {
+					slidesPerView: 4,
+					spaceBetween: 30,
+				},
+				768: {
+					slidesPerView: 3,
+					spaceBetween: 30,
+				},
 			},
-			768: {
-				slidesPerView: 3,
-				spaceBetween: 30,
-			},
-		},
+		});
 	});
 }
 
-// Слайдер распродажи
-if(document.querySelector('.js-sale-slider')){
-	const topSlider = new Swiper('.js-sale-slider',
+// Слайдер услуг
+if(document.querySelector('.js-services-slider')){
+	const servicesSlider = new Swiper('.js-services-slider',
 	{
 		modules: [Navigation],
 		slidesPerView: 1,
 		spaceBetween: 30,
 		loop: true,
 		navigation: {
-			nextEl: '.js-sale-slider-next',
-			prevEl: '.js-sale-slider-prev',
+			nextEl: '.js-services-slider-next',
+			prevEl: '.js-services-slider-prev',
 		},
 		breakpoints: {
-			1440: {
-				slidesPerView: 5,
-				spaceBetween: 90,
+			1280: {
+				slidesPerView: 4,
+				spaceBetween: 47,
 			},
 			992: {
-				slidesPerView: 4,
+				slidesPerView: 3,
 				spaceBetween: 30,
 			},
 			768: {
@@ -406,4 +431,215 @@ if(document.querySelector('.js-filter-btn')){
 		document.querySelector('.js-filter-wrap').classList.remove('open');
 		// document.querySelector('.js-body').classList.remove('no-scroll');
 	})
+}
+
+// Табуляция
+if(document.querySelector('.js-tabs-page')){
+	document.querySelectorAll('.js-tabs-page').forEach(function(tabs){
+		let countTab = tabs.getElementsByClassName('js-tabs-page-item').length;
+		let curCountTab = 1;
+		let prevArr = tabs.querySelector(".js-tabs-page-arr-prev");
+		let nextArr = tabs.querySelector(".js-tabs-page-arr-next");
+		let firstTab = tabs.querySelector('.js-tabs-page-item:first-child');
+		let firstTabContent = tabs.querySelector('.js-tabs-page-content-item:first-child');
+
+		//Активируем пункты по умолчанию
+		firstTab.classList.add('active');
+		firstTabContent.classList.add('active');
+
+		//Скрываем стрелки, если количество меньше 3
+		if(countTab <= 2){
+			tabs.querySelector('.js-tabs-page-arr-prev').classList.add('hide');
+			tabs.querySelector('.js-tabs-page-arr-next').classList.add('hide');
+		}else{
+			tabs.querySelector('.js-tabs-page-arr-prev').classList.add('disable');
+		}
+
+		//Перелистывание табов влево
+		prevArr.addEventListener("click", function(e){
+			if (!e.target.classList.contains("disable") ) {
+				let activeTab = tabs.querySelector('.js-tabs-page-item.active');
+				
+				curCountTab--;
+
+				if(curCountTab < countTab){
+					nextArr.classList.remove('disable');
+				}
+
+				if(curCountTab == 1){
+					prevArr.classList.add('disable');
+				}
+
+				if(screenWidth < 768){
+					toggleTabs(activeTab.previousElementSibling);
+				}
+
+				firstTab.style.marginLeft = firstTab.offsetWidth * (curCountTab - 1) * -1+'px';
+			}
+		});
+
+		//Перелистывание табов вправо
+		nextArr.addEventListener("click", function(e){
+			if (!e.target.classList.contains("disable") ) {
+				let activeTab = tabs.querySelector('.js-tabs-page-item.active');
+			
+				curCountTab++;
+
+				if(curCountTab > 1){
+					prevArr.classList.remove('disable');
+				}
+
+				if(screenWidth < 768){
+					if(curCountTab == countTab){
+						nextArr.classList.add('disable');
+					}
+
+					toggleTabs(activeTab.nextElementSibling);
+				}else{
+					if(curCountTab == countTab-1){
+						nextArr.classList.add('disable');
+					}
+				}
+				
+				firstTab.style.marginLeft = firstTab.offsetWidth * (curCountTab - 1) * -1+'px';
+			}
+		});
+		
+	});
+
+	//Переключение табов
+	document.querySelectorAll('.js-tabs-page-item').forEach(function(elem){
+		elem.addEventListener('click', function(){
+			toggleTabs(elem);
+		})
+	});
+
+	function toggleTabs(elem) {
+		let idTab = elem.getAttribute('data-item');
+		let tabContent = document.querySelector('.js-tabs-page-content-item[id="'+idTab+'"]');
+		let tabDesc = tabContent.querySelector('.js-tabs-page-desc-item');
+		let parent = elem.closest('.js-tabs-page');
+		let content = parent.querySelector('.js-tabs-page-content');
+		let list = parent.querySelector('.js-tabs-page-list');
+
+		list.querySelectorAll(':scope > .js-tabs-page-item').forEach(function(item){
+			item.classList.remove('active');
+		});
+
+		content.querySelectorAll(':scope > .js-tabs-page-content-item').forEach(function(item){
+			item.classList.remove('active');
+			item.style.maxHeight = "0px";
+		});
+		
+		elem.classList.add("active");
+		tabContent.classList.add("active");
+		
+		if ( tabContent.classList.contains("active") ) {
+			tabContent.style.maxHeight = `${tabDesc.clientHeight}px`;
+		} else {
+			tabContent.style.maxHeight = "0px";
+		}
+	}
+}
+
+
+//Слайдер детального изображения каталога
+var prodDetailSliderThumb = new Swiper('.js-prod-detail-thumb-slider', {
+	modules: [Navigation],
+	slidesPerView: 4,
+	spaceBetween: 20,
+	// freeMode: true,
+	// watchSlidesProgress: true,
+	// direction: "vertical",
+
+	// slidesPerView: "auto",
+	// centeredSlides: true,
+	// autoScrollOffset: 1,
+
+	navigation: {
+		nextEl: ".js-prod-detail-thumb-slider-next",
+		prevEl: ".js-prod-detail-thumb-slider-prev",
+	},
+	// breakpoints: {
+	// 	992: {
+	// 		slidesPerView: 9,
+	// 		spaceBetween: 0,
+	// 	},
+	// 	768: {
+	// 		slidesPerView: 3,
+	// 		spaceBetween: 0,
+	// 	}
+	// }
+	// loop: true,
+});
+
+var prodDetailSlider = new Swiper('.js-prod-detail-slider', {
+	modules: [Thumbs, Pagination],
+	spaceBetween: 20,
+	loop: true,
+	thumbs: {
+		swiper: prodDetailSliderThumb,
+	},
+	pagination:{
+		el:".js-prod-detail-slider-pager",
+		clickable:true
+	},
+	// breakpoints: {
+	// 	// 768: {
+	// 	// 	direction: "horizontal",
+	// 	// }
+	// }
+});
+
+//Слайдер отзывов
+if(document.querySelector('.js-reviews-slider')){
+	const topSlider = new Swiper('.js-reviews-slider',
+	{
+		modules: [Pagination, Navigation],
+		slidesPerView: 1,
+		spaceBetween: 20,
+		loop: true,
+		pagination: {
+			el: ".js-reviews-slider-pager",
+			clickable: true,
+			renderBullet: function (index, className) {
+				console.log('11 = ', );
+			  return '<span class="' + className + '">' + (index + 1) + "</span>";
+			},
+		},
+		navigation: {
+			nextEl: ".js-reviews-slider-next",
+			prevEl: ".js-reviews-slider-prev",
+		},
+		breakpoints: {
+			1440: {
+				slidesPerView: 2.4,
+				spaceBetween: 40,
+			},
+			992: {
+				slidesPerView: 2,
+				spaceBetween: 20,
+			},
+			768: {
+				slidesPerView: 2,
+				spaceBetween: 20,
+			},
+		},
+	});
+}
+
+// Плавный переход к ссылке
+if (document.querySelector('.js-link-move')) {
+	document.querySelectorAll(".js-link-move").forEach(function(btn){
+		btn.onclick = function(event){
+			event.preventDefault();
+			const id = btn.getAttribute('href');
+
+			if (document.querySelector('#'+id)) {
+				document.querySelector('#'+id).scrollIntoView({
+					behavior: 'smooth'
+				});
+			}
+		}
+	});
 }

@@ -447,41 +447,43 @@ block body
 
 	include ./components/_subscribe
 
-	section.sale-slider-wrap.m-indent
+	section.catalog-slider-wrap.js-catalog-slider-wrap.m-indent
 		.container
 			.row
 				.col-12
-					.sale-slider-wrap__top
+					.catalog-slider-wrap__top
 						h2 Товары в наличии
 
 						.slider-arr-list
-							.swiper-button-prev.slider-arr.js-sale-slider-prev
+							.swiper-button-prev.slider-arr.js-catalog-slider-prev
 								+svg('ic-arr-left','ic-arr-left', '13', '23')
 							
-							.swiper-button-next.slider-arr.js-sale-slider-next
+							.swiper-button-next.slider-arr.js-catalog-slider-next
 								+svg('ic-arr-right','ic-arr-right', '13', '23')
 					
 
-					.sale-slider.js-sale-slider
+					.swiper.hits-slider.js-catalog-slider
 						.swiper-wrapper
 							-
 								var list=[
-									{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
-									{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
-									{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
-									{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
-									{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
-									{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
-									{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
 								]
 							each item in list
 								.swiper-slide.catalog-item
 									.stickers
-										if(item.sale)
-											.stickers__item.stickers__item_green sale
+										if(item.new)
+											.stickers__item.stickers__item_purple new
 											
-										if(item.rustore)
-											.stickers__item.stickers__item_small БЕЗ RUSTORE
+										if(item.hit)
+											.stickers__item.stickers__item_orange hit
 
 									.catalog-item-actions
 										.catalog-item-actions__item
@@ -496,28 +498,16 @@ block body
 												img(src="/upload/"+item.img, alt="")
 
 									.catalog-item__content
-										.catalog-item__status.d-md-none= item.status
-
-										.catalog-item__info
-											.catalog-item__price-wrap
-												span.catalog-item__price= item.price
-													| &#8381;
-												| 
-												span.catalog-item__old-price= item.old_price
-
-											.catalog-item__status= item.status
-
 										.catalog-item__title
 											a(href="#")= item.title
 
 									.catalog-item__btn
-										a(href="#").btn Купить
-										a(href="#").btn.btn_border Купить в 1 клик
+										a(href="#").btn Под заказ
 
 									.catalog-item-params
 										-
 											var params=[
-												{label:'Операционная система:', val:'iOS 15'},
+												{label:'Операционная система:', val:'Android'},
 												{label:'Сим-карта:', val:'Nano-SIM + eSIM'},
 												{label:'Объем встроенной памяти:', val:'128 Гб'},
 											]
@@ -525,7 +515,7 @@ block body
 											.catalog-item-params__item
 												span.catalog-item-params__label= param.label
 												span.catalog-item-params__val= param.val
-
+	
 	include ./components/_form-page
 
 	include ./components/_main-tags

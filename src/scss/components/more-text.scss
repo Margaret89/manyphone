@@ -16,6 +16,17 @@
 
 		&.visible{display: inline-flex;}
 	}
+
+	&__link{
+		text-decoration: underline;
+		cursor: pointer;
+		transition: all 0.2s ease;
+
+		&:hover{
+			text-decoration: none;
+			color: var(--color-primary);
+		}
+	}
 }
 
 @media (max-width: 767px) {

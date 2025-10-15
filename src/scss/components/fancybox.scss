@@ -1,0 +1,15 @@
+/*-------------- fancybox -----------------*/
+body .f-html{
+	background: #F3F3F5;
+	border-radius: 20px;
+	padding: 50px;
+}
+
+body .f-button.is-close-button{
+	top: 25px;
+	right: 25px;
+
+	svg{color: #494949;}
+}
+
+body .fancybox__backdrop{background: rgba(0,0,0,0.8);}

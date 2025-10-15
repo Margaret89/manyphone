@@ -1,12 +1,15 @@
 /*-------------- swiper -----------------*/
+body .swiper{display: none!important;}
+body .swiper.swiper-initialized{display: block!important;}
+
 .slider-arr-list{
 	display: inline-flex;
 	align-items: center;
 	gap: 24px;
 }
 
-.swiper-button-prev.slider-arr,
-.swiper-button-next.slider-arr{
+body .swiper-button-prev.slider-arr,
+body .swiper-button-next.slider-arr{
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
@@ -25,6 +28,7 @@
 	text-decoration: none;
 	position: static;
 	margin: 0;
+	transform: none;
 
 	svg{
 		width: auto;
@@ -72,10 +76,10 @@ body .swiper-pagination{
 }
 
 @media (max-width: 767px) {
-	.slider-arr-list{gap: 12px;}
+	.slider-arr-list{gap: 10px;}
 
-	.swiper-button-prev.slider-arr,
-	.swiper-button-next.slider-arr{
+	body .swiper-button-prev.slider-arr,
+	body .swiper-button-next.slider-arr{
 		width: 32px;
 		height: 32px;
 

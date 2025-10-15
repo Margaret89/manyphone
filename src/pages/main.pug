@@ -78,22 +78,22 @@ block body
 									.popular-slider__img
 										img(src="/upload/"+item.img, alt="")
 
-	section.hits-slider-wrap.m-indent
+	section.catalog-slider-wrap.js-catalog-slider-wrap.m-indent
 		.container
 			.row
 				.col-12
-					.hits-slider-wrap__top
+					.catalog-slider-wrap__top
 						h2 Хиты продаж
 
 						.slider-arr-list
-							.swiper-button-prev.slider-arr.js-hits-slider-prev
+							.swiper-button-prev.slider-arr.js-catalog-slider-prev
 								+svg('ic-arr-left','ic-arr-left', '13', '23')
 							
-							.swiper-button-next.slider-arr.js-hits-slider-next
+							.swiper-button-next.slider-arr.js-catalog-slider-next
 								+svg('ic-arr-right','ic-arr-right', '13', '23')
 					
 
-					.swiper.hits-slider.js-hits-slider
+					.swiper.hits-slider.js-catalog-slider
 						.swiper-wrapper
 							-
 								var list=[
@@ -146,23 +146,23 @@ block body
 											.catalog-item-params__item
 												span.catalog-item-params__label= param.label
 												span.catalog-item-params__val= param.val
-		
-	section.sale-slider-wrap.m-indent
+
+	section.catalog-slider-wrap.js-catalog-slider-wrap.m-indent
 		.container
 			.row
 				.col-12
-					.sale-slider-wrap__top
+					.catalog-slider-wrap__top
 						h2 Распродажа
 
 						.slider-arr-list
-							.swiper-button-prev.slider-arr.js-sale-slider-prev
+							.swiper-button-prev.slider-arr.js-catalog-slider-prev
 								+svg('ic-arr-left','ic-arr-left', '13', '23')
 							
-							.swiper-button-next.slider-arr.js-sale-slider-next
+							.swiper-button-next.slider-arr.js-catalog-slider-next
 								+svg('ic-arr-right','ic-arr-right', '13', '23')
 					
 
-					.sale-slider.js-sale-slider
+					.catalog-slider.js-catalog-slider
 						.swiper-wrapper
 							-
 								var list=[

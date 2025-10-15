@@ -1,0 +1,811 @@
+extends tmpl/_layout
+
+block vars
+	- var pageId = 'catalog-element'
+	-
+		var breadcrumbs=[
+			{href:'/',name:'Магазин электроники'},
+			{href:'#',name:'Каталог'},
+			{href:'#',name:'iPhone 16 Plus'},
+			{href:'#',name:'iPhone 16 Plus 256Gb Black Dual SiM'},
+		];
+
+block body
+	section.catalog-detail
+		.container
+			.row
+				.col-12
+					.catalog-detail__top
+						.catalog-detail__head.d-lg-none
+							h1 iPhone 16 Plus 256Gb Black/Черный Dual SiM
+
+							.catalog-detail__status В наличии
+
+						.catalog-detail__slider
+							.prod-detail-slider-wrap
+								.prod-detail-slider-wrap__loupe
+
+								.stickers.stickers_big
+									.stickers__item.stickers__item_small БЕЗ RUSTORE
+
+								.swiper.prod-detail-slider.js-prod-detail-slider
+									.swiper-wrapper
+										-
+											var list=[
+												{img:'catalog-big1.jpg'},
+												{img:'catalog-big2.jpg'},
+												{img:'catalog-big3.jpg'},
+												{img:'catalog-big4.jpg'},
+												{img:'catalog-big5.jpg'},
+												{img:'catalog-big1.jpg'},
+												{img:'catalog-big2.jpg'},
+												{img:'catalog-big3.jpg'},
+												{img:'catalog-big4.jpg'},
+												{img:'catalog-big5.jpg'},
+											]
+										each item in list
+											.swiper-slide.prod-detail-slider__item
+												.prod-detail-slider__content
+													a.prod-detail-slider__link(href="/upload/"+item.img, data-fancybox='images')
+														img(src="/upload/"+item.img, alt="")
+
+									.swiper-pagination.js-prod-detail-slider-pager
+
+								.prod-detail-thumb-slider-wrap
+									.swiper.prod-detail-thumb-slider.js-prod-detail-thumb-slider
+										.swiper-wrapper
+											-
+												var list=[
+													{img:'catalog-big1.jpg'},
+													{img:'catalog-big2.jpg'},
+													{img:'catalog-big3.jpg'},
+													{img:'catalog-big4.jpg'},
+													{img:'catalog-big5.jpg'},
+													{img:'catalog-big1.jpg'},
+													{img:'catalog-big2.jpg'},
+													{img:'catalog-big3.jpg'},
+													{img:'catalog-big4.jpg'},
+													{img:'catalog-big5.jpg'},
+												]
+											each item in list
+												.swiper-slide.prod-detail-thumb-slider__item
+													.prod-detail-thumb-slider__img-wrap
+														.prod-detail-thumb-slider__img
+															img(src="/upload/"+item.img, alt="")
+
+									.swiper-button-prev.js-prod-detail-thumb-slider-prev
+										+svg('ic-arr-left','ic-arr-left', '13', '23')
+									
+									.swiper-button-next.js-prod-detail-thumb-slider-next
+										+svg('ic-arr-right','ic-arr-right', '13', '23')
+
+							.share.d-none.d-md-flex
+								.share__label Поделиться:
+
+								.share__list
+									a(href="#").share__item.share__item_msg
+										+svg('ic-msg','ic-msg', '14', '14')
+
+									a(href="#").share__item.share__item_vk
+										+svg('ic-vk','ic-vk', '14', '9')
+
+									a(href="#").share__item.share__item_ok
+										+svg('ic-ok','ic-ok', '10', '14')
+
+									a(href="#").share__item
+										+svg('ic-dots','ic-dots', '14', '4')
+
+						.catalog-detail__main
+							h1.d-none.d-lg-block iPhone 16 Plus 256Gb Black/Черный Dual SiM
+
+							.catalog-detail__status.d-none.d-lg-inline-flex В наличии
+
+							.offers-wrap
+								.offer-item
+									.offer-item__label Встроенная память
+
+									.offer-val
+										-
+											var list=[
+												{text:'128 Gb', status:'active'},
+												{text:'256 Gb'},
+												{text:'512 Gb'},
+											]
+										each item in list
+											.offer-val__item(class=item.status?'active':'')= item.text
+
+								.offer-item
+									.offer-item__label Цвет
+
+									.offer-color
+										-
+											var list=[
+												{color:'#F47578'},
+												{color:'#056BA9'},
+												{color:'#93DC68'},
+												{color:'#F9F9F9', status:'active'},
+												{color:'#000'},
+												{color:'#FC0505'},
+											]
+										each item in list
+											.offer-color__item(class=item.status?'active':'', style="background:"+item.color)
+
+								.rating
+									.rating__content(style="width: 60%")
+
+							.catalog-params
+								-
+									var params=[
+										{label:'Цвет', val:'Черный'},
+										{label:'Операционная система', val:'iOS 18'},
+										{label:'Сим-карта', val:'nano-SIM + eSIM'},
+										{label:'Объем встроенной памяти', val:'256 Гб'},
+										{label:'Объем оперативной памяти', val:'6 Гб'},
+									]
+								each param in params
+									.catalog-params__item
+										span.catalog-params__label
+											span.catalog-params__label-text= param.label
+										span.catalog-params__val
+											span.catalog-params__val-text= param.val
+
+								a(href="props").catalog-params__more.js-link-move Все характеристики
+
+							.add-services
+								.add-services__title Дополнительные услуги:
+								
+								-
+									var list=[
+										{text:'Настройка и перенос данных на новый iPhone'},
+										{text:'Установка защитного стекла'},
+										{text:'Подключение к Apple iCloud'},
+										{text:'Гарантийное расширение / AppleCare'},
+									]
+								each item in list
+									.add-services__item= item.text
+
+							a(href="#").btn.btn_border.btn_big Посмотреть все товары Apple
+
+						.catalog-detail__info
+							.catalog-detail__buy
+								.catalog-detail__price-wrap
+									span.catalog-detail__price 82 250 &#8381;
+									span.catalog-detail__old-price 90 475 &#8381;
+
+								.coupon-info
+									.coupon-info__title Промокод на скидку 10%! 🏷️
+									.coupon-info__text Получите скидку при оплате наличными. Введите промокод “iZABERY” в корзине при оформлении заказа.
+
+								.catalog-detail__btn
+									a(href="#").btn.btn_big В корзину
+									a(href="#").btn.btn_border.btn_big Купить в 1 клик
+
+							.catalog-info
+								.catalog-info__item
+									.catalog-info__title Доставка
+
+									.catalog-info__text
+										|Доставка по г. Москва от 490 руб.
+										br
+										|Самовывоз: г. Москва, ул.Багратионовский проезд, д.7к2, ДЦ Рубин
+
+								.catalog-info__item
+									.catalog-info__title Оплата
+
+									.catalog-info__text
+										|Наличными
+										br
+										|Банковской картой на сайте (Яндекс.Пэй,Модульбанк)
+
+							.note
+								.note__title *RuStore и программы для ЭВМ, определенные законодательством РФ, не установлены
+								.note__text Сообщаем, что на устройствах марки Apple отсутствует предустановленное приложение RuStore, а также иные программы, перечисленные в Распоряжении Правительства РФ от 25.07.2024 № 1972-р. Кроме того, в настоящее время техническая возможность их установки отсутствует.
+
+					.set
+						.set__title
+							|Вместе 
+							br
+							|дешевле
+
+						.set__content
+							.set__list
+								-
+									var list=[
+										{img:'set-product1.png', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь', price:'82 250'},
+										{img:'set-product2.png', title:'Чехол защитный Mag Case для iPhone 16 Pro Max, усиленный, прозрачный', price:'600'},
+										{img:'set-product2.png', title:'Чехол защитный Mag Case для iPhone 16 Pro Max, усиленный, прозрачный', price:'600'},
+									]
+								each item in list
+									.set-item
+										a(href="#").set-item__img-wrap
+											.set-item__img-content
+												.set-item__img
+													img(src="/upload/"+item.img, alt="")
+										
+										.set-item__title
+											a(href="#")= item.title
+
+										.set-item__price= item.price
+											| &#8381;
+
+							.set-result
+								.set-result__top
+									.set-result__label Выгода
+									.set-result__price 1500 &#8381;
+
+								.set-result__bottom
+									.set-result__label За комплект
+									.set-result__price-wrap
+										span.set-result__price 82 250 &#8381;
+										span.set-result__old-price 82 850 &#8381;
+
+								.set-result__btn
+									a(href="#").btn.btn_big Купить
+
+		.catalog-detail-desc
+			.container
+				.row
+					.col-12
+						.catalog-detail-desc__content
+							.row
+								.col-md-7.col-lg-6
+									.catalog-detail-desc__info
+										h2 Описание
+
+										.more-text.js-more-text
+											.more-text__content.js-more-text-content(data-max-lines="10")
+												p Обращаем ваше внимание, что российский магазин приложений RuStore не предустановлен на телефонах Apple iPhone.
+												p Phone 16 Plus - мощный, безопасный, автономный
+													br
+													|Первый iPhone, созданный для Apple Intelligence. iPhone 16 Plus оснащен совершенно новым чипом A18, Camera Control, усовершенствованной системой камер, кнопкой Action для быстрого доступа к полезным функциям и аккумулятором с большим сроком службы.
+													
+												p Создан для Apple Intelligence
+													br
+													|iPhone 16 Plus создан для Apple Intelligence, персональной интеллектуальной системы, которая поможет написать письма, выразить свою индивидуальность и выполнять задачи без усилий. Благодаря новой системе защиты конфиденциальности вы можете быть уверены, что никто другой не сможет получить доступ к вашим данным — даже Apple.
+
+											span.more-text__link.js-more-text-btn(data-text="Свернуть") Показать еще
+									
+								.col-md-5.col-lg-6
+									.catalog-detail-desc__img
+										img(src="/upload/catalog-about.jpg", alt="")
+
+		.catalog-props-wrap(id="props")
+			.container
+				.row
+					.col-12
+						.catalog-props-wrap__content
+							.catalog-props-wrap__title
+								h2 О модели
+							
+							.tabs-page.js-tabs-page
+								.tabs-page__top
+									.tabs-page__arr.js-tabs-page-arr-prev
+										+svg('ic-arr-left','ic-arr-left', '5', '9')
+
+									ul.tabs-page__list.js-tabs-page-list
+										li.tabs-page__item.js-tabs-page-item(data-item='tab-all-props') Общие
+										li.tabs-page__item.js-tabs-page-item(data-item='tab-screen') Экран
+										li.tabs-page__item.js-tabs-page-item(data-item='tab-camera') Камера
+										li.tabs-page__item.js-tabs-page-item(data-item='tab-rec-video') Запись видео
+										li.tabs-page__item.js-tabs-page-item(data-item='tab-conect') Связь
+										li.tabs-page__item.js-tabs-page-item(data-item='tab-member') Память и процессор
+										li.tabs-page__item.js-tabs-page-item(data-item='tab-other') Другое
+
+									.tabs-page__arr.js-tabs-page-arr-next
+										+svg('ic-arr-right','ic-arr-right', '5', '9')
+
+								.tabs-page__content.js-tabs-page-content
+									#tab-all-props.tabs-page__content-item.js-tabs-page-content-item
+										.tabs-page__desc-item.js-tabs-page-desc-item
+											.catalog-props
+												-
+													var list=[
+														{label:'Тип', val:'смартфон'},
+														{label:'Операционная система', val:'iOS 17'},
+														{label:'Тип корпуса', val:'классический'},
+														{label:'Конструкция', val:'класс защиты IP68'},
+														{label:'Материал корпуса', val:'стекло, керамика, титан, алюминий'},
+														{label:'Тип SIM-карты', val:'Nano Sim + eSIM '},
+														{label:'Приложение RuStore', val:'Не предустановлено'},
+														{label:'Вес', val:'221 г'},
+														{label:'Размеры', val:'159.9x76.7x8.25 мм'},
+														{label:'Тип', val:'смартфон'},
+														{label:'Операционная система', val:'iOS 17'},
+														{label:'Тип корпуса', val:'классический'},
+														{label:'Конструкция', val:'класс защиты IP68'},
+														{label:'Материал корпуса', val:'стекло, керамика, титан, алюминий'},
+														{label:'Тип SIM-карты', val:'Nano Sim + eSIM '},
+														{label:'Приложение RuStore', val:'Не предустановлено'},
+														{label:'Вес', val:'221 г'},
+														{label:'Размеры', val:'159.9x76.7x8.25 мм'},
+													]
+												each item in list
+													.catalog-props__item
+														.catalog-props__label= item.label
+														.catalog-props__val= item.val
+											
+									#tab-screen.tabs-page__content-item.js-tabs-page-content-item
+										.tabs-page__desc-item.js-tabs-page-desc-item
+											| Текст
+
+									#tab-camera.tabs-page__content-item.js-tabs-page-content-item
+										.tabs-page__desc-item.js-tabs-page-desc-item
+											| Текст
+
+									#tab-rec-video.tabs-page__content-item.js-tabs-page-content-item
+										.tabs-page__desc-item.js-tabs-page-desc-item
+											| Текст
+
+									#tab-conect.tabs-page__content-item.js-tabs-page-content-item
+										.tabs-page__desc-item.js-tabs-page-desc-item
+											| Текст
+									#tab-member.tabs-page__content-item.js-tabs-page-content-item
+										.tabs-page__desc-item.js-tabs-page-desc-item
+											| Текст
+
+									#tab-other.tabs-page__content-item.js-tabs-page-content-item
+										.tabs-page__desc-item.js-tabs-page-desc-item
+											| Текст
+		
+		.reviews-wrap
+			.container
+				.row
+					.col-12
+						.reviews-wrap__content
+							.reviews-wrap__info
+								h2 Отзывы
+								p Оставьте свой отзыв об этом товаре
+
+								a(href="#", data-fancybox, data-src="#reviews").btn Оставить отзыв
+							
+							.reviews-wrap__slider
+								.swiper.reviews-slider.js-reviews-slider
+									.swiper-wrapper
+										-
+											var list=[
+												{letter:'В', name:'Василий', date:'04.05.2025', rating:'5.0', plus:'Лучший смартфон от Apple, наравне с 16 pro max', minus:'Дорого', comment:'После samsung a55 это просто ракета'},
+												{letter:'П', name:'Петр', date:'21.10.2024', rating:'5.0', plus:'отличный телефон за свою цену отлично держит зарядку', minus:'их просто нет тел пушка', comment:'куплю такой второй скоро'},
+												{letter:'В', name:'Василий', date:'04.05.2025', rating:'5.0', plus:'Лучший смартфон от Apple, наравне с 16 pro max', minus:'Дорого', comment:'После samsung a55 это просто ракета'},
+												{letter:'П', name:'Петр', date:'21.10.2024', rating:'5.0', plus:'отличный телефон за свою цену отлично держит зарядку', minus:'их просто нет тел пушка', comment:'куплю такой второй скоро'},
+												{letter:'В', name:'Василий', date:'04.05.2025', rating:'5.0', plus:'Лучший смартфон от Apple, наравне с 16 pro max', minus:'Дорого', comment:'После samsung a55 это просто ракета'},
+												{letter:'П', name:'Петр', date:'21.10.2024', rating:'5.0', plus:'отличный телефон за свою цену отлично держит зарядку', minus:'их просто нет тел пушка', comment:'куплю такой второй скоро'},
+												{letter:'В', name:'Василий', date:'04.05.2025', rating:'5.0', plus:'Лучший смартфон от Apple, наравне с 16 pro max', minus:'Дорого', comment:'После samsung a55 это просто ракета'},
+												{letter:'П', name:'Петр', date:'21.10.2024', rating:'5.0', plus:'отличный телефон за свою цену отлично держит зарядку', minus:'их просто нет тел пушка', comment:'куплю такой второй скоро'},
+												{letter:'В', name:'Василий', date:'04.05.2025', rating:'5.0', plus:'Лучший смартфон от Apple, наравне с 16 pro max', minus:'Дорого', comment:'После samsung a55 это просто ракета'},
+												{letter:'П', name:'Петр', date:'21.10.2024', rating:'5.0', plus:'отличный телефон за свою цену отлично держит зарядку', minus:'их просто нет тел пушка', comment:'куплю такой второй скоро'},
+											]
+										each item in list
+											.swiper-slide.review-item
+												.review-item__top
+													.review-item__author
+														.review-item__ava= item.letter
+
+														.review-item__info
+															.review-item__name= item.name
+															.review-item__date= item.date
+
+													.score
+														.score__icon
+															+svg('ic-star','ic-star', '28', '28')
+
+														.score__val= item.rating
+
+												.review-item__content
+													.review-item__param
+														.review-item__label Достоинства:
+														.review-item__val= item.plus
+
+													.review-item__param
+														.review-item__label Недостатки:
+														.review-item__val= item.minus
+
+													.review-item__param
+														.review-item__label Комментарий:
+														.review-item__val= item.comment
+
+									.swiper-pagination.js-reviews-slider-pager.d-none.d-md-flex
+
+									.slider-arr-list.d-md-none
+										.swiper-button-prev.slider-arr.js-reviews-slider-prev
+											+svg('ic-arr-left','ic-arr-left', '13', '23')
+										
+										.swiper-button-next.slider-arr.js-reviews-slider-next
+											+svg('ic-arr-right','ic-arr-right', '13', '23')
+
+		.reception-wrap
+			.container
+				.row
+					.col-12
+						.reception-wrap__content
+							.reception-wrap__title
+								h2 Получение
+							
+							.tabs-page.js-tabs-page
+								.tabs-page__top
+									.tabs-page__arr.js-tabs-page-arr-prev
+										+svg('ic-arrow-left','ic-arrow-left', '10', '20')
+
+									ul.tabs-page__list.js-tabs-page-list
+										li.tabs-page__item.js-tabs-page-item(data-item='tab-delivery') Доставка
+										li.tabs-page__item.js-tabs-page-item(data-item='tab-pay') Оплата
+										li.tabs-page__item.js-tabs-page-item(data-item='tab-pickup') Самовывоз
+										li.tabs-page__item.js-tabs-page-item(data-item='tab-guarantee') Гарантия
+
+									.tabs-page__arr.js-tabs-page-arr-next
+										+svg('ic-arrow-right','ic-arrow-right', '10', '20')
+
+								.tabs-page__content.js-tabs-page-content
+									#tab-delivery.tabs-page__content-item.js-tabs-page-content-item
+										.tabs-page__desc-item.js-tabs-page-desc-item
+											.tabs-page.tabs-page_light.js-tabs-page
+												.tabs-page__top
+													.tabs-page__arr.js-tabs-page-arr-prev
+														+svg('ic-arrow-left','ic-arrow-left', '10', '20')
+
+													ul.tabs-page__list.js-tabs-page-list
+														li.tabs-page__item.js-tabs-page-item(data-item='tab-mcad1') По Москве в пределах МКАД
+														li.tabs-page__item.js-tabs-page-item(data-item='tab-mcad2') По Москве в пределах МКАД
+
+													.tabs-page__arr.js-tabs-page-arr-next
+														+svg('ic-arrow-right','ic-arrow-right', '10', '20')
+
+												.tabs-page__content.js-tabs-page-content
+													#tab-mcad1.tabs-page__content-item.js-tabs-page-content-item
+														.tabs-page__desc-item.js-tabs-page-desc-item
+															.delivery-info-wrap
+																.delivery-info
+																	-
+																		var list=[
+																			{label:'Стоимость доставки:', val:'490 рублей'},
+																			{label:'Срок доставки:', val:'1 день'},
+																			{label:'Самовывоз:', val:'г. Москва, ул.Багратионовский проезд, д.7к2, ДЦ Рубин'},
+																		]
+																	each item in list
+																		.delivery-info__item
+																			.delivery-info__label= item.label
+																			.delivery-info__val= item.val
+
+																.delivery-info-wrap__text Сроки и возможность доставки согласовываются с менеджером после оформления заказа. Курьер доставит заказ по указанному адресу в выбранный вами интервал времени, предварительно оповестив вас за один час.
+														
+													#tab-mcad2.tabs-page__content-item.js-tabs-page-content-item
+														.tabs-page__desc-item.js-tabs-page-desc-item
+															| Текст
+
+													
+										
+									#tab-pay.tabs-page__content-item.js-tabs-page-content-item
+										.tabs-page__desc-item.js-tabs-page-desc-item
+											| Текст
+
+									#tab-pickup.tabs-page__content-item.js-tabs-page-content-item
+										.tabs-page__desc-item.js-tabs-page-desc-item
+											| Текст
+
+									#tab-guarantee.tabs-page__content-item.js-tabs-page-content-item
+										.tabs-page__desc-item.js-tabs-page-desc-item
+											| Текст
+		
+							.reception-wrap__img
+								img(src="/upload/car.png", alt="")
+
+	section.services-slider-wrap.m-indent
+		.container
+			.row
+				.col-12
+					.services-slider-wrap__top
+						h2 Услуги
+
+						.slider-arr-list
+							.swiper-button-prev.slider-arr.js-services-slider-prev
+								+svg('ic-arr-left','ic-arr-left', '13', '23')
+							
+							.swiper-button-next.slider-arr.js-services-slider-next
+								+svg('ic-arr-right','ic-arr-right', '13', '23')
+					
+
+					.swiper.services-slider.js-services-slider
+						.swiper-wrapper
+							-
+								var list=[
+									{img:'service1.jpg', title:'Перенос данных от 100gb до 150gb на iOS', price:'1 500'},
+									{img:'service2.jpg', title:'Установка приложений', price:'1 500'},
+									{img:'service3.jpg', title:'Установка защитного стекла', price:'1 500'},
+									{img:'service1.jpg', title:'Перенос данных от 100gb до 150gb на iOS', price:'1 500'},
+									{img:'service2.jpg', title:'Установка приложений', price:'1 500'},
+									{img:'service3.jpg', title:'Установка защитного стекла', price:'1 500'},
+									
+								]
+							each item in list
+								.swiper-slide.service-item
+									a(href="#").service-item__img-wrap
+										.service-item__img
+											img(src="/upload/"+item.img, alt="")
+									
+									.service-item__content
+										.service-item__title
+											a(href="#")= item.title
+
+										.service-item__price= item.price
+											| &#8381;
+
+										a(href="#").btn Купить
+										
+	section.catalog-slider-wrap.js-catalog-slider-wrap.m-indent
+		.container
+			.row
+				.col-12
+					.catalog-slider-wrap__top
+						h2 Новинки
+
+						.slider-arr-list
+							.swiper-button-prev.slider-arr.js-catalog-slider-prev
+								+svg('ic-arr-left','ic-arr-left', '13', '23')
+							
+							.swiper-button-next.slider-arr.js-catalog-slider-next
+								+svg('ic-arr-right','ic-arr-right', '13', '23')
+					
+
+					.swiper.hits-slider.js-catalog-slider
+						.swiper-wrapper
+							-
+								var list=[
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+								]
+							each item in list
+								.swiper-slide.catalog-item
+									.stickers
+										if(item.new)
+											.stickers__item.stickers__item_purple new
+											
+										if(item.hit)
+											.stickers__item.stickers__item_orange hit
+
+									.catalog-item-actions
+										.catalog-item-actions__item
+											+svg('ic-wish','ic-wish', '21', '18')
+
+										.catalog-item-actions__item
+											+svg('ic-compare','ic-compare', '12', '16')
+
+									a(href="#").catalog-item__img-wrap
+										.catalog-item__img-content
+											.catalog-item__img
+												img(src="/upload/"+item.img, alt="")
+
+									.catalog-item__content
+										.catalog-item__title
+											a(href="#")= item.title
+
+									.catalog-item__btn
+										a(href="#").btn Под заказ
+
+									.catalog-item-params
+										-
+											var params=[
+												{label:'Операционная система:', val:'Android'},
+												{label:'Сим-карта:', val:'Nano-SIM + eSIM'},
+												{label:'Объем встроенной памяти:', val:'128 Гб'},
+											]
+										each param in params
+											.catalog-item-params__item
+												span.catalog-item-params__label= param.label
+												span.catalog-item-params__val= param.val
+	
+	section.catalog-slider-wrap.js-catalog-slider-wrap.m-indent
+		.container
+			.row
+				.col-12
+					.catalog-slider-wrap__top
+						h2 Аксессуары
+
+						.slider-arr-list
+							.swiper-button-prev.slider-arr.js-catalog-slider-prev
+								+svg('ic-arr-left','ic-arr-left', '13', '23')
+							
+							.swiper-button-next.slider-arr.js-catalog-slider-next
+								+svg('ic-arr-right','ic-arr-right', '13', '23')
+					
+
+					.swiper.hits-slider.js-catalog-slider
+						.swiper-wrapper
+							-
+								var list=[
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+								]
+							each item in list
+								.swiper-slide.catalog-item
+									.stickers
+										if(item.new)
+											.stickers__item.stickers__item_purple new
+											
+										if(item.hit)
+											.stickers__item.stickers__item_orange hit
+
+									.catalog-item-actions
+										.catalog-item-actions__item
+											+svg('ic-wish','ic-wish', '21', '18')
+
+										.catalog-item-actions__item
+											+svg('ic-compare','ic-compare', '12', '16')
+
+									a(href="#").catalog-item__img-wrap
+										.catalog-item__img-content
+											.catalog-item__img
+												img(src="/upload/"+item.img, alt="")
+
+									.catalog-item__content
+										.catalog-item__title
+											a(href="#")= item.title
+
+									.catalog-item__btn
+										a(href="#").btn Под заказ
+
+									.catalog-item-params
+										-
+											var params=[
+												{label:'Операционная система:', val:'Android'},
+												{label:'Сим-карта:', val:'Nano-SIM + eSIM'},
+												{label:'Объем встроенной памяти:', val:'128 Гб'},
+											]
+										each param in params
+											.catalog-item-params__item
+												span.catalog-item-params__label= param.label
+												span.catalog-item-params__val= param.val
+	
+	section.catalog-slider-wrap.js-catalog-slider-wrap.m-indent
+		.container
+			.row
+				.col-12
+					.catalog-slider-wrap__top
+						h2 Похожие товары
+
+						.slider-arr-list
+							.swiper-button-prev.slider-arr.js-catalog-slider-prev
+								+svg('ic-arr-left','ic-arr-left', '13', '23')
+							
+							.swiper-button-next.slider-arr.js-catalog-slider-next
+								+svg('ic-arr-right','ic-arr-right', '13', '23')
+					
+
+					.swiper.hits-slider.js-catalog-slider
+						.swiper-wrapper
+							-
+								var list=[
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+								]
+							each item in list
+								.swiper-slide.catalog-item
+									.stickers
+										if(item.new)
+											.stickers__item.stickers__item_purple new
+											
+										if(item.hit)
+											.stickers__item.stickers__item_orange hit
+
+									.catalog-item-actions
+										.catalog-item-actions__item
+											+svg('ic-wish','ic-wish', '21', '18')
+
+										.catalog-item-actions__item
+											+svg('ic-compare','ic-compare', '12', '16')
+
+									a(href="#").catalog-item__img-wrap
+										.catalog-item__img-content
+											.catalog-item__img
+												img(src="/upload/"+item.img, alt="")
+
+									.catalog-item__content
+										.catalog-item__title
+											a(href="#")= item.title
+
+									.catalog-item__btn
+										a(href="#").btn Под заказ
+
+									.catalog-item-params
+										-
+											var params=[
+												{label:'Операционная система:', val:'Android'},
+												{label:'Сим-карта:', val:'Nano-SIM + eSIM'},
+												{label:'Объем встроенной памяти:', val:'128 Гб'},
+											]
+										each param in params
+											.catalog-item-params__item
+												span.catalog-item-params__label= param.label
+												span.catalog-item-params__val= param.val
+	
+	include ./components/_subscribe
+
+	section.catalog-slider-wrap.js-catalog-slider-wrap.m-indent
+		.container
+			.row
+				.col-12
+					.catalog-slider-wrap__top
+						h2 С этим товаром покупают
+
+						.slider-arr-list
+							.swiper-button-prev.slider-arr.js-catalog-slider-prev
+								+svg('ic-arr-left','ic-arr-left', '13', '23')
+							
+							.swiper-button-next.slider-arr.js-catalog-slider-next
+								+svg('ic-arr-right','ic-arr-right', '13', '23')
+					
+
+					.swiper.hits-slider.js-catalog-slider
+						.swiper-wrapper
+							-
+								var list=[
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+									{new:'true', hit:'true', img:'hit1.png', title:'Смартфон Samsung Galaxy S25 Ultra 12/1Tb Titanium Silverblue/Синий титан'},
+								]
+							each item in list
+								.swiper-slide.catalog-item
+									.stickers
+										if(item.new)
+											.stickers__item.stickers__item_purple new
+											
+										if(item.hit)
+											.stickers__item.stickers__item_orange hit
+
+									.catalog-item-actions
+										.catalog-item-actions__item
+											+svg('ic-wish','ic-wish', '21', '18')
+
+										.catalog-item-actions__item
+											+svg('ic-compare','ic-compare', '12', '16')
+
+									a(href="#").catalog-item__img-wrap
+										.catalog-item__img-content
+											.catalog-item__img
+												img(src="/upload/"+item.img, alt="")
+
+									.catalog-item__content
+										.catalog-item__title
+											a(href="#")= item.title
+
+									.catalog-item__btn
+										a(href="#").btn Под заказ
+
+									.catalog-item-params
+										-
+											var params=[
+												{label:'Операционная система:', val:'Android'},
+												{label:'Сим-карта:', val:'Nano-SIM + eSIM'},
+												{label:'Объем встроенной памяти:', val:'128 Гб'},
+											]
+										each param in params
+											.catalog-item-params__item
+												span.catalog-item-params__label= param.label
+												span.catalog-item-params__val= param.val
+	
+	include ./components/_main-tags
