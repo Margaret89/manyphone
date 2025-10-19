@@ -1,0 +1,61 @@
+/*-------------- benefit -----------------*/
+.benefit{
+	display: flex;
+	align-items: center;
+	gap: 30px;
+
+	&__label{
+		font-size: 1.4rem;
+		color: #000;
+	}
+
+	&__list{
+		display: flex;
+	}
+
+	&__item{
+		display: inline-flex;
+		align-items: center;
+		height: 4.2rem;
+		border: 1px solid #E0E0E0;
+		padding: 5px 30px;
+		margin-left: -1px;
+		font-size: 1.4rem;
+		color: #808080;
+		background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-primary) 49.9%, transparent 50%, transparent 100%);
+		background-size: 100% 200%;
+		background-position: 0 100%;
+		box-shadow: 0 0 0 0 #75BB0C;
+		transition: all 0.2s ease;
+		cursor: pointer;
+
+		&:first-child{border-radius: 2.1rem 0 0 2.1rem;}
+		&:last-child{border-radius: 0 2.1rem 2.1rem 0;}
+
+		&:hover{
+			background-position: 0 0;
+			border-color: var(--color-primary);
+			box-shadow: 1px 2px 0 0 #75BB0C;
+			color: #fff;
+			position: relative;
+			z-index: 2;
+			transform: translateY(-2px) translateX(-1px);
+		}
+	}
+}
+
+@media (max-width: 767px) {
+	.benefit{
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 10px;
+		width: 100%;
+
+		&__list{width: 100%;}
+
+		&__item{
+			justify-content: center;
+			width: 100%;
+		}
+	}
+}

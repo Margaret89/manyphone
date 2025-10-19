@@ -1,0 +1,136 @@
+extends tmpl/_layout
+
+block vars
+	- var pageId = 'about'
+	-
+		var breadcrumbs=[
+			{href:'/',name:'Магазин электроники'},
+			{href:'#',name:'О магазине'},
+		];
+
+block body
+	section.about.mb-indent
+		.container
+			.row
+				.col-xl-6.order-2.order-xl-3
+					.about__content
+						b Интернет-магазин ManyPhone 
+						|занимается продажами новейших моделей гаджетов от Apple и других мировых брендов-лидеров. В нашем каталоге вы найдете актуальные и популярные решения, а также эксклюзивы.
+						br
+						|За более чем 12 лет работы мы заслужили репутацию надежного и проверенного интернет-магазина электроники и бытовой техники. Нам доверяют более 100 тысяч покупателей из Москвы и других регионов России.
+
+				.col-xl-6.order-1.order-xl-2
+					.about__img
+						picture
+							source(srcset='/upload/about-mobile.jpg' media='(max-width: 767px)')
+							img(src="/upload/about.jpg", alt="")
+	
+	section.advant-wrap.m-indent
+		.container
+			.row
+				.col-12
+					h2 Почему именно мы?
+
+		.advant-list
+			.container
+				.row
+					-
+						var list=[
+							{icon:'comfort.svg', title:'Удобно', text:'Оформить заказ в интернет-магазине ManyPhone можно в пару кликов. Покупатель сам выбирает способы оплаты.'},
+							{icon:'quickly.svg', title:'Быстро', text:'Представленная в каталоге электроника всегда в наличии на складе. Благодаря этому мы быстро обрабатываем и выполняем заказы.'},
+							{icon:'person.svg', title:'Профессионально', text:'Наши менеджеры обладают высокой квалификацией и многолетним опытом работы. Предоставят вам экспертную помощь в подборе товара.'},
+							{icon:'hands.svg', title:'Выгодно', text:'Цены на электронику в нашем интернет-магазине ниже среднерыночных, поскольку мы отталкиваемся от мониторинга конкурентов.'},
+							{icon:'garantee.svg', title:'Надежно', text:'Компания ManyPhone является официальным партнером брендов-производителей. Обеспечиваем гарантийный сервис всей реализуемой продукции.'},
+							{icon:'delivery.svg', title:'Фирменная доставка', text:'У нас работает собственная курьерская служба, в течение 2–4 часов доставляющая заказы в пределах Москвы. Оплата курьеру по факту получения.'},
+						]
+					each item in list
+						.col-lg-6.col-xl-4
+							.advant-item
+								.advant-item__icon
+									img(src="/upload/"+item.icon, alt="")
+								
+								.advant-item__content
+									.advant-item__title= item.title
+									.advant-item__text= item.text
+
+	section.our-progress-wrap.m-indent
+		.container
+			.row
+				.col-12
+					h2 Наши достижения
+
+		.our-progress-list
+			.container
+				.row
+					-
+						var list=[
+							{num:'+7000', label:'Положительных отзывов'},
+							{num:'+12 лет', label:'Беспрерывной работы'},
+							{num:'+100 000', label:'Выполненных заказов'},
+						]
+					each item in list
+						.col-lg-4
+							.our-progress-item
+								.our-progress-item__num= item.num
+								.our-progress-item__label= item.label
+
+	section.partners-wrap.m-indent
+		.container
+			.row
+				.col-12
+					h2 Наши партнеры
+			
+			.row
+				.col-lg-4
+					p Мы сотрудничаем  с множеством мировых брендов, большая часть их продукции представлена в нашем магазине. Вы можете найти у нас такие бренды, как: Apple, Samsung, Xiaomi, Honor, Huawie, Google, Sony PlayStation, Dyson, Garmin, Dell Nintendo и многие другие.
+
+				.col-lg-7.offset-lg-1
+					.brands
+						-
+							var list=[
+								{img:'ciji.png'},
+								{img:'nintendo.png'},
+								{img:'apple.png'},
+								{img:'samsung.png'},
+								{img:'xiaomi.png'},
+								{img:'honor.png'},
+								{img:'dell.png'},
+								{img:'playstation.png'},
+								{img:'huawei.png'},
+								{img:'google.png'},
+								{img:'dyson.png'},
+								{img:'garmin.png'},
+							]
+						each item in list
+							.brands__item
+								img(src="/upload/"+item.img, alt="")
+								
+	section.requisites-wrap.m-indent
+		.container
+			.row
+				.col-12
+					h2 Наши реквизиты
+			
+					.requisites
+						-
+							var list=[
+								{label:'Название магазина:', val:'ManyPhone'},
+								{label:'Индивидуальный предприниматель:', val:'Галушкин Олег Борисович'},
+								{label:'ИНН:', val:'782704534027'},
+								{label:'ОГРН:', val:'319784700018041'},
+								{label:'Телефон:', val:'info@manyphone.ru'},
+								{label:'Р/с', val:'40802810655000101609'},
+								{label:'Банк', val:'СЕВЕРО-ЗАПАДНЫЙ БАНК ПАО СБЕРБАНК'},
+								{label:'К/с', val:'30101810500000000653'},
+								{label:'БИК', val:'044030653'},
+							]
+						each item in list
+							.requisites__item
+								.requisites__label= item.label
+								.requisites__val= item.val
+	
+	include ./components/_form-page
+
+	include ./components/_subscribe
+	
+	include ./components/_main-tags

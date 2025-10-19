@@ -1,0 +1,307 @@
+extends tmpl/_layout
+
+block vars
+	- var pageId = 'order'
+	-
+		var breadcrumbs=[
+			{href:'/',name:'Магазин электроники'},
+			{href:'#',name:'Моя корзина'},
+		];
+
+block body
+	section.order-page
+		.container
+			.row
+				.col-lg-8.col-xl-9
+					.order
+						.order__sect
+							.order__top
+								.order__title 1. Корзина
+							
+							.order__content
+								.basket-wrap
+									.basket-wrap__actions
+										label.input-check
+											input(type='checkbox')
+											span.input-check__mark
+												+svg('ic-check','ic-check', '12', '10')
+											span.input-check__text Выбрать все
+
+										a(href="#").basket-wrap__link Удалить все товары
+
+									.basket-list
+										.basket-item
+											label.input-check
+												input(type='checkbox')
+												span.input-check__mark
+													+svg('ic-check','ic-check', '12', '10')
+
+											a(href="#").basket-item__img-wrap
+												.basket-item__img-content
+													.basket-item__img
+														img(src="/upload/product-cart.png", alt="")
+
+											.basket-item__content
+												.basket-item__del
+													+svg('ic-close','ic-close', '18', '18')
+
+												.basket-item__top
+													.basket-item__title
+														a(href="#") iPhone 16 Pro Max 256Gb Black/Черный
+
+													.basket-props
+														.basket-props__item
+															span.basket-props__label Тип цены: 
+															span.basket-props__val Розничная цена
+
+												.basket-item__bottom
+													.basket-price
+														.basket-price__label Цена за штуку
+														.basket-price__val 82 250 &#8381;
+
+													.counter
+														.counter__toggle -
+
+														.counter__field
+															input(type="text", placeholder="1")
+
+														.counter__toggle.counter__toggle_dark +
+
+									.choose-services
+										.choose-services__top
+											.choose-services__title Дополнительные услуги:
+											a(href="#").choose-services__link Показать больше
+
+										.choose-services__list
+											-
+												var list=[
+													{title:'Настройка и перенос данных на новый iPhone', price:'1 500'},
+													{title:'Установка приложений,', price:'1 500'},
+													{title:'Установка защитного стекла', price:'1 500'},
+													{title:'Настройка и перенос данных на новый iPhone', price:'1 500'},
+												]
+											each item in list
+												.choose-service-item
+													label.input-check
+														input(type='checkbox')
+														span.input-check__mark
+															+svg('ic-check','ic-check', '12', '10')
+
+													.choose-service-item__content
+														.choose-service-item__title= item.title
+														.choose-service-item__price= item.price
+															| &#8381;
+									
+									.choose-accessories
+										.choose-accessories__top
+											.choose-accessories__title Аксессуары:
+											a(href="#").choose-accessories__link Показать больше
+
+										.choose-accessories__list
+											-
+												var list=[
+													{img:'accessor1.png', title:'Чехол защитный Mag Case для iPhone 16 Pro Max, усиленный, прозрачный', price:'3 000'},
+													{img:'accessor2.png', title:'Защитное стекло Apple iPhone 16 Pro Max Monblan 2.5D Anti Static 0.26mm Pravent Peeping Black', price:'1 500'},
+												]
+											each item in list
+												.choose-accessories-item
+													label.input-check
+														input(type='checkbox')
+														span.input-check__mark
+															+svg('ic-check','ic-check', '12', '10')
+
+													.choose-accessories-item__img-wrap
+														.choose-accessories-item__img-content
+															.choose-accessories-item__img
+																img(src="/upload/"+item.img, alt="")
+
+													.choose-accessories-item__content
+														.choose-accessories-item__title= item.title
+
+														.accessories-prop
+															.accessories-prop__item
+																span.accessories-prop__label Тип цены: 
+																span.accessories-prop__val Розничная цена
+
+														.choose-accessories-item__bottom
+															.choose-accessories-item__price= item.price
+																| &#8381;
+															.choose-accessories-item__status В наличии
+
+						.order__sect
+							.order__top
+								.order__title 2. Данные получателя
+								.order__link
+									a(href="#")
+										span.d-none.d-md-inline Войти в личный кабинет
+										span.d-md-none Войти
+							
+							.order__content
+								.tabs-page.tabs-page_cirle.js-tabs-page
+									.tabs-page__top
+										ul.tabs-page__list.js-tabs-page-list
+											li.tabs-page__item.js-tabs-page-item(data-item='natural') Физическое лицо
+											li.tabs-page__item.js-tabs-page-item(data-item='legal') Юридическое лицо
+
+									.tabs-page__content.js-tabs-page-content
+										#natural.tabs-page__content-item.js-tabs-page-content-item
+											.tabs-page__desc-item.js-tabs-page-desc-item
+												.form-order
+													.form-order__content
+														.form-order__item.js-form-site-item
+															.form-order__field
+																input(name="name", type="text", required="required", placeholder="Ваше имя *")
+
+														.form-order__item.js-form-site-item
+															.form-order__field
+																input(name="phone", type="text", required="required", placeholder="Телефон *", class="js-phone")
+
+														.form-order__item.js-form-site-item
+															.form-order__field
+																input(name="email", type="email", required="required", placeholder="E-mail *")
+
+														.form-order__item.js-form-site-item
+															.form-order__field
+																input(name="msg", type="text", placeholder="Комментарий")
+
+										#legal.tabs-page__content-item.js-tabs-page-content-item
+											.tabs-page__desc-item.js-tabs-page-desc-item
+												.form-order
+													.form-order__content
+														.form-order__item.js-form-site-item
+															.form-order__field
+																input(name="name", type="text", required="required", placeholder="Ваше имя *")
+
+														.form-order__item.js-form-site-item
+															.form-order__field
+																input(name="phone", type="text", required="required", placeholder="Телефон *", class="js-phone")
+
+														.form-order__item.js-form-site-item
+															.form-order__field
+																input(name="inn", type="text", placeholder="ИНН")
+
+														.form-order__item.js-form-site-item
+															.form-order__field
+																input(name="email", type="email", required="required", placeholder="E-mail *")
+
+														.form-order__item.js-form-site-item
+															.form-order__field
+																input(name="msg", type="text", placeholder="Комментарий")
+
+								.order__next
+									a(href="#").btn.btn_big Далее
+
+								.order-price
+									span.order-price__label К оплате:
+									span.order-price__val 82 250 &#8381;
+						
+						.order__sect
+							.order__top
+								.order__title 3. Доставка
+							
+							.order__content
+								.choose-delivery
+									.choose-delivery-item
+										label.input-radio
+											input(type='radio', name="delivery", checked="checked")
+											span.input-radio__mark
+
+										.choose-delivery-item__content
+											.choose-delivery-item__title Самовывоз
+
+											.choose-delivery-item__info
+												p Бесплатно
+												p Сегодня - завтра
+												p г. Москва, ул.Багратионовский проезд, д.7к2, ДЦ Рубин
+									
+									.choose-delivery-item
+										label.input-radio
+											input(type='radio', name="delivery")
+											span.input-radio__mark
+
+										.choose-delivery-item__content
+											.choose-delivery-item__title Доставка по г. Москва
+
+								.order__comment
+									input(name="msg-delivery", type="text", placeholder="Комментарий")
+
+								.order__next
+									a(href="#").btn.btn_big Далее
+
+								.order-price
+									span.order-price__label К оплате:
+									span.order-price__val 82 250 &#8381;
+						
+						.order__sect
+							.order__top
+								.order__title 4. Оплата
+							
+							.order__content
+								.choose-pay
+									label.input-radio
+										input(type='radio', name="pay", checked="checked")
+										span.input-radio__mark
+										span.input-radio__text Наличными
+
+									label.input-radio
+										input(type='radio', name="pay")
+										span.input-radio__mark
+										span.input-radio__text Банковской картой на сайте (Яндекс.Пэй,Модульбанк)
+									
+
+								.order-res
+									.order-res__item
+										.order-res__label 2 товара:
+										.order-res__val Оплата:
+
+									.order-res__item
+										.order-res__label 82 250 &#8381;
+										.order-res__val Наличными
+
+								.order__bottom
+									a(href="#").btn.btn_big Оформить
+									
+									.promo-code
+										input(type="text", name="promo-code", placeholder="Промокод *")
+								
+								.order-price
+									span.order-price__label К оплате:
+									span.order-price__val 82 250 &#8381;
+
+								.order__polit
+									label.input-check
+										input(type='checkbox', required="required", checked="checked")
+										span.input-check__mark
+											+svg('ic-check','ic-check', '12', '10')
+										span.input-check__text  Даю свое 
+											a(href="#") Согласие на обработку персональных данных 
+											| в соответствии с 
+											a(href="#") Политикой  конфиденциальности
+
+				.d-none.d-lg-block.col-lg-4.col-xl-3
+					.order-sidebar
+						.order-sidebar-res
+							.order-sidebar-res__label Общая сумма товаров:
+							.order-sidebar-res__price 82 250 &#8381;
+							.order-sidebar-res__old-price 90 475 &#8381;
+
+						.order-note
+							.order-note__item
+								.order-note__title Доставка
+
+								.order-note__text
+									|Доставка по г. Москва от 490 руб.
+									br
+									|Самовывоз: г. Москва, ул.Багратионовский проезд, д.7к2, ДЦ Рубин
+
+							.order-note__item
+								.order-note__title Оплата
+
+								.order-note__text
+									|Наличными
+									br
+									|Банковской картой на сайте (Яндекс.Пэй,Модульбанк)
+
+	include ./components/_subscribe
+
+	include ./components/_main-tags

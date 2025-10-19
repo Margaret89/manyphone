@@ -1,0 +1,72 @@
+extends tmpl/_layout
+
+block vars
+	- var pageId = 'delivery'
+	-
+		var breadcrumbs=[
+			{href:'/',name:'Магазин электроники'},
+			{href:'#',name:'Доставка'},
+		];
+
+block body
+	section.delivery-page.mb-indent
+		.container
+			.row
+				.col-12
+					.delivery-page-info
+						.delivery-page-info__content
+							p Мы осуществляем доставку по Москве в течении 2-4 часов после подтверждения заказа. Доставка по России осуществляется ТК СДЭК по полной предоплате.
+							
+							.tabs-page.tabs-page_light.js-tabs-page
+								.tabs-page__top
+									.tabs-page__arr.js-tabs-page-arr-prev
+										+svg('ic-arrow-left','ic-arrow-left', '10', '20')
+
+									ul.tabs-page__list.js-tabs-page-list
+										li.tabs-page__item.js-tabs-page-item(data-item='tab-mcad1') По Москве в пределах МКАД
+										li.tabs-page__item.js-tabs-page-item(data-item='tab-mcad2') По Москве в пределах МКАД
+
+									.tabs-page__arr.js-tabs-page-arr-next
+										+svg('ic-arrow-right','ic-arrow-right', '10', '20')
+
+								.tabs-page__content.js-tabs-page-content
+									#tab-mcad1.tabs-page__content-item.js-tabs-page-content-item
+										.tabs-page__desc-item.js-tabs-page-desc-item
+											.delivery-info-wrap
+												.delivery-info
+													-
+														var list=[
+															{label:'Стоимость доставки:', val:'490 рублей'},
+															{label:'Срок доставки:', val:'1 день'},
+															{label:'Самовывоз:', val:'г. Москва, ул.Багратионовский проезд, д.7к2, ДЦ Рубин'},
+														]
+													each item in list
+														.delivery-info__item
+															.delivery-info__label= item.label
+															.delivery-info__val= item.val
+
+												.delivery-info-wrap__text Точные сроки и возможность доставки согласовываются с менеджером после оформления заказа. Курьер доставит заказ по указанному адресу в выбранный вами интервал времени, предварительно оповестив вас за один час.
+										
+									#tab-mcad2.tabs-page__content-item.js-tabs-page-content-item
+										.tabs-page__desc-item.js-tabs-page-desc-item
+											| Текст
+						
+						.delivery-page-info__img
+							img(src="/upload/car-full.png", alt="")
+						
+				
+			.row
+				.col-12
+					.delivery-alert
+						.delivery-alert__img
+							img(src="/upload/present.png", alt="")
+
+						.delivery-alert__content
+							.delivery-alert__label Также вы можете оформить заказ на самовывоз по адресу:
+							.delivery-alert__val г. Москва, ул.Багратионовский проезд, д.7к2, ДЦ Рубин
+						
+	include ./components/_form-page
+
+	include ./components/_subscribe
+	
+	include ./components/_main-tags

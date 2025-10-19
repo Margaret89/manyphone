@@ -1,0 +1,72 @@
+/*-------------- about -----------------*/
+.payment-info{
+	height: 100%;
+	background: #F3F3F5;
+	border-radius: 20px;
+	padding: 40px 70px;
+	color: #000;
+
+	&__title{
+		font-size: 3.2rem;
+		font-weight: 800;
+		line-height: 1.2;
+		margin-bottom: 20px;
+	}
+
+	&__text{
+		font-size: 1.8rem;
+	}
+
+	&_dark{
+		background: var(--color-second);
+		color: #fff;
+	}
+
+	.payment-list{margin-top: 20px;}
+}
+
+.payment-list{
+	display: flex;
+	align-items: center;
+	gap: 15px;
+}
+
+.payment-contacts{
+	background: #F3F3F5;
+	border-radius: 20px;
+	padding: 20px;
+	text-align: center;
+	font-size: 2.5rem;
+	line-height: 1.25;
+
+	&__text{font-weight: 600;}
+	&__label{margin-top: 38px;}
+}
+
+@media (max-width: 1279px) {
+	.payment-info{padding: 30px;}
+}
+
+@media (max-width: 991px) {
+	.payment-info{
+		height: auto;
+		margin-bottom: 25px;
+	}
+
+	.payment-contacts{
+		margin-top: -25px;
+		font-size: 2rem;
+
+		&__label{margin-top: 20px;}
+	}
+}
+
+@media (max-width: 767px) {
+	.payment-info{
+		padding: 30px 20px;
+		&__title{font-size: 2rem;}
+		&__text{font-size: 1.4rem;}
+	}
+
+	.payment-contacts{font-size: 1.6rem;}
+}

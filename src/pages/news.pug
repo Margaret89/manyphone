@@ -1,0 +1,58 @@
+extends tmpl/_layout
+
+block vars
+	- var pageId = 'news'
+	-
+		var breadcrumbs=[
+			{href:'/',name:'Магазин электроники'},
+			{href:'#',name:'Блог'},
+		];
+
+block body
+	section.news
+		.container
+			.row
+				.col-12
+					.news-list
+						-
+							var list=[
+								{img:'main-news1.jpg', title:'В чем отличия iPhone 16 Pro и iPhone 15 Pro?', date:'25.12.2024', text:'В 2024 году Apple представил новый смартфон iPhone 16 Pro. При этом предыдущий флагман Айфон 15 Про был снят с производства...'},
+								{img:'main-news1.jpg', title:'В чем отличия iPhone 16 Pro и iPhone 15 Pro?', date:'25.12.2024', text:'В 2024 году Apple представил новый смартфон iPhone 16 Pro. При этом предыдущий флагман Айфон 15 Про был снят с производства...'},
+								{img:'main-news2.jpg', title:'Что делать, если айфон тормозит', date:'25.12.2024', text:'В 2024 году Apple представил...'},
+								{img:'main-news3.jpg', title:'Что делать, если айфон тормозит', date:'25.12.2024', text:'В 2024 году Apple представил...'},
+								{img:'main-news4.jpg', title:'Что делать, если айфон тормозит', date:'25.12.2024', text:'В 2024 году Apple представил...'},
+								{img:'main-news1.jpg', title:'В чем отличия iPhone 16 Pro и iPhone 15 Pro?', date:'25.12.2024', text:'В 2024 году Apple представил новый смартфон iPhone 16 Pro. При этом предыдущий флагман Айфон 15 Про был снят с производства...'},
+								{img:'main-news1.jpg', title:'В чем отличия iPhone 16 Pro и iPhone 15 Pro?', date:'25.12.2024', text:'В 2024 году Apple представил новый смартфон iPhone 16 Pro. При этом предыдущий флагман Айфон 15 Про был снят с производства...'},
+								{img:'main-news1.jpg', title:'В чем отличия iPhone 16 Pro и iPhone 15 Pro?', date:'25.12.2024', text:'В 2024 году Apple представил новый смартфон iPhone 16 Pro. При этом предыдущий флагман Айфон 15 Про был снят с производства...'},
+							]
+						each item, index in list
+							.news-item
+								.news-item__bg(style="background-image: url(/upload/"+item.img+")")
+
+								.news-item__wrap
+									.news-item__content
+										.news-item__title= item.title
+										.news-item__date= item.date
+
+										.news-item__info
+											.news-item__text= item.text
+
+											a(href="#").news-item__link Читать далее
+
+					.pager
+							a.pager__arr.disable
+								+svg('ic-arr-left','ic-arr-left', '6', '10')
+
+							a.pager__item.active(href='#') 1
+							a.pager__item(href='#') 2
+							a.pager__item(href='#') 3
+							a.pager__item(href='#') 4
+							a.pager__item(href='#') 9
+							
+							a.pager__arr
+								+svg('ic-arr-right','ic-arr-right', '6', '10')
+
+		
+	include ./components/_subscribe
+	
+	include ./components/_main-tags

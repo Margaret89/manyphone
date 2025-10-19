@@ -1,0 +1,26 @@
+/*-------------- cookie-popup -----------------*/
+.cookie-popup{
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	width: 1172px;
+	max-width: calc(100% - 30px);
+	background: var(--color-second);
+	border-radius: 8px;
+	padding: 18px 12px;
+	color: #fff;
+	position: fixed;
+	bottom: 15px;
+	left: 0;
+	right: 0;
+	z-index: 1000;
+	margin: 0 auto;
+
+	&__text{
+		font-size: 1.2rem;
+		font-weight: 500;
+		line-height: 1.6;
+	}
+
+	.btn{flex-shrink: 0;}
+}

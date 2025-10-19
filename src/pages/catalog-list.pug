@@ -1,7 +1,7 @@
 extends tmpl/_layout
 
 block vars
-	- var pageId = 'catalog'
+	- var pageId = 'catalog-list'
 	- var bgPage = 'grey'
 	-
 		var breadcrumbs=[
@@ -329,122 +329,88 @@ block body
 									+svg('ic-filter','ic-filter', '28', '24')
 
 						.catalog-section-page__content
-							.catalog-sect
+							.catalog-list
 								-
 									var list=[
-										{img:'sect1.jpg', text:'iPhone 16 Pro Max'},
-										{img:'sect1.jpg', text:'iPhone 16 Pro'},
-										{img:'sect2.jpg', text:'iPhone 16 Plus'},
-										{img:'sect2.jpg', text:'iPhone 16'},
-										{img:'sect3.jpg', text:'iPhone 16e'},
-										{img:'sect4.jpg', text:'iPhone 15 Pro Max'},
-										{img:'sect4.jpg', text:'iPhone 15 Pro'},
-										{img:'sect5.jpg', text:'iPhone 15 plus'},
-										{img:'sect5.jpg', text:'iPhone 15'},
-										{img:'sect6.jpg', text:'iPhone 14 Pro Max'},
-										{img:'sect6.jpg', text:'iPhone 14 Pro'},
-										{img:'sect7.jpg', text:'iPhone 14'},
-										{img:'sect7.jpg', text:'iPhone 14 Plus'},
-										{img:'sect8.jpg', text:'IPhone SE 2022'},
-										{img:'sect9.jpg', text:'iPhone 13 Pro Max'},
-										{img:'sect9.jpg', text:'iPhone 13 Pro'},
-										{img:'sect10.jpg', text:'iPhone 13'},
-										{img:'sect10.jpg', text:'iPhone 13 mini'},
-										{img:'sect11.jpg', text:'iPhone 11'},
-										{img:'sect12.jpg', text:'Аксессуары'},
-										{img:'empty.jpg', text:'iPhone SE 2020'},
+										{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+										{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+										{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+										{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+										{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+										{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+										{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
+										{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
 									]
 								each item in list
-									.catalog-sect__item
-										a(href="#").catalog-sect__img-wrap
-											.catalog-sect__img
-												img(src="/upload/"+item.img, alt="")
+									.catalog-item
+										.stickers
+											if(item.sale)
+												.stickers__item.stickers__item_green sale
+												
+											if(item.rustore)
+												.stickers__item.stickers__item_small БЕЗ RUSTORE
 
-										.catalog-sect__title
-											a(href="#")= item.text
+										.catalog-item-actions
+											.catalog-item-actions__item
+												+svg('ic-wish','ic-wish', '21', '18')
 
-					.catalog-list
-						-
-							var list=[
-								{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
-								{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
-								{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
-								{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
-								{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
-								{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
-								{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
-								{sale:'true', rustore:'true', img:'sale-product1.png', price:'38 750', old_price:'48 750', status:'В наличии', title:'Смартфон Apple iPhone 13 128Gb Midnight/Темная Ночь'},
-							]
-						each item in list
-							.catalog-item
-								.stickers
-									if(item.sale)
-										.stickers__item.stickers__item_green sale
-										
-									if(item.rustore)
-										.stickers__item.stickers__item_small БЕЗ RUSTORE
+											.catalog-item-actions__item
+												+svg('ic-compare','ic-compare', '12', '16')
 
-								.catalog-item-actions
-									.catalog-item-actions__item
-										+svg('ic-wish','ic-wish', '21', '18')
+										a(href="#").catalog-item__img-wrap
+											.catalog-item__img-content
+												.catalog-item__img
+													img(src="/upload/"+item.img, alt="")
 
-									.catalog-item-actions__item
-										+svg('ic-compare','ic-compare', '12', '16')
+										.catalog-item__content
+											.catalog-item__status.d-md-none= item.status
 
-								a(href="#").catalog-item__img-wrap
-									.catalog-item__img-content
-										.catalog-item__img
-											img(src="/upload/"+item.img, alt="")
+											.catalog-item__info
+												.catalog-item__price-wrap
+													span.catalog-item__price= item.price
+														| &#8381;
+													| 
+													span.catalog-item__old-price= item.old_price
 
-								.catalog-item__content
-									.catalog-item__status.d-md-none= item.status
+												.catalog-item__status= item.status
 
-									.catalog-item__info
-										.catalog-item__price-wrap
-											span.catalog-item__price= item.price
-												| &#8381;
-											| 
-											span.catalog-item__old-price= item.old_price
+											.catalog-item__title
+												a(href="#")= item.title
 
-										.catalog-item__status= item.status
+										.catalog-item__btn
+											a(href="#").btn Купить
+											a(href="#").btn.btn_border Купить в 1 клик
 
-									.catalog-item__title
-										a(href="#")= item.title
+										.catalog-item-params
+											-
+												var params=[
+													{label:'Операционная система:', val:'iOS 15'},
+													{label:'Сим-карта:', val:'Nano-SIM + eSIM'},
+													{label:'Объем встроенной памяти:', val:'128 Гб'},
+												]
+											each param in params
+												.catalog-item-params__item
+													span.catalog-item-params__label= param.label
+													span.catalog-item-params__val= param.val
 
-								.catalog-item__btn
-									a(href="#").btn Купить
-									a(href="#").btn.btn_border Купить в 1 клик
+							.pager
+								a.pager__arr.disable
+									+svg('ic-arr-left','ic-arr-left', '6', '10')
 
-								.catalog-item-params
-									-
-										var params=[
-											{label:'Операционная система:', val:'iOS 15'},
-											{label:'Сим-карта:', val:'Nano-SIM + eSIM'},
-											{label:'Объем встроенной памяти:', val:'128 Гб'},
-										]
-									each param in params
-										.catalog-item-params__item
-											span.catalog-item-params__label= param.label
-											span.catalog-item-params__val= param.val
+								a.pager__item.active(href='#') 1
+								a.pager__item(href='#') 2
+								a.pager__item(href='#') 3
+								a.pager__item(href='#') 4
+								a.pager__item(href='#') 9
+								
+								a.pager__arr
+									+svg('ic-arr-right','ic-arr-right', '6', '10')
 
-					.pager
-						a.pager__arr.disable
-							+svg('ic-arr-left','ic-arr-left', '6', '10')
+							.catalog-desc-bottom
+								.more-text.js-more-text
+									.more-text__content.js-more-text-content(data-max-lines="4") Выход каждого нового <a href="#">iPhone</a> — всегда мировая сенсация и долгожданное событие для миллионов людей. За счет чего <a href="#">Apple</a> удается выпускать смартфоны, которые неизменно становятся лидерами в своей ценовой категории? Узнаваемый элегантный дизайн, восхитительный функционал и уникальные передовые технологии — вот главные слагаемые успеха бренда.
 
-						a.pager__item.active(href='#') 1
-						a.pager__item(href='#') 2
-						a.pager__item(href='#') 3
-						a.pager__item(href='#') 4
-						a.pager__item(href='#') 9
-						
-						a.pager__arr
-							+svg('ic-arr-right','ic-arr-right', '6', '10')
-
-					.catalog-desc-bottom
-						.more-text.js-more-text
-							.more-text__content.js-more-text-content(data-max-lines="2") Выход каждого нового iPhone — всегда мировая сенсация и долгожданное событие для миллионов людей. За счет чего Apple удается выпускать смартфоны, которые неизменно становятся лидерами в своей ценовой категории? Узнаваемый элегантный дизайн, восхитительный функционал и уникальные передовые технологии — вот главные слагаемые успеха бренда. Выход каждого нового iPhone — всегда мировая сенсация и долгожданное событие для миллионов людей. За счет чего Apple удается выпускать смартфоны, которые неизменно становятся лидерами в своей ценовой категории? Узнаваемый элегантный дизайн, восхитительный функционал и уникальные передовые технологии — вот главные слагаемые успеха бренда.Выход каждого нового iPhone — всегда мировая сенсация и долгожданное событие для миллионов людей. За счет чего Apple удается выпускать смартфоны, которые неизменно становятся лидерами в своей ценовой категории? Узнаваемый элегантный дизайн, восхитительный функционал и уникальные передовые технологии — вот главные слагаемые успеха бренда.Выход каждого нового iPhone — всегда мировая сенсация и долгожданное событие для миллионов людей. За счет чего Apple удается выпускать смартфоны, которые неизменно становятся лидерами в своей ценовой категории? Узнаваемый элегантный дизайн, восхитительный функционал и уникальные передовые технологии — вот главные слагаемые успеха бренда.
-
-							span.btn.btn_dark.js-more-text-btn(data-text="Свернуть") Подробнее
+									span.btn.btn_dark.js-more-text-btn(data-text="Свернуть") Подробнее
 
 	include ./components/_subscribe
 
@@ -517,6 +483,17 @@ block body
 												span.catalog-item-params__label= param.label
 												span.catalog-item-params__val= param.val
 	
-	include ./components/_form-page
+	.sale-popup
+		.sale-popup__title На ваш товар в корзине появилась скидка
 
-	include ./components/_main-tags
+		.sale-popup__bottom
+			.sale-popup__info
+				span.sale-popup__label Промокод: 
+				span.sale-popup__val Skidka 25
+			
+			a(href="#").btn Применить
+
+	.cookie-popup
+		.cookie-popup__text Мы используем файлы cookies для улучшения работы сайта. Находясь на нашем сайте, вы соглашаетесь на использование cookies и обработку данных метрическими программами. Если вы не хотите, чтобы ваши данные обрабатывались, покиньте сайт
+
+		a(href="#").btn Принять

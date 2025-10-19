@@ -1,0 +1,53 @@
+extends tmpl/_layout
+
+block vars
+	- var pageId = 'payment'
+	-
+		var breadcrumbs=[
+			{href:'/',name:'Магазин электроники'},
+			{href:'#',name:'Оплата'},
+		];
+
+block body
+	section.payment-page.mb-indent
+		.container
+			.row
+				.col-lg-6
+					.payment-info
+						.payment-info__title Оплата наличными:
+						.payment-info__text
+							p Данным видом оплаты можно воспользоваться как в пункте выдачи товаров, так и при доставке товара курьером. Мы принимаем, следующие платежжные системы:
+
+				.col-lg-6
+					.payment-info.payment-info_dark
+						.payment-info__title Оплата по безналичному расчету:
+						.payment-info__text
+							ol
+								li Оплата картой при самовывозе и доставке курьером
+								li Для оформления заказа как юридичесое лицо вам необходимо заполнить форму и в комментарии к заказу прикрепить данные компании для выставления счета.
+
+							p Счет действителен для оплаты в течении 3-х рабочих дней. Для получения заказа потребуется реестровая печать или оригинал паспорта и доверенность. При отгрузке товара предоставляются документы - оригинал счета, товарная накладная. Мы работаем по УСН с НДС 5%. Цена на сайте указана с учетом автоматической скидки при оплате наличными. Для уточнения конечной стоимости обратитесь к менеджеру магазина.
+						
+						.payment-list
+							.payment-list__item
+								img(src="/upload/pay-visa.png", alt="")
+
+							.payment-list__item
+								img(src="/upload/pay-mastercard.png", alt="")
+
+							.payment-list__item
+								img(src="/upload/pay-mir.png", alt="")
+
+				.col-12.mt-indent
+					.payment-contacts
+						.row
+							.col-lg-10.offset-lg-1
+								.payment-contacts__text Оформить заказ с удобным способом доставки или задать дополнительные вопросы можно в чате, либо по телефону 
+									a(href="tel:+78002225260") 8 (800) 222 52 60.
+								.payment-contacts__label Приятных покупок в ManyPhone!
+
+	include ./components/_form-page
+
+	include ./components/_subscribe
+	
+	include ./components/_main-tags

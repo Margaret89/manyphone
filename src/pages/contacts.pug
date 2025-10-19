@@ -1,0 +1,94 @@
+extends tmpl/_layout
+
+block vars
+	- var pageId = 'contacts'
+	-
+		var breadcrumbs=[
+			{href:'/',name:'Магазин электроники'},
+			{href:'#',name:'Контакты'},
+		];
+
+block body
+	section.contacts-page.m-indent
+		.container
+			.row
+				.col-lg-6
+					.contacts-page__sect
+						-
+							var list=[
+								{label:'Страна', val:'Россия'},
+								{label:'Индекс', val:'121087'},
+								{label:'Город', val:'Москва'},
+								{label:'Адрес', val:'Москва, ул. Багратионовский пр., 7 к2, ДЦ Рубин, м.Багратионовская'},
+							]
+						each item in list
+							.contacts-page__item
+								.contacts-page__label= item.label
+								.contacts-page__val= item.val
+
+				.col-lg-6
+					.contacts-page__sect
+						-
+							var list=[
+								{label:'Телефон', val:'8 (800) 222 52 60'},
+								{label:'Режим работы', val:'с 10:00 до 20:00 — пн-пт'},
+								{label:'Электронная почта', val:'info@manyphone.ru'},
+								
+							]
+						each item in list
+							.contacts-page__item
+								.contacts-page__label= item.label
+								.contacts-page__val= item.val
+
+						.contacts-page__social
+							a(href="#").btn.btn_big
+								+svg('ic-telegram','ic-telegram', '17', '16')
+
+							a(href="#").btn.btn_big
+								+svg('ic-vk','ic-vk', '20', '11')
+
+	section.map-wrap.m-indent
+		.container
+			.row
+				.col-lg-6.order-2.order-lg-1
+					form.form-site.form-site_light(action="#")
+						.form-site__title Задать вопрос
+
+						.form-site__content
+							.form-site__item.form-site__item_half.js-form-site-item
+								.form-site__label Ваше имя*
+
+								.form-site__field
+									input(name="name", type="text", required="required", placeholder="Ваше имя *")
+
+							.form-site__item.form-site__item_half.js-form-site-item
+								.form-site__label Номер телефона*
+
+								.form-site__field
+									input(name="phone", type="text", required="required", placeholder="+7 (999) 999-9999 *", class="js-phone")
+
+
+							.form-site__item.js-form-site-item
+								.form-site__label Сообщение*
+
+								.form-site__field
+									textarea(name="msg", placeholder="Задайте вопрос или поделитесь своими предложениями *", required="required")
+
+						.form-site__polit
+							label.input-check
+								input(type='checkbox', required="required", checked="checked")
+								span.input-check__mark
+									+svg('ic-check','ic-check', '12', '10')
+								span.input-check__text  Даю свое 
+									a(href="#") Согласие на обработку персональных данных 
+									| в соответствии с 
+									a(href="#") Политикой  конфиденциальности
+
+						.form-site__btn
+							input(type="submit", value="Отправить").btn.btn_big.js-btn-submit
+
+				.col-lg-6.order-1.order-lg-2
+					.map
+						iframe(src='https://yandex.ru/map-widget/v1/?um=constructor%3A5ee5a88ae75bda06bc091a311f8384db0107b0173fa20bf022f4c3fccfca25de&source=constructor' width='100%' height='460' frameborder='0')
+	
+	include ./components/_subscribe

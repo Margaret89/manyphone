@@ -1,0 +1,21 @@
+/*-------------- requisites -----------------*/
+.requisites{
+	column-count: 2;
+	gap: 30px;
+
+	&__item{
+		display: flex;
+		justify-content: space-between;
+		gap: 20px;
+		padding: 6px 0;
+		border-bottom: 1px dashed #D2D4D5;
+		font-size: 1.6rem;
+		line-height: 1.4;
+	}
+
+	&__label{color: #909090;}
+}
+
+@media (max-width: 991px) {
+	.requisites{column-count: 1;}
+}

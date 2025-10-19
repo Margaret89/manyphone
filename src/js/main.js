@@ -135,6 +135,20 @@ if(document.querySelector('.js-services-slider')){
 	});
 }
 
+// Слайдер новостей
+if(document.querySelector('.js-news-slider')){
+	const topSlider = new Swiper('.js-news-slider',
+	{
+		modules: [Navigation],
+		loop:true,
+		navigation: {
+			nextEl: '.js-news-slider-next',
+			prevEl: '.js-news-slider-prev',
+		},
+	});
+}
+
+
 // Маска для телефона
 document.addEventListener("DOMContentLoaded", function(){
 	if(document.querySelector('.js-phone')){

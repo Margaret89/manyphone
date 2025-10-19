@@ -1,0 +1,55 @@
+/*-------------- our-progress -----------------*/
+.our-progress-list{
+	margin-bottom: -30px;
+}
+
+.our-progress-item{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: calc(100% - 30px);
+	background: var(--color-primary);
+	background: linear-gradient(0deg, #75BB0C 0%, #91D200 100%);
+	border-radius: 20px;
+	padding: 43px 20px 32px;
+	color: #fff;
+	text-align: center;
+	margin-bottom: 30px;
+
+	&__num{
+		font-size: 7.2rem;
+		font-weight: 800;
+		line-height: 1;
+	}
+
+	&__label{
+		font-size: 2.4rem;
+		font-weight: 800;
+		line-height: 1;
+		margin-top: 14px;
+	}
+}
+
+@media (max-width: 1279px) {
+	.our-progress-item{
+		&__num{font-size: 5rem;}
+	}
+}
+
+@media (max-width: 991px) {
+	.our-progress-list{
+		margin-bottom: -20px;
+	}
+	
+	.our-progress-item{
+		height: auto;
+		margin-bottom: 20px;
+	}
+}
+
+@media (max-width: 767px) {
+	.our-progress-item{
+		&__label{font-size: 1.8rem;}
+	}
+}

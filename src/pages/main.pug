@@ -260,34 +260,31 @@ block body
 				.col-12
 					h2 Новости и статьи
 
-				.news-main
-					-
-						var list=[
-							{img:'main-news1.jpg', title:'В чем отличия iPhone 16 Pro и iPhone 15 Pro?', date:'25.12.2024', text:'В 2024 году Apple представил новый смартфон iPhone 16 Pro. При этом предыдущий флагман Айфон 15 Про был снят с производства...'},
-							{img:'main-news2.jpg', title:'Что делать, если айфон тормозит', date:'25.12.2024', text:'В 2024 году Apple представил...'},
-							{img:'main-news3.jpg', title:'Что делать, если айфон тормозит', date:'25.12.2024', text:'В 2024 году Apple представил...'},
-							{img:'main-news4.jpg', title:'Что делать, если айфон тормозит', date:'25.12.2024', text:'В 2024 году Apple представил...'},
-							{img:'main-news2.jpg', title:'Что делать, если айфон тормозит', date:'25.12.2024', text:'В 2024 году Apple представил...'},
-							{img:'main-news3.jpg', title:'Что делать, если айфон тормозит', date:'25.12.2024', text:'В 2024 году Apple представил...'},
-							{img:'main-news4.jpg', title:'Что делать, если айфон тормозит', date:'25.12.2024', text:'В 2024 году Apple представил...'},
-							{img:'main-news1.jpg', title:'В чем отличия iPhone 16 Pro и iPhone 15 Pro?', date:'25.12.2024', text:'В 2024 году Apple представил новый смартфон iPhone 16 Pro. При этом предыдущий флагман Айфон 15 Про был снят с производства...'},
-						]
-					each item, index in list
-						.news-main-item
-							.news-main-item__bg(style="background-image: url(/upload/"+item.img+")")
+					.news-main
+						-
+							var list=[
+								{img:'main-news1.jpg', title:'В чем отличия iPhone 16 Pro и iPhone 15 Pro?', date:'25.12.2024', text:'В 2024 году Apple представил новый смартфон iPhone 16 Pro. При этом предыдущий флагман Айфон 15 Про был снят с производства...'},
+								{img:'main-news2.jpg', title:'Что делать, если айфон тормозит', date:'25.12.2024', text:'В 2024 году Apple представил...'},
+								{img:'main-news3.jpg', title:'Что делать, если айфон тормозит', date:'25.12.2024', text:'В 2024 году Apple представил...'},
+								{img:'main-news4.jpg', title:'Что делать, если айфон тормозит', date:'25.12.2024', text:'В 2024 году Apple представил...'},
+								{img:'main-news2.jpg', title:'Что делать, если айфон тормозит', date:'25.12.2024', text:'В 2024 году Apple представил...'},
+								{img:'main-news3.jpg', title:'Что делать, если айфон тормозит', date:'25.12.2024', text:'В 2024 году Apple представил...'},
+								{img:'main-news4.jpg', title:'Что делать, если айфон тормозит', date:'25.12.2024', text:'В 2024 году Apple представил...'},
+								{img:'main-news1.jpg', title:'В чем отличия iPhone 16 Pro и iPhone 15 Pro?', date:'25.12.2024', text:'В 2024 году Apple представил новый смартфон iPhone 16 Pro. При этом предыдущий флагман Айфон 15 Про был снят с производства...'},
+							]
+						each item, index in list
+							.news-item
+								.news-item__bg(style="background-image: url(/upload/"+item.img+")")
 
-							.news-main-item__wrap
-								.news-main-item__content
-									.news-main-item__title= item.title
-									.news-main-item__date= item.date
+								.news-item__wrap
+									.news-item__content
+										.news-item__title= item.title
+										.news-item__date= item.date
 
-									.news-main-item__info
-										.news-main-item__text= item.text
+										.news-item__info
+											.news-item__text= item.text
 
-										if(index==0 || index==7)
-											a(href="#").btn.btn_border-white Читать далее
-										else
-											a(href="#").news-main-item__link Читать далее
+											a(href="#").news-item__link Читать далее
 
 	include ./components/_form-page
 

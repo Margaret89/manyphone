@@ -8,9 +8,47 @@
 			"href": "catalog.html",
 			"title":"Каталог"
 		},
+		"catalog-list":{
+			"href": "catalog-list.html",
+			"title":"Каталог (список)"
+		},
 		"catalog-element":{
 			"href": "catalog-element.html",
 			"title":"Каталог (детальная страница)"
+		},
+		"about":{
+			"href": "about.html",
+			"title":"О магазине",
+			"h1":"О магазине ManyPhone"
+		},
+		"news":{
+			"href": "news.html",
+			"title":"Новости и статьи",
+			"h1":"Новости и статьи"
+		},
+		"news-detail":{
+			"href": "news-detail.html",
+			"title":"Новости и статьи (детальная)"
+		},
+		"contacts":{
+			"href": "contacts.html",
+			"title":"Контакты",
+			"h1":"Контакты"
+		},
+		"payment":{
+			"href": "payment.html",
+			"title":"Оплата",
+			"h1":"Оплата"
+		},
+		"delivery":{
+			"href": "delivery.html",
+			"title":"Доставка",
+			"h1":"Доставка"
+		},
+		"order":{
+			"href": "order.html",
+			"title":"Оформление заказа",
+			"h1":"Моя корзина"
 		},
 		"tipografika":{
 			"href": "tipografika.html",

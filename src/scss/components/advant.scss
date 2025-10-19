@@ -1,0 +1,64 @@
+/*-------------- advant -----------------*/
+.advant-list{margin-bottom: -70px;}
+
+.advant-item{
+	display: flex;
+	align-items: flex-start;
+	gap: 35px;
+	margin-bottom: 70px;
+
+	&__icon{
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		width: 96px;
+		height: 96px;
+	}
+
+	&__content{padding-top: 48px;}
+
+	&__title{
+		font-size: 3rem;
+		font-weight: bold;
+		line-height: 1;
+		color: #000;
+		margin-bottom: 18px;
+	}
+
+	&__text{
+		font-size: 2rem;
+		line-height: 1.2;
+		color: #000;
+		margin-top: 5px;
+	}
+}
+
+@media (max-width: 1439px) {
+	.advant-item{
+		&__text{font-size: 1.8rem;}
+	}
+}
+
+@media (max-width: 991px) {
+	.advant-list{margin-bottom: -40px;}
+
+	.advant-item{
+		margin-bottom: 40px;
+		&__content{padding-top: 0;}
+	}
+}
+
+@media (max-width: 767px) {
+	.advant-item{
+		&__title{
+			font-size: 2rem;
+			margin-bottom: 8px;
+		}
+
+		&__text{
+			font-size: 1.4rem;
+			line-height: 1.3;
+		}
+	}
+}
