@@ -27,16 +27,10 @@
 	}
 
 	&__text{
-		font-size: 2rem;
+		font-size: 1.8rem;
 		line-height: 1.2;
 		color: #000;
 		margin-top: 5px;
-	}
-}
-
-@media (max-width: 1439px) {
-	.advant-item{
-		&__text{font-size: 1.8rem;}
 	}
 }
 

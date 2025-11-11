@@ -6,9 +6,9 @@
 		gap: 20px;
 	}
 
-	.top-slider{width: calc(61.3% - 10px);}
-	.info-card{width: calc(38.7% - 10px);}
-	.info-card_thin{width: 100%;}
+	&__main{width: calc(61.3% - 10px);}
+	&__card{width: calc(38.7% - 10px);}
+	&__card-full{width: 100%;}
 }
 
 .top-slider{
@@ -80,8 +80,9 @@ body .top-slider .swiper-pagination-bullet{background: #fff;}
 
 @media (max-width: 991px) {
 	.top-slider-wrap{
-		.top-slider,
-		.info-card{
+		&__main,
+		&__card,
+		&__card-full{
 			width: 100%;
 		}
 	}

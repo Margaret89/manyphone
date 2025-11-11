@@ -25,13 +25,13 @@ header.header
 							li.top-menu__item
 								a(href="#").top-menu__link= item.text
 
-					//- .header__info
-					.social
-						a(href="#").social__item
-							+svg('ic-vk','ic-vk', '20', '11')
+					.header__social
+						.social
+							a(href="#").social__item
+								+svg('ic-vk','ic-vk', '20', '11')
 
-						a(href="#").social__item
-							+svg('ic-telegram','ic-telegram', '17', '16')
+							a(href="#").social__item
+								+svg('ic-telegram','ic-telegram', '17', '16')
 
 					a(href="#", data-fancybox, data-src="#callback").btn
 						span.d-none.d-xl-inline Обратный звонок
@@ -43,10 +43,11 @@ header.header
 
 						.header-contacts__time Пн-пт с 10.00 до 20.00
 
-					.form-search
-						input(type="text", placeholder="Поиск...")
-						button(type="submit")
-							+svg('ic-search','ic-search', '20', '20')
+					.header__search
+						.form-search
+							input(type="text", placeholder="Поиск...")
+							button(type="submit")
+								+svg('ic-search','ic-search', '20', '20')
 
 					.header-actions
 						.header-actions__item

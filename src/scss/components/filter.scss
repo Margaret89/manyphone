@@ -80,6 +80,14 @@
 		flex-wrap: wrap;
 		gap: 10px;
 	}
+
+	&__btn{
+		display: flex;
+		gap: 20px;
+		margin-top: 30px;
+
+		.btn{width: calc(50% - 10px);}
+	}
 }
 
 .range{

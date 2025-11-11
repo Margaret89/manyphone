@@ -1,5 +1,9 @@
 .header{
 	margin-bottom: 20px;
+	background: #fff;
+	position: sticky;
+	top: 0;
+	z-index: 900;
 	
 	&__content{
 		display: flex;
@@ -8,12 +12,6 @@
 		gap: 10px 20px;
 		padding: 32px 0 19px;
 	}
-
-	// &__main{
-	// 	display: flex;
-	// 	align-items: center;
-	// 	gap: 20px;
-	// }
 
 	&__logo-wrap{margin-top: -16px;}
 
@@ -24,19 +22,16 @@
 		text-align: center;
 	}
 
-	// &__info{
-	// 	display: flex;
-	// 	align-items: center;
-	// 	gap: 22px;
-
-	// }
-
 	.btn{
 		white-space: nowrap;
 		padding: 0 14px;
 	}
 
-	.social{margin-left: auto;}
+	&__social{margin-left: auto;}
+
+	&__search{
+		.form-search{width: 100%;}
+	}
 }
 
 .header-contacts{
@@ -114,6 +109,7 @@
 	}
 
 	&__item.inactive{opacity: 0.5;}
+	&__item.inactive &__count{display: none;}
 
 	&__item.inactive &__icon{
 		.ic-wish-fill{display: none;}
@@ -137,8 +133,7 @@
 
 	.header{
 		&__content{flex-wrap: wrap;}
-
-		.form-search{width: calc(100% - 275px);}
+		&__search{width: calc(100% - 315px);}
 	}
 }
 
@@ -149,14 +144,18 @@
 			height: 105px;
 
 			.top-menu,
-			.social,
 			.btn,
-			.header-contacts,
-			.form-search{
+			.header-contacts{
 				display: none;
 			}
 		}
+
+		&__social,
+		&__search{
+			display: none;
+		}
 	}
+
 
 	.header-actions{margin-left: auto;}
 }

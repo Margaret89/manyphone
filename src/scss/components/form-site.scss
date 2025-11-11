@@ -12,13 +12,14 @@
 
 	&__content{display: flex;}
 	
-	.form-site,
+	&__form,
 	.contacts-wrap{
 		padding: 28px 17px;
 	}
 
+	&__form{width: 60%;}
+
 	.form-site{
-		width: 60%;
 		&__content{max-width: 835px;}
 	}
 	
@@ -81,6 +82,8 @@
 		font-size: 1.6rem;
 		margin-bottom: 5px;
 	}
+
+	&__field{position: relative;}
 
 	input[type="text"],
 	input[type="email"],
@@ -157,7 +160,10 @@
 		}
 	}
 
-	&__polit{margin-top: 30px;}
+	&__polit{
+		margin-top: 30px;
+		position: relative;
+	}
 
 	&__btn{
 		margin-top: 30px;
@@ -166,6 +172,9 @@
 	.error-msg{
 		@include font(normal, normal, 12px, 1.5, var(--color-danger));
 		margin-bottom: 3px;
+		position: absolute;
+		top: 100%;
+		left: 0;
 	}
 
 	&_light{
@@ -221,7 +230,7 @@
 
 @media (max-width: 991px) {
 	.form-site-main{
-		.form-site{width: 100%;}
+		&__form{width: 100%;}
 		&__content{display: block;}
 
 		.contacts-wrap{
@@ -237,7 +246,7 @@
 
 @media (max-width: 767px) {
 	.form-site-main{
-		.form-site{padding: 30px 0;}
+		&__form{padding: 30px 0;}
 		.contacts-wrap{padding: 30px 0;}
 	}
 

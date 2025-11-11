@@ -8,6 +8,23 @@
 		width: 100%;
 		height: 100%;
 	}
+
+	.bx-yandex-view-layout,
+	.bx-yandex-view-map{
+		height: 100%;
+	}
+
+	.bx-yandex-map{
+		width: 100%!important;
+		height: 100%!important;
+	}
+}
+
+.map-wrap{
+	.form-site{
+		margin-left: 40px;
+		margin-right: 40px;
+	}
 }
 
 @media (max-width: 991px) {

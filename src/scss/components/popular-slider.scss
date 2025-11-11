@@ -21,7 +21,11 @@
 		height: auto;
 		border-radius: 20px;
 		background: #F3F3F5;
+		text-decoration: none;
 		overflow: hidden;
+		transition: background-color 0.2s ease;
+
+		&:hover{background: #b7b7b7;}
 	}
 
 	.swiper-slide{height: auto;}
@@ -31,6 +35,8 @@
 	&__img{
 		flex-shrink: 0;
 		max-width: 50%;
+
+		img{max-height: 108px;}
 	}
 
 	&__title{

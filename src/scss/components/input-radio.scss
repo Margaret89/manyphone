@@ -32,12 +32,19 @@
 			top: 50%;
 			left: 50%;
 			transform: translate(-50%, -50%);
+			opacity: 0;
 		}
 	}
 
 	&__text{margin-top: 2px;}
 
 	input[type=radio]:checked + &__mark::after{opacity: 1;}
+
+	input[type=radio]:disabled + &__mark,
+	input[type=radio]:disabled + &__text{
+		opacity: 0.3;
+		cursor: auto;
+	}
 }
 
 @media (max-width: 767px) {

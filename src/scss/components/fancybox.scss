@@ -13,3 +13,15 @@ body .f-button.is-close-button{
 }
 
 body .fancybox__backdrop{background: rgba(0,0,0,0.8);}
+
+@media (max-width: 991px) {
+	body .f-html{
+		max-width: 100%;
+		padding: 30px 15px;
+	}
+
+	body .f-button.is-close-button{
+		top: 5px;
+		right: 5px;
+	}
+}

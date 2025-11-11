@@ -6,6 +6,7 @@
 	&__default{
 		display: flex;
 		align-items: center;
+		gap: 5px;
 		border: 1px solid #D0D5DD;
 		height: 5rem;
 		border-radius: 2rem;
@@ -23,14 +24,14 @@
 	}
 
 	&__label{
-		font-size: 1.8rem;
+		font-size: 1.5rem;
 		line-height: 1.2;
 		color: rgba(0, 0, 0, 0.5);
 		white-space: nowrap;
 	}
 
 	&__val{
-		font-size: 1.8rem;
+		font-size: 1.5rem;
 		font-weight: 500;
 		line-height: 1.2;
 		color: #000;
@@ -69,7 +70,9 @@
 	.sort{
 		&__label,
 		&__val{
-			font-size: 1.6rem;
+			font-size: 1.2rem;
 		}
+
+		&__item{font-size: 1.4rem;}
 	}
 }

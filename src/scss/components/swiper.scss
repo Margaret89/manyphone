@@ -43,6 +43,11 @@ body .swiper-button-next.slider-arr{
 	}
 }
 
+body .swiper-button-prev.slider-arr.swiper-button-lock,
+body .swiper-button-next.slider-arr.swiper-button-lock{
+	display: none;
+}
+
 
 body .swiper-horizontal > .swiper-pagination-bullets,
 body .swiper-pagination-bullets.swiper-pagination-horizontal{

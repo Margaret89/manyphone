@@ -37,6 +37,8 @@
 	}
 
 	input[type=checkbox]:checked + &__mark svg{opacity: 1;}
+
+	&.error &__mark{border-color: var(--color-danger);}
 }
 
 @media (max-width: 767px) {

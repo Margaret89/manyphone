@@ -141,11 +141,14 @@ ol{
 .wrapper{
 	display: flex;
 	flex-direction: column;
-	min-height: 100vh;
+	height: 100vh;
 	width: 100%;
 	margin: 0 auto;
 	overflow: hidden;
+	overflow-y: auto;
 }
+
+body.no-scroll .wrapper{overflow: hidden;}
 
 main{
 	flex: 1 1 auto;

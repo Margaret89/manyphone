@@ -73,6 +73,8 @@
 		font-size: 1.2rem;
 		line-height: 1.2;
 		color: #2F4055;
+
+		&_red{color: var(--color-danger);}
 	}
 
 	&__title{
@@ -118,11 +120,19 @@
 		transition: color 0.2s ease;
 		cursor: pointer;
 
-		&:hover,
-		&.active{
+		&:hover{
 			color: var(--color-primary);
 		}
 	}
+
+	&__compare{
+		input[type=checkbox]{display: none;}
+		.icon{cursor: pointer;}
+		input[type=checkbox]:checked + .icon{color: var(--color-primary);}
+	}
+
+	&__wish{color: #000;}
+	&__wish.in_wishlist{color: var(--color-primary);}
 }
 
 .catalog-item-params{
@@ -199,21 +209,27 @@
 
 @media (max-width: 767px) {
 	.catalog-item{
-		display: grid;
-		grid-template-columns: 100px calc(100% - 135px);
-		gap: 0 35px;
+		&__wrap{
+			display: grid;
+			grid-template-columns: 100px calc(100% - 135px);
+			gap: 0 35px;
+		}
 
 		&__img-wrap{width: 100px;}
 		&__img-content{padding-bottom: 100%;}
 		.stickers{left: 0;}
 
+		&__btn-wrap{
+			order: 10;
+			margin: 0;
+		}
+
 		.catalog-item-params,
-		&__btn{
+		&__btn-wrap{
 			grid-column: span 2;
 		}
 
 		&__btn{
-			order: 10;
 			padding-right: 80px;
 			margin-top: 20px;
 		}

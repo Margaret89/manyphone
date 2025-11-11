@@ -9,39 +9,42 @@ block body
 			.row
 				.col-12
 					.top-slider-wrap__list
-						.swiper.top-slider.js-top-slider
-							.swiper-wrapper
-								-
-									var list=[
-										{title:'IPhone 16', text:'Палитра для тех, кто не боится быть ярким'},
-										{title:'IPhone 12', text:'Палитра не боится быть ярким'},
-									]
-								each item in list
-									.swiper-slide.top-slider__item
-										.top-slider__content
-											.top-slider__bg(style="background-image: url(/upload/bg-iphone16.jpg)")
+						.top-slider-wrap__main
+							.swiper.top-slider.js-top-slider
+								.swiper-wrapper
+									-
+										var list=[
+											{title:'IPhone 16', text:'Палитра для тех, кто не боится быть ярким'},
+											{title:'IPhone 12', text:'Палитра не боится быть ярким'},
+										]
+									each item in list
+										.swiper-slide.top-slider__item
+											.top-slider__content
+												.top-slider__bg(style="background-image: url(/upload/bg-iphone16.jpg)")
 
-											.top-slider__info
-												.top-slider__title= item.title
-												.top-slider__text= item.text
+												.top-slider__info
+													.top-slider__title= item.title
+													.top-slider__text= item.text
 
-											a(href="#").btn Выбрать
+												a(href="#").btn Выбрать
 
-							.swiper-pagination.js-top-slider-pagination
+								.swiper-pagination.js-top-slider-pagination
 
-						.info-card.d-none.d-lg-flex(style="background-image: url(/upload/apple-watch-ultra3.jpg)")
-							.info-card__title Apple Watch Ultra 3
-							a(href="#").btn Выбрать
-
-						.info-card.info-card_thin(style="background-image: url(/upload/ipad-pro.jpg)")
-							.info-card__top
-								.info-card__title iPad Pro
+						.top-slider-wrap__card
+							.info-card.d-none.d-lg-flex(style="background-image: url(/upload/apple-watch-ultra3.jpg)")
+								.info-card__title Apple Watch Ultra 3
 								a(href="#").btn Выбрать
 
-							.info-card__text
-								|Палитра для тех,
-								br
-								|кто не боится быть ярким
+						.top-slider-wrap__card-full
+							.info-card.info-card_thin(style="background-image: url(/upload/ipad-pro.jpg)")
+								.info-card__top
+									.info-card__title iPad Pro
+									a(href="#").btn Выбрать
+
+								.info-card__text
+									|Палитра для тех,
+									br
+									|кто не боится быть ярким
 
 	section.popular-slider-wrap.m-indent
 		.container

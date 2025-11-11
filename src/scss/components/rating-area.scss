@@ -1,0 +1,30 @@
+/*-------------- rating-area -----------------*/
+.rating-area {
+	display: inline-block;
+	vertical-align: top;
+	overflow: hidden;
+
+	input{display:none!important}
+
+	&__item {
+		float: right;
+		cursor: pointer
+	}
+
+	&__item:not(:last-child) {margin-left: 3px}
+
+	.icon {
+		color:#aaa;
+		transition: color .2s ease 0s
+	}
+
+	input:checked~label .icon,
+	input:checked~label:hover .icon,
+	input:checked~label:hover~label .icon,
+	label:hover .icon,
+	label:hover~input:checked~label .icon,
+	label:hover~label .icon {
+		color: var(--color-primary);
+	}
+}
+

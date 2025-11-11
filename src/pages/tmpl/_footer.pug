@@ -34,35 +34,37 @@ footer.footer
 
 				.col-lg-5.col-xl-4.order-2
 					.footer-menu-wrap
-						ul.footer-menu
-							-
-								var list=[
-									{text:'Каталог'},
-									{text:'О магазине'},
-									{text:'Доставка'},
-									{text:'Оплата'},
-									{text:'FAQ'},
-									{text:'Контакты'},
-									{text:'Войти'},
-								]
-							each item in list
-								li.footer-menu__item
-									a(href="#").footer-menu__link= item.text
+						.footer-menu-wrap__item
+							ul.footer-menu
+								-
+									var list=[
+										{text:'Каталог'},
+										{text:'О магазине'},
+										{text:'Доставка'},
+										{text:'Оплата'},
+										{text:'FAQ'},
+										{text:'Контакты'},
+										{text:'Войти'},
+									]
+								each item in list
+									li.footer-menu__item
+										a(href="#").footer-menu__link= item.text
 
-						ul.footer-menu
-							-
-								var list=[
-									{text:'Гарантия'},
-									{text:'Сотрудничество'},
-									{text:'Новости'},
-									{text:'Статьи'},
-									{text:'Карта сайта'},
-									{text:'Политика конфиденциальности'},
-									{text:'Согласие на обработку персональных данных'},
-								]
-							each item in list
-								li.footer-menu__item
-									a(href="#").footer-menu__link= item.text
+						.footer-menu-wrap__item
+							ul.footer-menu
+								-
+									var list=[
+										{text:'Гарантия'},
+										{text:'Сотрудничество'},
+										{text:'Новости'},
+										{text:'Статьи'},
+										{text:'Карта сайта'},
+										{text:'Политика конфиденциальности'},
+										{text:'Согласие на обработку персональных данных'},
+									]
+								each item in list
+									li.footer-menu__item
+										a(href="#").footer-menu__link= item.text
 
 				.col-lg-4.order-1.order-lg-3
 					.footer-contacts-wrap
@@ -239,6 +241,27 @@ footer.footer
 
 					.form-site__field
 						input(name="name", type="text", required="required", placeholder="Ваше имя *")
+
+				.form-site__item.js-form-site-item
+					.form-site__label Ваша оценка
+
+					.form-site__field
+						.rating-area
+							input#star-5(type='radio' name='PROPERTY[77][0]' value='5' required='required')
+							label.rating-area__item(for='star-5' title='5')
+								+svg('ic-star','ic-star', '24', '24')
+							input#star-4(type='radio' name='PROPERTY[77][0]' value='4')
+							label.rating-area__item(for='star-4' title='4')
+								+svg('ic-star','ic-star', '24', '24')
+							input#star-3(type='radio' name='PROPERTY[77][0]' value='3')
+							label.rating-area__item(for='star-3' title='3')
+								+svg('ic-star','ic-star', '24', '24')
+							input#star-2(type='radio' name='PROPERTY[77][0]' value='2')
+							label.rating-area__item(for='star-2' title='2')
+								+svg('ic-star','ic-star', '24', '24')
+							input#star-1(type='radio' name='PROPERTY[77][0]' value='1')
+							label.rating-area__item(for='star-1' title='1')
+								+svg('ic-star','ic-star', '24', '24')
 
 				.form-site__item.js-form-site-item
 					.form-site__label Достоинства

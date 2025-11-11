@@ -27,4 +27,9 @@
 		color: #fff;
 		background-position: 0 0;
 	}
+
+	input[type=checkbox]:disabled + &__text{
+		opacity: 0.3;
+		cursor: auto;
+	}
 }
