@@ -1,5 +1,7 @@
 /*-------------- reviews -----------------*/
 .reviews-wrap{
+	scroll-margin: 156px;
+
 	&__content{
 		display: flex;
 		gap: 33px;
@@ -153,6 +155,10 @@ body .reviews-slider .swiper-pagination-bullet-active{
 	}
 }
 
+@media (max-width: 1809px) {
+	.reviews-wrap{scroll-margin: 220px;}
+}
+
 @media (max-width: 1439px) {
 	.reviews-wrap{
 		&__slider{
@@ -184,6 +190,7 @@ body .reviews-slider .swiper-pagination-bullet-active{
 
 @media (max-width: 991px) {
 	.review-item{padding: 20px;}
+	.reviews-wrap{scroll-margin: 105px;}
 }
 
 @media (max-width: 767px) {

@@ -72,7 +72,12 @@
 
 @media (max-width: 767px) {
 	.reception-wrap{
-		&__content{padding: 15px;}
+		&__content{
+			padding: 15px;
+
+			.tabs-page .tabs-page .tabs-page__arr{display: none;}
+			.tabs-page .tabs-page .tabs-page__list-wrap{width: 100%;}
+		}
 	}
 
 	.delivery-info-wrap{

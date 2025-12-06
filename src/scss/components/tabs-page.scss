@@ -53,6 +53,11 @@
 		
 	// }
 
+	&__list-wrap{
+		width: calc(100% - 100px);
+		overflow: hidden;
+	}
+
 	&__list,
 	&__item{
 		@include reset-list;
@@ -62,11 +67,11 @@
 		display: flex;
 		gap: 33px;
 		position: relative;
-		overflow-x: hidden;
-		width: calc(100% - 100px);
+		transition: all 0.2s ease 0s;
 	}
 
 	&__item{
+		flex-shrink: 0;
 		font-size: 2rem;
 		font-weight: 600;
 		line-height: 1.2;

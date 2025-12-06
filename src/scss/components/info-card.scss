@@ -45,6 +45,7 @@
 @media (max-width: 767px) {
 	.info-card{
 		padding: 30px 24px 32px;
+		&__text{font-size: 1.6rem;}
 
 		&_thin{
 			height: auto;

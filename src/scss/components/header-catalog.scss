@@ -20,6 +20,11 @@
 		text-align: center;
 	}
 
+	&__title{
+		color: #fff;
+		margin-bottom: 0;
+	}
+
 	&__img-left,
 	&__img-right{
 		display: flex;

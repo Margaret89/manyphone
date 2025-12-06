@@ -230,15 +230,15 @@
 		}
 
 		&__btn{
-			padding-right: 80px;
+			// padding-right: 80px;
 			margin-top: 20px;
 		}
 
-		.catalog-item-actions{
-			top: auto;
-			bottom: 8px;
-			right: 0;
-		}
+		// .catalog-item-actions{
+		// 	top: auto;
+		// 	bottom: 8px;
+		// 	right: 0;
+		// }
 
 		&__content{
 			display: flex;
@@ -261,10 +261,10 @@
 
 			.stickers{left: 15px;}
 
-			.catalog-item-actions{
-				right: 15px;
-				bottom: 23px;
-			}
+			// .catalog-item-actions{
+			// 	right: 15px;
+			// 	bottom: 23px;
+			// }
 		}
 	}
 }

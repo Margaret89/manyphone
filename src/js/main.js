@@ -40,7 +40,6 @@ if(document.querySelector('.js-top-slider')){
 	{
 		modules: [Pagination],
 		loop:true,
-		preventInteractionOnTransition: true,
 		pagination:{
 			el:".js-top-slider-pagination",
 			clickable:true
@@ -55,8 +54,7 @@ if(document.querySelector('.js-popular-slider')){
 		modules: [Navigation],
 		slidesPerView: 1,
 		spaceBetween: 15,
-		loop: true,
-		preventInteractionOnTransition: true,
+		// loop: true,
 		navigation: {
 			nextEl: '.js-popular-slider-next',
 			prevEl: '.js-popular-slider-prev',
@@ -86,8 +84,7 @@ if(document.querySelector('.js-catalog-slider')){
 			modules: [Navigation],
 			slidesPerView: 1,
 			spaceBetween: 30,
-			loop: true,
-			preventInteractionOnTransition: true,
+			// loop: true,
 			navigation: {
 				nextEl: catalogSliderNext,
 				prevEl: catalogSliderPrev,
@@ -117,8 +114,7 @@ if(document.querySelector('.js-services-slider')){
 		modules: [Navigation],
 		slidesPerView: 1,
 		spaceBetween: 30,
-		loop: true,
-		preventInteractionOnTransition: true,
+		// loop: true,
 		navigation: {
 			nextEl: '.js-services-slider-next',
 			prevEl: '.js-services-slider-prev',
@@ -145,13 +141,41 @@ if(document.querySelector('.js-news-slider')){
 	const topSlider = new Swiper('.js-news-slider',
 	{
 		modules: [Navigation],
-		loop:true,
-		preventInteractionOnTransition: true,
+		// loop:true,
 		navigation: {
 			nextEl: '.js-news-slider-next',
 			prevEl: '.js-news-slider-prev',
 		},
 	});
+}
+
+// Слайдер сравнения
+function compareSlider() {
+	const topSlider = new Swiper('.js-compare-slider',
+	{
+		modules: [Navigation],
+		slidesPerView: 2,
+		spaceBetween: 4,
+		// loop:true,
+		navigation: {
+			nextEl: '.js-compare-slider-next',
+			prevEl: '.js-compare-slider-prev',
+		},
+		breakpoints: {
+			1280: {
+				slidesPerView: 3,
+				spaceBetween: 22,
+			},
+			992: {
+				slidesPerView: 2,
+				spaceBetween: 22,
+			},
+		},
+	});
+}
+
+if(document.querySelector('.js-compare-slider')){
+	compareSlider();
 }
 
 
@@ -162,6 +186,162 @@ if(document.querySelector('.js-news-slider')){
 // 	}
 // });
 
+//Меню на десктопе
+document.addEventListener('DOMContentLoaded', function() {
+	const catalogMenu = document.querySelector('.js-catalog-menu-column');
+	if (!catalogMenu) return;
+
+	const allItems = catalogMenu.querySelectorAll('.js-catalog-menu-column-item');
+	const allSections = catalogMenu.querySelectorAll('.js-catalog-menu-column-sect');
+	const allSubsections = catalogMenu.querySelectorAll('.js-catalog-menu-column-sub');
+	
+	let activeItems = new Map();
+
+	// Обработчик для всех элементов меню
+	allItems.forEach(item => {
+		item.addEventListener('mouseenter', function() {
+			const currentLevel = getCurrentLevel(this);
+			const itemId = this.getAttribute('data-id-item');
+			
+			// Сбрасываем активные элементы на ТЕКУЩЕМ уровне
+			resetCurrentLevelItems(currentLevel);
+			
+			// Сбрасываем уровни НИЖЕ текущего
+			resetLevelsBelow(currentLevel);
+			
+			// Активируем текущий элемент
+			this.classList.add('active');
+			activeItems.set(currentLevel, this);
+			
+			// Показываем следующий уровень
+			showNextLevel(currentLevel, itemId);
+		});
+	});
+
+	// Сброс при выходе из меню
+	catalogMenu.addEventListener('mouseleave', function() {
+		resetAll();
+	});
+
+	// Функция для получения текущего уровня элемента
+	function getCurrentLevel(element) {
+		const section = element.closest('.js-catalog-menu-column-sect');
+		return section ? parseInt(section.getAttribute('data-level')) : 1;
+	}
+
+	// Функция для показа следующего уровня
+	function showNextLevel(currentLevel, itemId) {
+		const nextLevel = currentLevel + 1;
+		const nextLevelSection = catalogMenu.querySelector(`.js-catalog-menu-column-sect[data-level="${nextLevel}"]`);
+		
+		if (!nextLevelSection) return;
+		
+		// Показываем следующий уровень
+		nextLevelSection.classList.add('active');
+		
+		// Показываем соответствующий подраздел
+		const targetSub = nextLevelSection.querySelector(`[data-id-sub="${itemId}"]`);
+		if (targetSub) {
+			targetSub.classList.add('active');
+		}
+	}
+
+	// Функция для сброса активных элементов на текущем уровне
+	function resetCurrentLevelItems(level) {
+		const currentLevelSection = catalogMenu.querySelector(`.js-catalog-menu-column-sect[data-level="${level}"]`);
+		if (currentLevelSection) {
+			currentLevelSection.querySelectorAll('.js-catalog-menu-column-item.active').forEach(item => {
+				item.classList.remove('active');
+			});
+		}
+	}
+
+	// Функция для сброса уровней НИЖЕ указанного
+	function resetLevelsBelow(level) {
+		allSections.forEach(section => {
+			const sectionLevel = parseInt(section.getAttribute('data-level'));
+			if (sectionLevel > level) {
+				section.classList.remove('active');
+				
+				// Сбрасываем подразделы в этой секции
+				section.querySelectorAll('.js-catalog-menu-column-sub').forEach(sub => {
+					sub.classList.remove('active');
+				});
+				
+				// Сбрасываем активные элементы в этой секции
+				section.querySelectorAll('.js-catalog-menu-column-item').forEach(item => {
+					item.classList.remove('active');
+				});
+				
+				// Удаляем из активных элементов
+				if (activeItems.has(sectionLevel)) {
+					activeItems.delete(sectionLevel);
+				}
+			}
+		});
+	}
+
+	// Функция для полного сброса
+	function resetAll() {
+		// Сбрасываем все секции кроме первой
+		allSections.forEach(section => {
+			const sectionLevel = parseInt(section.getAttribute('data-level'));
+			if (sectionLevel !== 1) {
+				section.classList.remove('active');
+			}
+		});
+		
+		// Сбрасываем все подразделы
+		allSubsections.forEach(sub => sub.classList.remove('active'));
+		
+		// Сбрасываем все активные элементы
+		allItems.forEach(item => item.classList.remove('active'));
+		
+		// Очищаем карту активных элементов
+		activeItems.clear();
+	}
+
+	// Дополнительно: обработка наведения на секции для поддержания активного состояния
+	allSections.forEach(section => {
+		section.addEventListener('mouseenter', function() {
+			const level = parseInt(this.getAttribute('data-level'));
+			
+			// Если это не первая секция, убедимся что предыдущие уровни активны
+			if (level > 1) {
+				ensurePreviousLevelsActive(level);
+			}
+		});
+	});
+
+	// Функция для обеспечения активности предыдущих уровней
+	function ensurePreviousLevelsActive(currentLevel) {
+		for (let level = 1; level < currentLevel; level++) {
+			const section = catalogMenu.querySelector(`.js-catalog-menu-column-sect[data-level="${level}"]`);
+			if (section && !section.classList.contains('active')) {
+				section.classList.add('active');
+				
+				// Восстанавливаем активный элемент предыдущего уровня если он был
+				if (activeItems.has(level)) {
+					const activeItem = activeItems.get(level);
+					if (activeItem && !activeItem.classList.contains('active')) {
+						activeItem.classList.add('active');
+					}
+				}
+			}
+		}
+	}
+
+	// Обработка наведения на подразделы для поддержания активного состояния родительских элементов
+	allSubsections.forEach(sub => {
+		sub.addEventListener('mouseenter', function() {
+			const parentSection = this.closest('.js-catalog-menu-column-sect');
+			if (parentSection) {
+				const level = parseInt(parentSection.getAttribute('data-level'));
+				ensurePreviousLevelsActive(level);
+			}
+		});
+	});
+});
 
 //Открыть/закрыть мобильное меню
 if(document.querySelector('.js-btn-menu')){
@@ -531,7 +711,7 @@ if(document.querySelector('.js-sort')){
 		// Показываем индикатор загрузки (опционально)
 		catalogList.classList.add('loading');
 		
-		fetch('?use_ajax=Y&sort=' + s_catalog_val + '&order=' + s_catalog_order)
+		fetch('?use_sort=Y&sort=' + s_catalog_val + '&order=' + s_catalog_order)
 			.then(response => {
 				if (!response.ok) {
 					throw new Error('Network response was not ok');
@@ -609,47 +789,192 @@ if(document.querySelector('.js-sort')){
 	});
 }
 
+//Удаление из сравнения
+// if(document.querySelector('.js-compare-item-close')){
+// 	const compareElemClose = document.querySelectorAll('.js-compare-item-close');
+// 	const compareList = document.getElementById('compare-list');
+
+// 	// Обработчики кликов по кнопке удаления
+// 	compareElemClose.forEach(item => {
+// 		item.addEventListener('click', function() {
+// 			if (compareList) {
+// 				// Делаем AJAX запрос
+// 				fetchCompareData();
+// 			}
+// 		});
+// 	});
+
+// 	// Функция для переподключения скриптов в блоке
+// 	function reloadScriptsInContainer(container) {
+// 		const scripts = container.querySelectorAll('script');
+// 		const scriptPromises = [];
+		
+// 		scripts.forEach(oldScript => {
+// 			const newScript = document.createElement('script');
+			
+// 			// Копируем все атрибуты
+// 			Array.from(oldScript.attributes).forEach(attr => {
+// 				newScript.setAttribute(attr.name, attr.value);
+// 			});
+			
+// 			// Копируем содержимое для inline скриптов
+// 			if (oldScript.innerHTML) {
+// 				newScript.innerHTML = oldScript.innerHTML;
+// 			}
+			
+// 			// Удаляем старый скрипт
+// 			oldScript.remove();
+			
+// 			// Создаем promise для отслеживания загрузки
+// 			const promise = new Promise((resolve, reject) => {
+// 				if (newScript.src) {
+// 					// Для внешних скриптов
+// 					newScript.onload = resolve;
+// 					newScript.onerror = reject;
+// 				} else {
+// 					// Для inline скриптов выполняем сразу
+// 					resolve();
+// 				}
+// 				document.head.appendChild(newScript);
+// 			});
+			
+// 			scriptPromises.push(promise);
+// 		});
+		
+// 		return Promise.all(scriptPromises);
+// 	}
+
+// 	// Функция для AJAX запроса с переподключением скриптов
+// 	function fetchCompareData() {
+// 		// Показываем индикатор загрузки (опционально)
+// 		compareList.classList.add('loading');
+		
+// 		fetch('?use_ajax=Y')
+// 			.then(response => {
+// 				if (!response.ok) {
+// 					throw new Error('Network response was not ok');
+// 				}
+// 				return response.text();
+// 			})
+// 			.then(html => {
+// 				// Сохраняем текущую позицию скролла (опционально)
+// 				const scrollPosition = window.scrollY;
+				
+// 				// Обновляем содержимое
+// 				compareList.innerHTML = html;
+				
+// 				// Слайдер сравнения
+// 				compareSlider();
+
+// 				// Обработчики кликов по кнопке удаления
+// 				compareElemClose.forEach(item => {
+// 					item.addEventListener('click', function() {
+// 						if (compareList) {
+// 							// Делаем AJAX запрос
+// 							fetchCompareData();
+// 						}
+// 					});
+// 				});
+				
+// 				// Переподключаем скрипты в обновленном блоке
+// 				return reloadScriptsInContainer(compareList)
+// 					.then(() => {
+// 						// Восстанавливаем позицию скролла
+// 						window.scrollTo(0, scrollPosition);
+						
+// 						// Убираем индикатор загрузки
+// 						compareList.classList.remove('loading');
+						
+// 						console.log('Контент обновлен, скрипты переподключены');
+						
+// 						// // Вызываем кастомное событие для дополнительной инициализации
+// 						// document.dispatchEvent(new CustomEvent('catalogUpdated', {
+// 						// 	detail: {
+// 						// 		// sort: s_catalog_val,
+// 						// 		// order: s_catalog_order
+// 						// 	}
+// 						// }));
+// 					});
+// 			})
+// 			.catch(error => {
+// 				console.error('Ошибка при загрузке данных:', error);
+// 				compareList.classList.remove('loading');
+				
+// 				// Показываем сообщение об ошибке (опционально)
+// 				compareList.innerHTML = '<div class="error-message">Ошибка загрузки данных</div>';
+// 			});
+// 	}
+// }
+
+
+
 
 // Открыть.Закрыть многостросчный текст
+
 document.addEventListener('DOMContentLoaded', function() {
-	initializeTextBlocks();
+	if(document.querySelector('.js-more-text-content')){
+	const textMore = document.querySelectorAll('.js-more-text-content');
+
+	textMore.forEach(content => {
+		const maxLines = content.getAttribute('data-max-lines');
+		const container = content.closest('.js-more-text');
+		const btn = container.querySelector('.js-more-text-btn');
+
+		let countLines = analyzeChildElements(content);
+
+		content.setAttribute('data-lines', countLines + 5);
+
+		if(countLines > maxLines){
+			btn.classList.add('visible');
+			content.style.webkitLineClamp = maxLines;
+			content.style.lineClamp = maxLines;
+			container.classList.add('truncated');
+		}
+
+
+		btn.addEventListener('click', function(){
+			let secondText = this.getAttribute('data-text') || 'Свернуть';
+			this.setAttribute('data-text', this.textContent);
+			this.textContent = secondText;
+
+			if(container.classList.contains('truncated')){
+				content.style.webkitLineClamp = content.getAttribute('data-lines');
+				content.style.lineClamp = content.getAttribute('data-lines');
+				container.classList.remove('truncated');
+			}else{
+				content.style.lineClamp = maxLines;
+				content.style.webkitLineClamp = maxLines;
+				content.style.lineClamp = maxLines;
+				container.classList.add('truncated');
+			}
+		})
+	});
+}
 });
 
-function initializeTextBlocks() {
-	const textBlocks = document.querySelectorAll('.js-more-text');
-	
-	textBlocks.forEach(block => {
-		const content = block.querySelector('.js-more-text-content');
-		const toggleBtn = block.querySelector('.js-more-text-btn');
-		const lineHeight = parseInt(getComputedStyle(content).lineHeight);
-		const maxHeight = lineHeight * content.getAttribute('data-max-lines');
-		const allHeight = content.scrollHeight;
 
-		// Проверяем, превышает ли текст 2 строки
-		if (content.scrollHeight > maxHeight + 2) { // +2 для погрешности
-			content.classList.add('truncated');
-			content.style.maxHeight = `${maxHeight}px`;
+function analyzeChildElements(container) {
+	// Получаем всех непосредственных детей контейнера
+	const childElements = container.children;
+	let sumLines = 0;
 
-			toggleBtn.classList.add('visible');
-			
-			// Добавляем обработчик клика
-			toggleBtn.addEventListener('click', function() {
-				const tempText = this.textContent;
-				this.textContent = this.getAttribute('data-text');
-				this.setAttribute('data-text', tempText);
+	// Анализируем каждый элемент
+	for (let i = 0; i < childElements.length; i++) {
+		const child = childElements[i];
 
-				if (content.classList.contains('truncated')) {
-					// Разворачиваем текст
-					content.classList.remove('truncated');
-					content.style.maxHeight = `${allHeight}px`;
-				} else {
-					// Сворачиваем текст
-					content.classList.add('truncated');
-					content.style.maxHeight = `${maxHeight}px`;
-				}
-			});
-		}
-	});
+		// Получаем высоту элемента
+		const height = child.offsetHeight;
+		
+		// Получаем стили элемента
+		const computedStyle = window.getComputedStyle(child);
+		const lineHeight = parseInt(computedStyle.lineHeight) || parseInt(computedStyle.fontSize) * 1.2;
+
+		// Рассчитываем количество строк
+		const estimatedLines = Math.round(height / lineHeight);
+		sumLines = sumLines + estimatedLines;
+	}
+
+	return sumLines;
 }
 
 
@@ -719,12 +1044,20 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('resize', checkAllTabsWidth);
 
 	document.querySelectorAll('.js-tabs-page').forEach(function(tabs){
+		let items = tabs.querySelectorAll('.js-tabs-page-item');
 		let countTab = tabs.getElementsByClassName('js-tabs-page-item').length;
 		let curCountTab = 1;
 		let prevArr = tabs.querySelector(".js-tabs-page-arr-prev");
 		let nextArr = tabs.querySelector(".js-tabs-page-arr-next");
 		let firstTab = tabs.querySelector('.js-tabs-page-item:first-child');
 		let firstTabContent = tabs.querySelector('.js-tabs-page-content-item:first-child');
+		let tabList = tabs.querySelector('.js-tabs-page-list');
+		let widthTabList = tabList.offsetWidth;
+		
+		// let widthTabList = tabList.offsetWidth;
+
+		let containerStyles = window.getComputedStyle(tabList);
+		let gap = parseFloat(containerStyles.gap) || 0;
 
 		//Активируем пункты по умолчанию
 		firstTab.classList.add('active');
@@ -742,7 +1075,16 @@ window.addEventListener('resize', checkAllTabsWidth);
 		prevArr.addEventListener("click", function(e){
 			if (!e.target.classList.contains("disable") ) {
 				let activeTab = tabs.querySelector('.js-tabs-page-item.active');
-				
+				let totalWidth = 0;
+
+				items.forEach((item, index) => {
+					totalWidth += item.offsetWidth;
+
+					if (index < items.length - 1) {
+						totalWidth += gap;
+					}
+				});
+
 				curCountTab--;
 
 				if(curCountTab < countTab){
@@ -753,11 +1095,19 @@ window.addEventListener('resize', checkAllTabsWidth);
 					prevArr.classList.add('disable');
 				}
 
-				// if(screenWidth < 768){
-				// }
-				toggleTabs(activeTab.previousElementSibling);
+				let curTab = activeTab.previousElementSibling;
 
-				firstTab.style.marginLeft = firstTab.offsetWidth * (curCountTab - 1) * -1+'px';
+				toggleTabs(curTab);
+
+				let marginList = curTab.offsetLeft;
+
+				// firstTab.style.marginLeft = firstTab.offsetWidth * (curCountTab - 1) * -1+'px';
+				if(widthTabList + marginList < totalWidth){
+					tabList.style.marginLeft = marginList * -1+'px';
+				}else{
+					marginList =  totalWidth - widthTabList;
+					tabList.style.marginLeft = marginList * -1+'px';
+				}
 			}
 		});
 
@@ -765,8 +1115,18 @@ window.addEventListener('resize', checkAllTabsWidth);
 		nextArr.addEventListener("click", function(e){
 			if (!e.target.classList.contains("disable") ) {
 				let activeTab = tabs.querySelector('.js-tabs-page-item.active');
-			
+				let totalWidth = 0;
+
+				items.forEach((item, index) => {
+					totalWidth += item.offsetWidth;
+
+					if (index < items.length - 1) {
+						totalWidth += gap;
+					}
+				});
+
 				curCountTab++;
+
 
 				if(curCountTab > 1){
 					prevArr.classList.remove('disable');
@@ -776,15 +1136,25 @@ window.addEventListener('resize', checkAllTabsWidth);
 					nextArr.classList.add('disable');
 				}
 
-				toggleTabs(activeTab.nextElementSibling);
+				let curTab = activeTab.nextElementSibling;
+
+				toggleTabs(curTab);
 				// if(screenWidth < 768){
 				// }else{
 				// 	if(curCountTab == countTab-1){
 				// 		nextArr.classList.add('disable');
 				// 	}
 				// }
-				
-				firstTab.style.marginLeft = firstTab.offsetWidth * (curCountTab - 1) * -1+'px';
+
+				// let marginList = curTab.offsetWidth * (curCountTab - 1);
+				let marginList = curTab.offsetLeft;
+
+				if(widthTabList + marginList < totalWidth){
+					tabList.style.marginLeft = marginList * -1+'px';
+				}else{
+					marginList =  totalWidth - widthTabList;
+					tabList.style.marginLeft = marginList * -1+'px';
+				}
 			}
 		});
 		
@@ -831,7 +1201,6 @@ var prodDetailSliderThumb = new Swiper('.js-prod-detail-thumb-slider', {
 	modules: [Navigation],
 	slidesPerView: 4,
 	spaceBetween: 20,
-	preventInteractionOnTransition: true,
 	// freeMode: true,
 	// watchSlidesProgress: true,
 	// direction: "vertical",
@@ -861,7 +1230,6 @@ var prodDetailSlider = new Swiper('.js-prod-detail-slider', {
 	modules: [Thumbs, Pagination],
 	spaceBetween: 20,
 	loop: true,
-	preventInteractionOnTransition: true,
 	thumbs: {
 		swiper: prodDetailSliderThumb,
 	},
@@ -883,8 +1251,7 @@ if(document.querySelector('.js-reviews-slider')){
 		modules: [Pagination, Navigation],
 		slidesPerView: 1,
 		spaceBetween: 20,
-		loop: true,
-		preventInteractionOnTransition: true,
+		// loop: true,
 		pagination: {
 			el: ".js-reviews-slider-pager",
 			clickable: true,
@@ -924,7 +1291,7 @@ if (document.querySelector('.js-link-move')) {
 
 			if (document.querySelector('#'+id)) {
 				document.querySelector('#'+id).scrollIntoView({
-					behavior: 'smooth'
+					behavior: 'smooth',
 				});
 			}
 		}
@@ -1040,3 +1407,4 @@ if (document.querySelector('.js-link-move')) {
 // 	Fancybox.close();
 // 	Fancybox.show([{ src: "#msg-success", type: "inline" }]);
 // });
+

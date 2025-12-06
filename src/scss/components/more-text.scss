@@ -5,8 +5,12 @@
 	gap: 30px;
 
 	&__content{
+		transition: all 0.4s linear;
+		line-height: 1.4;
+		 /* Стили для обрезанного текста */
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
 		overflow: hidden;
-		transition: max-height 0.2s linear;
 	}
 
 	.btn{
@@ -18,9 +22,12 @@
 	}
 
 	&__link{
+		display: none;
 		text-decoration: underline;
 		cursor: pointer;
 		transition: all 0.2s ease;
+
+		&.visible{display: inline-block;}
 
 		&:hover{
 			text-decoration: none;
@@ -29,6 +36,34 @@
 	}
 }
 
+// .more-text__content {
+//     /* Базовые стили для текста */
+//     line-height: 1.5;
+// 	transition: all 0.7s ease;
+// }
+
+// .more-text__content.truncated {
+//     /* Стили для обрезанного текста */
+//     display: -webkit-box;
+//     -webkit-box-orient: vertical;
+//     overflow: hidden;
+// }
+
+// .js-more-text-btn {
+//     /* Стили для кнопки */
+//     cursor: pointer;
+//     color: #007bff;
+//     text-decoration: underline;
+//     background: none;
+//     border: none;
+//     padding: 0;
+//     font: inherit;
+//     display: none;
+// }
+
+// .js-more-text-btn.visible {
+//     display: inline-block;
+// }
 @media (max-width: 767px) {
 	.more-text{
 		.btn{

@@ -91,5 +91,6 @@ body .top-slider .swiper-pagination-bullet{background: #fff;}
 @media (max-width: 767px) {
 	.top-slider{
 		&__content{padding: 30px 24px 50px;}
+		&__text{font-size: 1.6rem;}
 	}
 }

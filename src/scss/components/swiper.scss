@@ -1,6 +1,7 @@
 /*-------------- swiper -----------------*/
 body .swiper{display: none!important;}
 body .swiper.swiper-initialized{display: block!important;}
+body .swiper-slide{box-sizing: border-box;}
 
 .slider-arr-list{
 	display: inline-flex;

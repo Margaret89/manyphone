@@ -27,7 +27,14 @@
 		.btn{width: 100%;}
 	}
 
+	&__fields{
+		display: flex;
+		gap: 24px;
+	}
+
 	&__comment{
+		width: 100%;
+
 		input[type="text"],
 		textarea{
 			display: flex;
@@ -89,13 +96,13 @@
 		margin-top: 20px;
 
 		.btn,
-		.promo-code{
+		.promo-code-wrap{
 			width: calc(50% - 27px);
 		}
 	}
 
 	&__polit{margin-top: 20px;}
-	&__comment{margin-top: 30px;}
+	&__fields{margin-top: 30px;}
 
 	.choose-services{
 		margin-top: 45px;
@@ -138,6 +145,8 @@
 	align-items: center;
 	justify-content: space-between;
 	gap: 12px;
+
+	&:not(:last-child){margin-bottom: 20px;}
 
 	.input-check{flex-shrink: 0;}
 
@@ -447,6 +456,7 @@
 	input[type="password"],
 	input[type="time"],
 	input[type="date"],
+	input[type="tel"],
 	textarea{
 		display: flex;
 		align-items: center;
@@ -478,6 +488,7 @@
 	input[type="password"]:focus,
 	input[type="time"]:focus,
 	input[type="date"]:focus,
+	input[type="tel"]:focus,
 	textarea:focus{
 		border-color: var(--color-primary);
 	}
@@ -488,6 +499,7 @@
 	input[type="password"]::placeholder,
 	input[type="time"]::placeholder,
 	input[type="date"]::placeholder,
+	input[type="tel"]::placeholder,
 	textarea::placeholder{
 		color: rgba(0, 0, 0, 0.5);
 		opacity: 1;
@@ -500,6 +512,7 @@
 		input[type="password"],
 		input[type="time"],
 		input[type="date"],
+		input[type="tel"],
 		textarea{
 			border-color: var(--color-danger);
 		}
@@ -510,6 +523,7 @@
 		input[type="password"]::placeholder,
 		input[type="time"]::placeholder,
 		input[type="date"]::placeholder,
+		input[type="tel"]::placeholder,
 		textarea::placeholder{
 			color: var(--color-danger);
 		}
@@ -590,7 +604,21 @@
 	&__label{margin-bottom: 12px;}
 }
 
+.promo-code-wrap{
+	display: flex;
+	flex-direction: column-reverse;
+	gap: 15px;
+}
+
+.applied-coupons{
+	.btn{width: 100%;}
+}
+
 .promo-code{
+	display: flex;
+	align-items: center;
+	gap: 10px;
+
 	input[type="text"]{
 		display: flex;
 		align-items: center;
@@ -736,6 +764,16 @@
 			flex-direction: column-reverse;
 			gap: 12px;
 		}
+
+		&__fields{
+			flex-wrap: wrap;
+			gap: 12px;
+		}
+
+		&__bottom .btn,
+		&__bottom .promo-code-wrap{
+			width: 100%;
+		}
 	}
 
 	.basket-wrap{
@@ -805,7 +843,9 @@
 	}
 
 	.choose-delivery-item{
+		width: 100%;
 		gap: 12px;
+
 		&__title{font-size: 1.4rem;}
 		.input-radio{margin-top: 2px;}
 

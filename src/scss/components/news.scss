@@ -584,4 +584,16 @@ body .news-slider-wrap .swiper-button-next{
 			.btn{width: 100%;}
 		}
 	}
+
+	.news-main-wrap{
+		&__top{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 20px;
+			margin-bottom: 3rem;
+
+			h2, .h2{margin-bottom: 0;}
+		}
+	}
 }

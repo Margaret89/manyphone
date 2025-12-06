@@ -2,7 +2,7 @@ footer.footer
 	.footer__top
 		.container
 			.row
-				.col-lg-3.col-xl-4.order-3.order-lg-1
+				.col-lg-3.col-xl-3.order-3.order-lg-1
 					.footer__info
 						.footer__logo
 							a(href="/")
@@ -32,8 +32,27 @@ footer.footer
 									.pay-system__item
 										img(src="/upload/"+item.img, alt="")
 
-				.col-lg-5.col-xl-4.order-2
+				.col-lg-5.col-xl-5.order-2
 					.footer-menu-wrap
+						.footer-menu-wrap__item.d-none.d-xl-block
+							ul.footer-menu
+								-
+									var list=[
+										{text:'iPhone 16 Pro Max'},
+										{text:'iPhone 16 Pro'},
+										{text:'iPhone 16 Plus'},
+										{text:'iPhone 16'},
+										{text:'iPhone 16e'},
+										{text:'iPhone 15 Pro Max'},
+										{text:'iPhone 15 Pro'},
+										{text:'iPhone 15 plus'},
+										{text:'iPhone 15'},
+										{text:'iPhone 14 Pro Max'},
+									]
+								each item in list
+									li.footer-menu__item
+										a(href="#").footer-menu__link= item.text
+									
 						.footer-menu-wrap__item
 							ul.footer-menu
 								-
@@ -121,70 +140,72 @@ footer.footer
 	.footer__menu
 		.container
 			.row
-				.col-6.col-md-3
-					ul.footer-menu
-						-
-							var list=[
-								{text:'iPhone 16 Pro Max'},
-								{text:'iPhone 16 Pro'},
-								{text:'iPhone 16 Plus'},
-								{text:'iPhone 16'},
-								{text:'iPhone 16e'},
-								{text:'iPhone 15 Pro Max'},
-								{text:'iPhone 15 Pro'},
-								{text:'iPhone 15 plus'},
-								{text:'iPhone 15'},
-								{text:'iPhone 14 Pro Max'},
-							]
-						each item in list
-							li.footer-menu__item
-								a(href="#").footer-menu__link= item.text
+				.col-xl-5.offset-xl-3
+					.row
+						.col-6.col-md-3.d-xl-none
+							ul.footer-menu
+								-
+									var list=[
+										{text:'iPhone 16 Pro Max'},
+										{text:'iPhone 16 Pro'},
+										{text:'iPhone 16 Plus'},
+										{text:'iPhone 16'},
+										{text:'iPhone 16e'},
+										{text:'iPhone 15 Pro Max'},
+										{text:'iPhone 15 Pro'},
+										{text:'iPhone 15 plus'},
+										{text:'iPhone 15'},
+										{text:'iPhone 14 Pro Max'},
+									]
+								each item in list
+									li.footer-menu__item
+										a(href="#").footer-menu__link= item.text
 
-				.col-6.col-md-3
-					ul.footer-menu
-						-
-							var list=[
-								{text:'iPhone 14 Pro'},
-								{text:'IPhone 14 Plus'},
-								{text:'IPhone 14'},
-								{text:'IPhone SE 2022'},
-								{text:'iPhone 13 Pro Max'},
-								{text:'iPhone 13 Pro'},
-								{text:'iPhone 13'},
-								{text:'iPhone 13 mini'},
-								{text:'iPhone 11'},
-							]
-						each item in list
-							li.footer-menu__item
-								a(href="#").footer-menu__link= item.text
+						.col-6.col-md-3
+							ul.footer-menu
+								-
+									var list=[
+										{text:'iPhone 14 Pro'},
+										{text:'IPhone 14 Plus'},
+										{text:'IPhone 14'},
+										{text:'IPhone SE 2022'},
+										{text:'iPhone 13 Pro Max'},
+										{text:'iPhone 13 Pro'},
+										{text:'iPhone 13'},
+										{text:'iPhone 13 mini'},
+										{text:'iPhone 11'},
+									]
+								each item in list
+									li.footer-menu__item
+										a(href="#").footer-menu__link= item.text
 
-				.col-6.col-md-3
-					ul.footer-menu
-						-
-							var list=[
-								{text:'iPad Pro 12.9'},
-								{text:'iPad Pro 11'},
-								{text:'iPad Air'},
-								{text:'iPad'},
-								{text:'iPad Mini'},
-							]
-						each item in list
-							li.footer-menu__item
-								a(href="#").footer-menu__link= item.text
+						.col-6.col-md-3
+							ul.footer-menu
+								-
+									var list=[
+										{text:'iPad Pro 12.9'},
+										{text:'iPad Pro 11'},
+										{text:'iPad Air'},
+										{text:'iPad'},
+										{text:'iPad Mini'},
+									]
+								each item in list
+									li.footer-menu__item
+										a(href="#").footer-menu__link= item.text
 
-				.col-6.col-md-3
-					ul.footer-menu
-						-
-							var list=[
-								{text:'IMac'},
-								{text:'Mac mini'},
-								{text:'Mac Studio'},
-								{text:'MacBook Air'},
-								{text:'MacBook Pro'},
-							]
-						each item in list
-							li.footer-menu__item
-								a(href="#").footer-menu__link= item.text
+						.col-6.col-md-3
+							ul.footer-menu
+								-
+									var list=[
+										{text:'IMac'},
+										{text:'Mac mini'},
+										{text:'Mac Studio'},
+										{text:'MacBook Air'},
+										{text:'MacBook Pro'},
+									]
+								each item in list
+									li.footer-menu__item
+										a(href="#").footer-menu__link= item.text
 
 	.footer__bottom
 		.container

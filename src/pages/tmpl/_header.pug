@@ -101,7 +101,25 @@ header.header
 										.main-menu__arr.js-main-menu-arr
 											+svg('ic-arrow-long-right','ic-arrow-long-right', '27', '12')
 
-									ul.catalog-menu.js-main-menu-sub(data-level=1)
+
+									// Трехколоночное меню
+									.catalog-menu-three-col.js-catalog-menu(data-menu-id='main-catalog')
+										// Первая колонка - первый уровень
+										.catalog-col.catalog-col-level-1(data-level='1')
+											ul.catalog-menu__list(data-parent-id='main-catalog')
+											// Пункты первого уровня будут сгенерированы автоматически
+										// Вторая колонка - второй уровень
+										.catalog-col.catalog-col-level-2.js-level-2-col(data-level='2')
+											.catalog-col-placeholder
+											span Выберите категорию
+											ul.catalog-menu__list.js-level-2-list(data-level='2' style='display: none;')
+										// Третья колонка - третий уровень
+										.catalog-col.catalog-col-level-3.js-level-3-col(data-level='3')
+											.catalog-col-placeholder
+											span Выберите подкатегорию
+											ul.catalog-menu__list.js-level-3-list(data-level='3' style='display: none;')
+
+									ul.catalog-menu.js-main-menu-sub(data-level=1, data-menu-id="main-catalog")
 										-
 											var catalog=[
 												{
@@ -235,8 +253,8 @@ header.header
 												{text:'Apple AirPods'},
 												{text:'Техника Dyson'},
 											]
-										each catalogitem in catalog
-											li.catalog-menu__item
+										each catalogitem, index in catalog
+											li.catalog-menu__item(data-item-id="item_1_"+index)
 												a(href="#").catalog-menu__link.js-main-menu-link
 													span.js-main-menu-text= catalogitem.text
 													
@@ -245,9 +263,9 @@ header.header
 															+svg('ic-arrow-right','ic-arrow-right', '13', '12')
 
 												if(catalogitem.sub)
-													ul.catalog-menu__sub.js-main-menu-sub(data-level=2)
-														each lvl1 in catalogitem.sub
-															li.catalog-menu__item
+													ul.catalog-menu__sub.js-main-menu-sub(data-level=2, data-parent-id="item_1_"+index)
+														each lvl1, indexlvl1 in catalogitem.sub
+															li.catalog-menu__item(data-item-id="item_2_"+indexlvl1)
 																a(href="#").catalog-menu__link.js-main-menu-link
 																	span.js-main-menu-text= lvl1.text
 
@@ -256,7 +274,7 @@ header.header
 																			+svg('ic-arrow-right','ic-arrow-right', '13', '12')
 
 																if(lvl1.sub)
-																	ul.catalog-menu__sub.js-main-menu-sub(data-level=3)
+																	ul.catalog-menu__sub.js-main-menu-sub(data-level=3, data-parent-id="item_2_"+indexlvl1)
 																		each lvl2 in lvl1.sub
 																			li.catalog-menu__item
 																				a(href="#").catalog-menu__link

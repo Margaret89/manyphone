@@ -38,8 +38,6 @@
 		max-width: none;
 		padding: 0 15px;
 
-		&__item{border-bottom: 1px solid #000;}
-
 		&__link{
 			display: flex;
 			font-size: 1.4rem;
@@ -47,7 +45,7 @@
 			line-height: 1.2;
 			color: #000;
 			text-decoration: none;
-			padding: 10px 0;
+			padding: 15px 0;
 		}
 	}
 }
